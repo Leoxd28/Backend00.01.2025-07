@@ -12,8 +12,11 @@ git fetch fuentes
 
 git merge fuentes/main main
 
+--
+## Docente
 
+Roberto Pineda
 
-
+## Alumnos
 
 Leonardo
