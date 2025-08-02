@@ -18,7 +18,7 @@ Desarrollar desde cero el backend de una aplicación E-Commerce con autenticaci�
 ## Semana 2: Terminal y Algoritmos
 - Comandos de terminal y Linux.
 - Pseudocódigo, diagramas de flujo, lógica básica.  
-**Hackatón:** Diseñar un algoritmo en pseudocódigo para resolver un flujo básico de compras.
+**Hackatón:** Practicar algoritmo resolviendo Ejercicios.
 
 ## Semana 3: Fundamentos de JavaScript
 - Sintaxis, variables, tipos de datos.
