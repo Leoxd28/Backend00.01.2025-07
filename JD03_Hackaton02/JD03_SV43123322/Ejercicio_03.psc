@@ -1,6 +1,6 @@
 Proceso Ejercicio_03
 	//3. Hacer un algoritmo en Pseint que lea un número y determinar si termina en 4.
-	
+	Definir Numero1 Como Entero
 	Escribir "Ingresar un numero"
 	Leer Numero1
 	ultimoDigito =   Numero1-  (trunc(Numero1/10)*10)
