@@ -38,7 +38,7 @@ Proceso Ejercicio_19
 		importePagar <- cantidadDias * tarifaDia
 		
 	SiNo si cantidadDias > 6 Entonces 
-		Escribir "La cantidad de días trabajados no es valido"
+		Escribir "La numero de días trabajados no es valido"
 		FinSi	
 	FinSi
 	
