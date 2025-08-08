@@ -9,7 +9,7 @@ git remote add fuentes https://github.com/rpinedaec83/Backend00.01.2025-07.git
 ## Cada vez que queremos sincronizar las ramas
 
 git fetch fuentes
-
+gz
 git merge fuentes/main main
 
 --
