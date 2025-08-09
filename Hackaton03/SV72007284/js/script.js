@@ -347,9 +347,9 @@ function ejercicio17() {
     }
 
     alert("La hora dentro de un segundo será: " + 
-          (hora < 10 ? "0" + hora : hora) + ":" +
-          (minutos < 10 ? "0" + minutos : minutos) + ":" +
-          (segundos < 10 ? "0" + segundos : segundos));
+        (hora < 10 ? "0" + hora : hora) + ":" +
+        (minutos < 10 ? "0" + minutos : minutos) + ":" +
+        (segundos < 10 ? "0" + segundos : segundos));
 }
 
 function ejercicio18() {
