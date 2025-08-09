@@ -8,16 +8,16 @@ body {
 h1 {
     font-size: 45px;
     text-align: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 30px;
+    margin-bottom: 20px;
     color: #125e6e;
 }
 
 section {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    padding: 20px;
+    gap: 30px;
+    padding: 40px;
 }
 
 article {
@@ -25,6 +25,12 @@ article {
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+article:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 h2 {
@@ -53,6 +59,8 @@ button {
 }
 
 button:hover {
+    background-color: #2bb87d;
+    color: white;
     transform: scale(1.1);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
