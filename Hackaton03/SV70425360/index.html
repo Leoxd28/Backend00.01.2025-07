@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    
+    <div>
+        <p>1. Hacer un algoritmo en JavaScript que lea un número por el teclado y determinar si tiene tres dígitos.</p>
+        <label for="numero">Inserte número: </label>
+        <input id="numero" type="text" >
+        <button id="BtnEjercicio01">Verificar</button>
+        <br>
+    </div>
+    <div>
+        <p>2. Hacer un algoritmo en JavaScript que lea un número entero por el teclado y determinar si es negativo.</p>
+        <label for="numero2">Inserte número: </label>
+        <input id="numero2" type="text" >
+        <button id="BtnEjercicio02">Verificar</button>
+        <br>
+    </div>
+    <div>
+        <p>3. Hacer un algoritmo en JavaScript que lea un número y determinar si termina en 4.</p>
+        <label for="numero3">Inserte número: </label>
+        <input id="numero3" type="text" >
+        <button id="BtnEjercicio03">Verificar</button>
+        <br>
+    </div>
+    <div>
+        <p>4. Hacer un algoritmo que lea tres números enteros y los muestre de menor a mayor.</p>
+        <label for="numero4">Inserte número: </label>
+        <input id="numero4" type="text" >
+        <button id="BtnEjercicio04">Insertar</button>
+        <button id="BtnEjercicio04Ordenar">Ordenar</button>
+        <p id="insertado">Numeros insertados: </p>
+        <p id="ordenado">Numeros ordenados: </p>
+        <br>
+    </div>
+    <div>
+        <p>5. Hacer un algoritmo  para una tienda de zapatos que tiene una promoción de descuento para vender al mayor, 
+    esta dependerá del número de zapatos que se compren. Si son más de diez, se les dará un 10% de descuento sobre el total de 
+    la compra; si el número de zapatos es mayor de veinte pero menor de treinta, se le otorga un 20% de descuento; y si son más 
+    treinta zapatos se otorgará un 40% de descuento. El precio de cada zapato es de $80.</p>
+        <label for="numero5">Número de zapatos comprados: </label>
+        <input id="numero5" type="text" >
+        <button id="BtnEjercicio05">Verificar</button>
+        <p id="descuento">Descuento: </p>
+        <p id="precio" >Precio final: </p>
+        <br>
+    </div>
+    <div>
+        <p>6. Hacer un algoritmo para ayudar a un trabajador a saber cuál será su sueldo semanal, 
+    se sabe que si trabaja 40 horas o menos, se le pagará $20 por hora, pero si trabaja más de 40 horas entonces las 
+    horas extras se le pagarán a $25 por hora.</p>
+        <label for="numero6">Número de horas trabajadas: </label>
+        <input id="numero6" type="text" >
+        <button id="BtnEjercicio06">Verificar</button>
+        <p id="extras">Horas extras: </p>
+        <p id="sueldo" >Sueldo final: </p>
+        <br>
+    </div>
+    <div>
+        <p>7. Hacer un algoritmo para una tienda de helado que da un descuento por compra a sus clientes con membresía dependiendo de su tipo, sólo existen tres tipos de membresía, tipo A, tipo B y tipo C. Los descuentos son los siguientes:</p>
+            <ul>
+                <li>Tipo A 10% de descuento</li>
+                <li>Tipo B 15% de descuento</li>
+                <li>Tipo C 20% de descuento</li>
+            </ul>
+   
+        <label for="numero7">Subtotal: </label>
+        <input id="numero7" type="text" >
+        <input type="radio" id="tipoA" name="tipo" value="A"><label for="tipoA">Tipo A</label>
+        <input type="radio" id="tipoB" name="tipo" value="B"><label for="tipoB">Tipo B</label>
+        <input type="radio" id="tipoC" name="tipo" value="C"><label for="tipoC">Tipo C</label>
+        <button id="BtnEjercicio07">Verificar</button>
+        <p id="descuentoHelado">Descuento: </p>
+        <p id="precioHelado" >Precio final: </p>
+        <br>
+    </div>
+    <div>
+        <p>8. Hacer un algoritmo  para calcular el promedio de tres notas y determinar si el estudiante aprobó o no.</p>
+            
+        <label for="nota1">Primera nota: </label>
+        <input id="nota1" type="text" ><br>
+        <label for="nota2">Segunda nota: </label>
+        <input id="nota2" type="text" ><br>
+        <label for="nota3">Primera nota: </label>
+        <input id="nota3" type="text" ><br>
+        <button id="BtnEjercicio08">Calcular promedio</button>
+        <p id="promedio" >Promedio: </p>
+        <p id="estado" >Estado: </p>
+        <br>
+    </div>
+    <div>
+        <p>9. Hacer un algoritmo para determinar el aumento de un trabajador, se debe tomar en cuenta que si ganaba más de $2000 tendrá un aumento del 5%, si generaba menos de $2000 su aumento será de un 10%.</p>
+        
+        <label for="">Sueldo actual: </label>
+        <input id="numero9" type="text" >
+        
+        <button id="BtnEjercicio09">Aumento</button>
+        <p id="nuevoSueldo" >Nuevo sueldo: </p>
+        
+        <br>
+    </div>
+
+    <script src="js/script.js"></script>
+    <div id="customAlert" class="modal-alert">
+        <div class="modal-content">
+            <p id="alertMessage"></p>
+            <button id="closeAlert">Aceptar</button>
+        </div>
+
+    </div>
+</body>
+</html>
