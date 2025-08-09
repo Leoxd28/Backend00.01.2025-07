@@ -1,5 +1,8 @@
 # Backend00.01.2025-07
 Repositorio de Backend00.01.2025-07
+<<<<<<< HEAD
+cambios realizados por leonel
+=======
 
 
 ## La primera vez
@@ -19,4 +22,3 @@ Roberto Pineda
 
 ## Alumnos
 
-Leonardo
