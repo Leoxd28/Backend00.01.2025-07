@@ -448,3 +448,98 @@ inputNumero.value="";
 inputNumero.focus();
 }
 document.getElementById("BtnEjercicio16").addEventListener("click",ejercicio16);
+
+function ejercicio17(){
+    let inputHora = document.getElementById("hora");
+    let inputMinutos=document.getElementById("minutos");
+    let inputSegundos=document.getElementById("segundos");
+    hora=Number(inputHora.value);
+    minuto=Number(inputMinutos.value);
+    segundo=Number(inputSegundos.value);
+console.log(hora,minuto,segundo)
+    segundo = segundo+1;
+    console.log(hora,minuto,segundo)
+    if (segundo==60) {
+        segundo=0;
+        minuto=minuto+1;
+    }if(minuto==60){
+        minuto=0;
+        hora=hora+1;
+    }if(hora==24){
+        hora=0;
+    }
+    inputHora.value="";
+    inputMinutos.value="";
+    inputSegundos.value="";
+    inputHora.focus();
+    document.getElementById("calculo").textContent=("Hora mas un segundo: ")+hora+(":")+minuto+(":")+segundo;
+}
+document.getElementById("BtnEjercicio17").addEventListener("click",ejercicio17);
+function ejercicio18(){
+    let inputCantidad = document.getElementById("CDS");
+    cantidad = Number(inputCantidad.value);
+
+    if(cantidad<=9){
+        precio=10
+    }else if(cantidad<=99){
+        precio=8;
+    }else if(cantidad<=499){
+        precio=7;
+    }else{
+        precio=6;
+    }
+    total = cantidad * precio;
+    ganancia = total * 0.0825
+    document.getElementById("precioCD").textContent=("Ganancia del vendedor: ")+ganancia;
+}
+document.getElementById("BtnEjercicio18").addEventListener("click",ejercicio18);
+
+function ejercicio19(){
+let inputNumero = document.getElementById("diasTrabajados");
+    let numero = Number(inputNumero.value);
+    const radios = document.getElementsByName("empleados");
+    let seleccionado;
+    let pago =0;
+
+    for (const radio of radios) {
+        if(radio.checked){
+            seleccionado = radio.value;
+            break;
+        }
+    }
+    if (numero ==="") {
+        mensajeAlert("Inserte un número")
+        return;
+    }
+    
+    if (!isNaN(numero)) {
+        
+            switch (seleccionado) {
+                case '1':
+                    pago=56;
+                    break;
+                case '2':
+                    pago=64;
+                    break;
+                case '3':
+                    pago=80;
+                    break;
+                case '4':
+                    pago=48;
+                    break;
+                default:
+                    
+                    break;
+        }
+        console.log(numero,seleccionado,pago)
+    }
+    
+    else{
+        mensajeAlert("Inserte un número")
+    }
+     total = pago * numero;
+     console.log(total)
+    document.getElementById("sueldoEmpleado").textContent = ("Sueldo semanal: ")+total;
+    
+}
+document.getElementById("BtnEjercicio19").addEventListener("click",ejercicio19);
