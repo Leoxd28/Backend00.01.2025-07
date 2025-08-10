@@ -224,7 +224,7 @@ function ejercicio08(){
     nota3=parseInt(inputNota3.value);
 
     if ((nota1,nota2,nota3)==="") {
-        mensajeAlert("Inserta un numero");
+        mensajeAlert("Insertaa un numero");
         return;
     }
     if(!isNaN(nota1,nota2,nota3)){
@@ -253,7 +253,7 @@ document.getElementById("BtnEjercicio08").addEventListener("click",ejercicio08);
 
 function ejercicio09(){
     let inputNumero= document.getElementById("numero9");
-    let numero = inputNumero.value;
+    let numero = Number(inputNumero.value);
     let sueldo=0;
 
     if (numero === "") {
@@ -261,16 +261,16 @@ function ejercicio09(){
         return;
     }
 
-    if (!isNaN(numero)) {
-        if (numero>2000) {
+   if (!isNaN(numero)) {
+        if (Number(numero)>2000) {
             sueldo = parseInt(numero+(numero*0.05));
             
         }else{
             
             sueldo = parseInt(numero+(numero*0.1));
-        }
+        }    
     }else{
-        mensajeAlert("Inserte un número")
+        mensajeAlert("inserte un numero")
     }
 
     
@@ -280,3 +280,103 @@ function ejercicio09(){
 }
 
 document.getElementById("BtnEjercicio09").addEventListener("click", ejercicio09);
+
+function ejercicio10(){
+    let inputNumero=document.getElementById("numero10");
+    numero = inputNumero.value;
+
+    if (numero==="") {
+        mensajeAlert("inserta un numero")
+        return;
+    }
+
+    if (!isNaN(numero)) {
+        if(numero%2==0){
+            mensajeAlert("Es un numero par")
+           
+        }else{
+            mensajeAlert("Es impar")
+            
+        }
+    }
+    inputNumero.value="";
+    
+}
+document.getElementById("BtnEjercicio10").addEventListener("click",ejercicio10);
+
+function ejercicio11(){
+    let inputNro1=document.getElementById("nro1");
+    let inputNro2=document.getElementById("nro2");
+    let inputNro3=document.getElementById("nro3");
+    numero1=Number(inputNro1.value);
+    numero2=Number(inputNro2.value);
+    numero3=Number(inputNro3.value);
+
+    let mayor = numero1;
+    console.log(numero1,numero2,numero3)
+     
+    if (!isNaN(numero1,numero2,numero3)) {
+        if(numero2 > mayor){
+            mayor = numero2;
+            if (numero3 > mayor) {
+                mayor = numero3;
+        }
+        
+        }
+    }else{
+        mensajeAlert("Inserta un numero");
+    }
+    document.getElementById("mayor").textContent=("Numero mayor: ")+mayor;
+    inputNro1.value="";
+    inputNro2.value="";
+    inputNro3.value="";
+    inputNro1.focus();
+}
+document.getElementById("BtnEjercicio11").addEventListener("click",ejercicio11);
+
+function ejercicio12(){
+    let inputNro1=document.getElementById("num1");
+    let inputNro2=document.getElementById("num2");
+    numero1=Number(inputNro1.value);
+    numero2=Number(inputNro2.value);
+
+    
+    console.log(numero1,numero2)
+     
+    if (!isNaN(numero1,numero2)) {
+        if(numero1 > numero2){
+            mayor = numero1;
+        }else if (numero2 > numero1){
+             mayor = numero2;
+        }else{
+            mensajeAlert("Ambos numeros son iguales");
+        }
+    }else{
+        mensajeAlert("Inserta un numero");
+    }
+    document.getElementById("mayorDeDos").textContent=("Numero mayor: ")+mayor;
+    inputNro1.value="";
+    inputNro2.value="";
+    
+    inputNro1.focus();
+}
+document.getElementById("BtnEjercicio12").addEventListener("click",ejercicio12);
+
+function ejercicio13(){
+    let inputLetra=document.getElementById("letra");
+    palabra=inputLetra.value;
+    
+    if (isNaN(palabra)) {
+        if(palabra=="a"||palabra=="e"||palabra=="i"||palabra=="o"||palabra=="u"){
+            mensajeAlert("Es una vocal")
+        }else{
+            mensajeAlert("No es vocal")
+        }
+    }else{
+        mensajeAlert("Inserta una letra");
+    }
+    document.getElementById("mayorDeDos").textContent=("Numero mayor: ")+mayor;
+    inputLetra.value="";
+    inputLetra.focus();
+}
+document.getElementById("BtnEjercicio13").addEventListener("click",ejercicio13);
