@@ -276,14 +276,14 @@ function ejercicio09() {
 //10.Hacer un algoritmo en JavaScript que diga si un 
 // número es par o impar.
 
-function ejercicio10() {  
+function ejercicio10() {
     let numero = parseInt(prompt("Ingrese un número: "));
 
     if (!isNaN(numero)) {
-        if (numero % 2 ===0) {
-            alert ("El numero " + numero + " es PAR.")
+        if (numero % 2 === 0) {
+            alert("El numero " + numero + " es PAR.")
         } else {
-            alert ("El numero " + numero + " es IMPAR.")
+            alert("El numero " + numero + " es IMPAR.")
         }
 
     } else {
@@ -296,21 +296,130 @@ function ejercicio10() {
 //-->------------------------------------------------------------------------------------
 //11.Hacer un algoritmo en JavaScript que lea tres números
 //  y diga cuál es el mayor. 
-function ejercicio11() { 
-let num1 = parseFloat(prompt("Ingrese el primero número: "));
-let num2 = parseFloat(prompt("Ingrese el segundo número: "));
-let num3 = parseFloat(prompt("Ingrese el tercer número: ")) ;
+function ejercicio11() {
+    let num1 = parseFloat(prompt("Ingrese el primero número: "));
+    let num2 = parseFloat(prompt("Ingrese el segundo número: "));
+    let num3 = parseFloat(prompt("Ingrese el tercer número: "));
 
-if (!isNaN(num1) && !isNaN(num2)&& !isNaN(num3)) {
-let mayor = Math.max(num1, num2, num3)
-alert("El número mayor es: " + mayor);
+    if (!isNaN(num1) && !isNaN(num2) && !isNaN(num3)) {
+        let mayor = Math.max(num1, num2, num3)
+        alert("El número mayor es: " + mayor);
+    } else {
+        alert("Alguno de los valores ingresados no es válido.")
+    }
+}
+
+
+
+//-->------------------------------------------------------------------------------------
+//-->------------------------------------------------------------------------------------
+//12. Hacer un algoritmo en JavaScript que lea dos números y diga
+//  cuál es el mayor. 
+
+function ejercicio12() {
+    let num1 = parseFloat(prompt("Ingrese el primer número: "));
+    let num2 = parseFloat(prompt("Ingrese el segundo número: "));
+
+    if (!isNaN(num1) && !isNaN(num2)) {
+        if (num1 > num2) {
+            alert("El número mayor es: " + num1);
+        } else if (num2 > num1) {
+            alert("El número mayor es: " + num2);
+        } else {
+            alert("Los números son iguales: ");
+        }
+
+
+    } else {
+        alert("Alguno de los valores ingresados no es válido.");
+    }
+}
+
+//-->------------------------------------------------------------------------------------
+//-->------------------------------------------------------------------------------------
+//13. Hacer un algoritmo en JavaScript que lea una letra 
+// y diga si es una vocal.
+
+function ejercicio13() {
+    let letra = prompt("Ingrese una letra: ").toLowerCase();
+
+    if (letra.length === 1 && letra.match(/[a-z]/)) {
+        if ("aeiou".includes(letra)) {
+            alert("La letra '" + letra + "' es una VOCAL.");
+        } else {
+            alert("La letra '" + letra + "' es una CONSONANTE.");
+        }
+
+    }
+
+
+
+    else {
+        alert("Letra ingresada no es válida.");
+    }
+}
+
+
+//-->------------------------------------------------------------------------------------
+//-->------------------------------------------------------------------------------------
+
+//14.Hacer un algoritmo en JavaScript que lea un entero positivo
+//  del 1 al 10 y determine si es un número primo.
+function ejercicio14() {
+    let numero = parseInt(prompt("Ingrese un número entero positivo del 1 al 10: "));
+
+    if (!isNaN(numero) && numero >= 1 && numero <= 10) {
+        let esPrimo = true;
+        if (numero === 1) {
+            esPrimo = false;
+        } else {
+            for (let i = 2; i <= Math.sqrt(numero); i++) {
+                if (numero % i === 0) {
+                    esPrimo = false;
+                    break;
+                }
+            }
+        }
+if (esPrimo){
+    alert("El número " + numero + " SÍ es PRIMO.");
 } else {
-    alert("Alguno de los valores ingresados no es válido.")
+    alert("El número " + numero + " NO es PRIMO.");
 }
+    } else {
+        alert("El valor ingresado no es válido.");
+    }
+
 }
+
+
 
 
 //-->------------------------------------------------------------------------------------
 //-->------------------------------------------------------------------------------------
-//x. function ejercicioXX() {  }
+//15. Hacer un algoritmo en JavaScript que convierta 
+// centímetros a pulgadas y libras a kilogramos.
+function ejercicio15() { 
+    let centimetros = parseFloat(prompt("Ingrese la cantidad en centimetros: "));
+    let libras = parseFloat(prompt("Ingrese la cantidad en Libras: "));
+
+    if (!isNaN(centimetros) && centimetros >=0 && !isNaN(libras) && libras >=0) {
+        let pulgadas = centimetros /2.54;
+        let kilogramos = libras * 0.453592;
+
+        alert(
+            centimetros + " cm equivalente a " + pulgadas.toFixed(2) + " pulgadas.\n" +
+            libras + " libras equivalente a " + kilogramos.toFixed(2) + " kilogramos."
+        )
+
+    } else {
+        alert("Alguno de los valores ingresados no es válido.");
+    }
+
+}
+
+
+
+//-->------------------------------------------------------------------------------------
+//-->------------------------------------------------------------------------------------
+//x. function ejercicio1X() {  }
 
