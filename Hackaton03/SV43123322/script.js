@@ -1,6 +1,7 @@
+//-->------------------------------------------------------------------------------------
+//-->------------------------------------------------------------------------------------
+
 //1. Hacer un algoritmo en JavaScript que lea un número por el teclado y determinar si tiene tres dígitos.
-//console.log("Mensajes que salen en la consola");
-//alert("Mensajes que salen como alertas");
 
 function ejercicio01() {
 
