@@ -219,8 +219,98 @@ function ejercicio07() {
 
 
 
+//-->------------------------------------------------------------------------------------
+//-->------------------------------------------------------------------------------------
+// 8.Hacer un algoritmo en JavaScript para calcular el promedio 
+// de tres notas y determinar si el estudiante aprobó o no.
+function ejercicio08() {
+    let nota1 = parseFloat(prompt("Ingrese la primera nota (debe estar entre 0 y 20): "));
+    let nota2 = parseFloat(prompt("Ingrese la segunda nota (debe estar entre 0 y 20): "));
+    let nota3 = parseFloat(prompt("Ingrese la tercera nota (debe estar entre 0 y 20): "));
+    if (!isNaN(nota1) && nota1 >= 0 && nota1 <= 20 &&
+        !isNaN(nota2) && nota2 >= 0 && nota2 <= 20 &&
+        !isNaN(nota3) && nota3 >= 0 && nota3 <= 20) {
+        let promedio = (nota1 + nota2 + nota3) / 3;
+        let resultado = promedio >= 13 ? "Aprobado" : "Desaprobado";
+        alert("Promedio: " + promedio.toFixed(2) +
+            "\nResultado: " + resultado);
+
+    }
+    else {
+        alert("Alguna nota no tiene valor valido. Ingresar valores entre 0 y 20")
+    }
+}
+
+
+
+//-->------------------------------------------------------------------------------------
+//-->------------------------------------------------------------------------------------
+//x9. Hacer un algoritmo en JavaScript para determinar 
+// el aumento de un trabajador, se debe tomar en cuenta 
+// que si ganaba más de $2000 tendrá un aumento del 5%, 
+// si generaba menos de $2000 su aumento será de un 10%.
+
+function ejercicio09() {
+    let sueldo = parseFloat(prompt("Ingrese su sueldo: "));
+
+    if (!isNaN(sueldo) && sueldo > 0) {
+        let porcAumento = sueldo > 2000 ? 0.05 : 0.10;
+        let montoAumento = sueldo * porcAumento;
+        let sueldoConAumento = sueldo + montoAumento;
+
+        alert("Sueldo Original: $ " + sueldo +
+            "\nPorcentaje de Aumento: " + (porcAumento * 100) + "%" +
+            "\nMonto de Aumento: $ " + montoAumento +
+            "\nSueldo con Aumento: $ " + sueldoConAumento);
+
+    }
+
+    else {
+        alert("El sueldo ingresado no es válido.");
+    }
+}
+
+
+//-->------------------------------------------------------------------------------------
+//-->------------------------------------------------------------------------------------
+//10.Hacer un algoritmo en JavaScript que diga si un 
+// número es par o impar.
+
+function ejercicio10() {  
+    let numero = parseInt(prompt("Ingrese un número: "));
+
+    if (!isNaN(numero)) {
+        if (numero % 2 ===0) {
+            alert ("El numero " + numero + " es PAR.")
+        } else {
+            alert ("El numero " + numero + " es IMPAR.")
+        }
+
+    } else {
+        alert("El número ingresado no es válido.");
+    }
+
+}
+
+//-->------------------------------------------------------------------------------------
+//-->------------------------------------------------------------------------------------
+//11.Hacer un algoritmo en JavaScript que lea tres números
+//  y diga cuál es el mayor. 
+function ejercicio11() { 
+let num1 = parseFloat(prompt("Ingrese el primero número: "));
+let num2 = parseFloat(prompt("Ingrese el segundo número: "));
+let num3 = parseFloat(prompt("Ingrese el tercer número: ")) ;
+
+if (!isNaN(num1) && !isNaN(num2)&& !isNaN(num3)) {
+let mayor = Math.max(num1, num2, num3)
+alert("El número mayor es: " + mayor);
+} else {
+    alert("Alguno de los valores ingresados no es válido.")
+}
+}
 
 
 //-->------------------------------------------------------------------------------------
 //-->------------------------------------------------------------------------------------
 //x. function ejercicioXX() {  }
+
