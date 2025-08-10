@@ -380,3 +380,71 @@ function ejercicio13(){
     inputLetra.focus();
 }
 document.getElementById("BtnEjercicio13").addEventListener("click",ejercicio13);
+
+function ejercicio14(){
+    let inputNumero=document.getElementById("primo");
+    primo=Number(inputNumero.value);
+console.log(primo)
+    if(primo<1 || primo>9){
+        mensajeAlert("fuera del rango");
+    }else if(primo==2||primo==3||primo==5||primo==7){
+        mensajeAlert("numero primo")
+    }else{
+        mensajeAlert("no es primo")
+    }
+    inputNumero.value="";
+    inputNumero.focus();
+}
+document.getElementById("BtnEjercicio14").addEventListener("click",ejercicio14);
+
+function ejercicio15(){
+    let inputCentimetros = document.getElementById("centimetros");
+    let inputLibras = document.getElementById("libras");
+    centimetros=Number(inputCentimetros.value);
+    libras=Number(inputLibras.value);
+console.log(centimetros,libras);
+    let pulgadas=centimetros/2.54;
+    let kilos=libras * 0.453592;
+
+    document.getElementById("conversion1").textContent=(centimetros)+(" Centimetros a Pulgadas: ")+pulgadas;
+    document.getElementById("conversion2").textContent=(libras)+(" Libras a Kilogramos: ")+kilos;
+    inputCentimetros.value="";
+    inputLibras.value="";
+    inputCentimetros.focus();
+
+}
+document.getElementById("BtnEjercicio15").addEventListener("click",ejercicio15);
+
+function ejercicio16(){
+    let inputNumero = document.getElementById("numeroDia");
+    numero=Number(inputNumero.value);
+    switch (numero) {
+        case 1:
+            mensajeAlert("Lunes");
+            break;
+        case 2:
+            mensajeAlert("Martes");
+            break;    
+        case 3:
+            mensajeAlert("Miercoles");
+            break;
+        case 4:
+            mensajeAlert("Jueves");
+            break;
+        case 5:
+            mensajeAlert("Viernes");
+            break;
+        case 6:
+            mensajeAlert("Sabado");
+            break;
+        case 7:
+            mensajeAlert("Domingo");
+            break;
+        default:
+            mensajeAlert("Inserta un numero valido")
+            break;
+    }
+inputNumero.value="";
+inputNumero.focus();
+}
+document.getElementById("BtnEjercicio16").addEventListener("click",ejercicio16);
