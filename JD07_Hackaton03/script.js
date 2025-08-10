@@ -40,7 +40,7 @@ function ejercicio02() {
 
 //-->------------------------------------------------------------------------------------
 //-->------------------------------------------------------------------------------------
-// 3.	Hacer un algoritmo en JavaScript que lea un número 
+// 3. Hacer un algoritmo en JavaScript que lea un número 
 // y determinar si termina en 4.
 
 function ejercicio03() {
@@ -68,7 +68,7 @@ function ejercicio03() {
 //-->------------------------------------------------------------------------------------
 //-->------------------------------------------------------------------------------------
 
-//4.	Hacer un algoritmo en JavaScript que lea 
+//4. Hacer un algoritmo en JavaScript que lea 
 // tres números enteros y los muestre de menor a mayor.
 function ejercicio04() {
     let num1 = parseInt(prompt("Ingrese el primer número entero: "));
@@ -89,7 +89,7 @@ function ejercicio04() {
 
 //-->------------------------------------------------------------------------------------
 //-->------------------------------------------------------------------------------------
-//5.	Hacer un algoritmo en JavaScript para una tienda de 
+//5. Hacer un algoritmo en JavaScript para una tienda de 
 // zapatos que tiene una promoción de descuento para vender 
 // al mayor, esta dependerá del número de zapatos que se 
 // compren. Si son más de diez, se les dará un 10% de 
@@ -170,7 +170,7 @@ function ejercicio06() {
 
 //-->------------------------------------------------------------------------------------
 //-->------------------------------------------------------------------------------------
-//x. 7.	Hacer un algoritmo en JavaScript para una tienda de helado 
+//7. Hacer un algoritmo en JavaScript para una tienda de helado 
 // que da un descuento por compra a sus clientes con membresía 
 // dependiendo de su tipo, sólo existen tres tipos de membresía, 
 // tipo A, tipo B y tipo C. Los descuentos son los siguientes:
@@ -245,7 +245,7 @@ function ejercicio08() {
 
 //-->------------------------------------------------------------------------------------
 //-->------------------------------------------------------------------------------------
-//x9. Hacer un algoritmo en JavaScript para determinar 
+//9. Hacer un algoritmo en JavaScript para determinar 
 // el aumento de un trabajador, se debe tomar en cuenta 
 // que si ganaba más de $2000 tendrá un aumento del 5%, 
 // si generaba menos de $2000 su aumento será de un 10%.
@@ -365,6 +365,7 @@ function ejercicio13() {
 
 //14.Hacer un algoritmo en JavaScript que lea un entero positivo
 //  del 1 al 10 y determine si es un número primo.
+
 function ejercicio14() {
     let numero = parseInt(prompt("Ingrese un número entero positivo del 1 al 10: "));
 
@@ -783,31 +784,30 @@ function ejercicio25() {
 //26. Hacer un algoritmo en JavaScript para calcular el resto
 //  y cociente por medio de restas sucesivas.
 
-function ejercicio26() {  
-let dividendo = parseInt(prompt("Ingrese el dividendo (entero positivo):"));
-let divisor = parseInt(prompt("Ingrese el divisor (entero positivo, distinto de cero):"));
+function ejercicio26() {
+    let dividendo = parseInt(prompt("Ingrese el dividendo (entero positivo):"));
+    let divisor = parseInt(prompt("Ingrese el divisor (entero positivo, distinto de cero):"));
 
-if (
+    if (
         !isNaN(dividendo) && dividendo >= 0 &&
         !isNaN(divisor) && divisor > 0
-)
-{
-    let cociente = 0;
-    let resto =  dividendo  ;
-    while (resto >= divisor){
-        resto -= divisor;
-        cociente ++;
+    ) {
+        let cociente = 0;
+        let resto = dividendo;
+        while (resto >= divisor) {
+            resto -= divisor;
+            cociente++;
+        }
+
+        alert(
+            "Cociente: " + cociente +
+            "\nResto: " + resto
+        )
+
     }
-
-    alert (
-        "Cociente: " + cociente +
-        "\nResto: " + resto
+    else (
+        alert("Debe ingresar valores válidos (dividendo >= 0, divisor > 0).")
     )
-
-}
-else (
-    alert("Debe ingresar valores válidos (dividendo >= 0, divisor > 0).")
-)
 
 }
 
@@ -819,24 +819,24 @@ else (
 // media de una lista indefinida de números positivos, 
 // se debe acabar el programa al ingresar un número negativo.
 
-function ejercicio27() { 
+function ejercicio27() {
     let suma = 0;
     let contador = 0;
 
     while (true) {
         let numero = parseFloat(prompt("Ingrese un número positivo (negativo para terminar):"));
-    if (isNaN(numero)){
-        alert("Debe ingresar un número válido.");
-        continue; 
-    }
-    
-    if (numero < 0) break ;
-    suma += numero;
-    contador ++;
+        if (isNaN(numero)) {
+            alert("Debe ingresar un número válido.");
+            continue;
+        }
+
+        if (numero < 0) break;
+        suma += numero;
+        contador++;
     }
 
-    if (contador >0 ) {
-        let media =  suma/contador;
+    if (contador > 0) {
+        let media = suma / contador;
         alert("La media de los números ingresados es: " + media);
 
     } else {
@@ -852,14 +852,14 @@ function ejercicio27() {
 //28. Hacer un algoritmo en JavaScript para calcular la suma 
 // de los primeros cien números con un ciclo repetir. 
 
-function ejercicio28() {  
+function ejercicio28() {
     let suma = 0;
-    let i=1;
+    let i = 1;
     do {
         suma += i;
         i++;
-    } while (i <=100 );
-        alert("La suma de los primeros cien números es: " + suma);
+    } while (i <= 100);
+    alert("La suma de los primeros cien números es: " + suma);
 }
 
 
@@ -869,15 +869,15 @@ function ejercicio28() {
 //29. Hacer un algoritmo en JavaScript para calcular la
 // suma de los primeros cien números con un ciclo mientras.
 
-function ejercicio29() {  
-let suma = 0;
-let i=1 ;
+function ejercicio29() {
+    let suma = 0;
+    let i = 1;
 
-while(i<=100) {
-    suma += i;
-    i++;
-}
-alert("La suma de los primeros cien números es: " + suma);
+    while (i <= 100) {
+        suma += i;
+        i++;
+    }
+    alert("La suma de los primeros cien números es: " + suma);
 }
 
 
@@ -887,11 +887,299 @@ alert("La suma de los primeros cien números es: " + suma);
 // la suma de los primeros cien números con un ciclo para.
 
 
-function ejercicio30() {  
-let suma = 0;
-for (let i=1 ; i<=100 ; i++) 
-    {
+function ejercicio30() {
+    let suma = 0;
+    for (let i = 1; i <= 100; i++) {
         suma = suma + i;
     }
-alert ("La suma de los primeros cien números es: " + suma);
+    alert("La suma de los primeros cien números es: " + suma);
+}
+
+
+
+
+//-->------------------------------------------------------------------------------------
+//-->------------------------------------------------------------------------------------
+//31. Hacer un algoritmo en JavaScript parar calcular la media de los 
+// números pares e impares, sólo se ingresará diez números.
+
+function ejercicio31() {
+    let sumaPares = 0;
+    let sumaImpares = 0;
+    let contadorPares = 0;
+    let contadorImpares = 0;
+
+    for (let i = 1; i <= 10; i++) {
+        let numero = parseInt(prompt("Ingrese el número " + i + ":"));
+
+        if (!isNaN(numero)) {
+            if (numero % 2 === 0) {
+                sumaPares += numero;
+                contadorPares++;
+            } else {
+                sumaImpares += numero;
+                contadorImpares++;
+            }
+        } else {
+            alert("El valor ingresado no es un número válido.");
+        }
+    }
+
+    let mediaPares = contadorPares > 0 ? (sumaPares / contadorPares) : 0;
+    let mediaImpares = contadorImpares > 0 ? (sumaImpares / contadorImpares) : 0;
+
+    alert(
+        "Cantidad de pares: " + contadorPares +
+        "\nCantidad de impares: " + contadorImpares +
+        "\nMedia de los números pares: " + mediaPares +
+        "\nMedia de los números impares: " + mediaImpares
+    );
+}
+
+
+//-->------------------------------------------------------------------------------------
+//-->------------------------------------------------------------------------------------
+//32. Se quiere saber cuál es la ciudad con la población de 
+// más personas, son tres provincias y once ciudades,
+// hacer un algoritmo en JavaScript que nos permita saber eso.
+
+function ejercicio32() {
+
+    let ciudades = [];
+    let poblaciones = [];
+
+    for (let i = 1; i <= 5; i++) {
+
+        let nombreCiudad = prompt("Ingrese el nombre de la ciudad " + i + ":");
+        let poblacion = parseInt(prompt("Ingrese la población de " + nombreCiudad + ":"));
+
+        if (nombreCiudad && !isNaN(poblacion) && poblacion >= 0) {
+            ciudades.push(nombreCiudad);
+            poblaciones.push(poblacion);
+        } else {
+            alert("Los datos ingresados no son válidos.");
+            i--;
+        }
+    }
+
+    let maxPoblacion = Math.max(...poblaciones);
+    let indiceMax = poblaciones.indexOf(maxPoblacion);
+    let ciudadMax = ciudades[indiceMax];
+
+    alert(
+        "La ciudad con mayor población es: " + ciudadMax +
+        "\nPoblación: " + maxPoblacion
+    );
+
+}
+
+//-->------------------------------------------------------------------------------------
+//-->------------------------------------------------------------------------------------
+//33. Hacer un algoritmo en JavaScript que permita al usuario 
+// continuar con el programa. 
+
+function ejercicio33() {
+    let continuar = true;
+    while (continuar) {
+        let opcion = prompt("¿Desea continuar con el programa? (Si marque S y  No marque N)").toUpperCase();
+        if (opcion === "S") {
+            alert("El programa continúa...");
+        } else
+            if (opcion === "N") {
+                alert("Programa Finalizado.");
+                continuar = false;
+            }
+            else {
+                alert("Opción no válida. Ingrese 'S' para continuar o 'N' para salir.");
+            }
+
+
+    }
+
+}
+
+
+
+//-->------------------------------------------------------------------------------------
+//-->------------------------------------------------------------------------------------
+//34. Hacer un algoritmo en JavaScript que imprima la 
+// tabla de multiplicar de los números del uno al nueve. 
+
+function ejercicio34() {
+    for (let multiplicando = 1; multiplicando <= 9; multiplicando++) {
+        let resultado = `Tabla del ${multiplicando}:\n`;
+        for (let multiplicador = 1; multiplicador <= 12; multiplicador++) {
+            let producto = multiplicando * multiplicador;
+            resultado += `${multiplicando} x ${multiplicador} = ${producto}\n`;
+        }
+        alert(resultado);
+    }
+}
+
+//-->------------------------------------------------------------------------------------
+//-->------------------------------------------------------------------------------------
+//35. Hacer un algoritmo en JavaScript que nos permita 
+// saber cuál es el número mayor y menor, se debe ingresar 
+// sólo veinte números.
+
+function ejercicio35() {
+    let mayor = null;
+    let menor = null;
+
+    for (let i = 1; i <= 20; i++) {
+        let numero = parseFloat(prompt("Ingrese el número " + i + ":"));
+        if (!isNaN(numero)) {
+            if (mayor === null || numero > mayor) {
+                mayor = numero;
+            }
+            if (menor === null || numero < menor) {
+                menor = numero;
+            }
+        }
+        else {
+            alert("El valor ingresado no es Válido.");
+            if (mayor === null || 0 > mayor) mayor = 0;
+            if (menor === null || 0 < menor) menor = 0;
+        }
+    }
+
+    alert(
+        "El número mayor ingresado es: " + mayor +
+        "\nEl número menor ingresado es: " + menor
+    );
+}
+
+
+
+//-->------------------------------------------------------------------------------------
+//-->------------------------------------------------------------------------------------
+//36. Hacer un algoritmo en JavaScript para calcular 
+// la serie de Fibonacci.
+
+function ejercicio36() {
+    let n = parseInt(prompt("Ingrese la cantidad de términos de la serie Fibonacci (entero positivo):"));
+    if (!isNaN(n) && n > 0) {
+        let fibo = [];
+        let a = 0, b = 1;
+        for (let i = 0; i < n; i++) {
+            fibo.push(a);
+            let temp = a + b;
+            a = b;
+            b = temp;
+        }
+        alert("Serie de Fibonacci (" + n + " términos):\n" + fibo.join(", "));
+    } else {
+        alert("Debe ingresar un número entero positivo.")
+    }
+
+}
+
+//-->------------------------------------------------------------------------------------
+//-->------------------------------------------------------------------------------------
+//37. Hacer un algoritmo en JavaScript para conseguir el M.C.D 
+// de un número por medio del algoritmo de Euclides.
+
+function ejercicio37() {  
+    let a = parseInt(prompt("Ingrese el primer número entero positivo:"));
+    let b = parseInt(prompt("Ingrese el segundo número entero positivo:"));
+
+    if (!isNaN (a) && a > 0 && !isNaN (b) && b > 0 ) {
+        while (b !==0) {
+            let temp = b ;
+            b = a % b ;
+            a = temp;
+            }
+        alert ("El M.C.D. de los dos números es: "+ a);
+
+    } else {
+        alert("Debe ingresar dos números enteros positivos.");
+    } 
+
+
+}
+
+//-->------------------------------------------------------------------------------------
+//-->------------------------------------------------------------------------------------
+//38. Hacer un algoritmo en JavaScript que nos permita saber 
+// si un número es un número perfecto. 
+
+function ejercicio38() {
+    let numero = parseInt (prompt("Ingrese un número entero positivo:"));
+    if (!isNaN (numero) && numero > 0){
+        let sumaDivisores = 0;
+
+        for (let i=1; i<numero; i++) {
+            if (numero % i === 0) {
+                sumaDivisores += i;
+            }
+        }
+
+        if (sumaDivisores === numero) {
+            alert ("El número " + numero + " SÍ es un número PERFECTO.")
+        } else {
+            alert ("El número " + numero + " NO es un número PERFECTO."); 
+        }
+
+
+    } else {
+        alert("El valor ingresado no es válido.");
+    }
+
+}
+
+
+
+//-->------------------------------------------------------------------------------------
+//-->------------------------------------------------------------------------------------
+//39. Hacer un algoritmo en JavaScript que cumpla con la aproximación del número pi con la serie de Gregory-Leibniz. La formula que se debe aplicar es:
+//Pi = (4/1) - (4/3) + (4/5) - (4/7) + (4/9) - (4/11) + (4/13) - (4/15) ...
+
+function ejercicio39() {  
+let n= parseInt(prompt("Ingrese la cantidad de términos para aproximar pi (entero positivo):"));
+
+if (!isNaN(n) && n > 0)
+    {
+        let pi = 0;
+        for (let i=0 ; i<n; i++) {
+            let denominador = 2*i + 1;
+            let termino = 4/denominador;
+            if (i % 2 === 0){
+                pi += termino;
+            } else {
+                pi -= termino;
+            }
+        }
+        alert("Aproximación de pi con " + n + " términos:\n" + pi)
+    } else {
+        alert ("Debe ingresar un número entero positivo.")
+    }
+}
+
+
+//-->------------------------------------------------------------------------------------
+//-->------------------------------------------------------------------------------------
+//40. Hacer un algoritmo en JavaScript que cumpla con la aproximación del número pi con la serie de Nilakantha. La formula que se debe aplicar es:
+// Pi = = 3 + 4/(234) - 4/(456) + 4/(678) - 4/(8910) + 4/(101112) - 4/(121314) ...
+
+function ejercicio40() {  
+let n = parseInt(prompt("Ingrese la cantidad de términos para aproximar pi con la serie de Nilakantha (entero positivo):"))
+
+if (!isNaN (n) && n>0) {
+    let pi =3;
+    let signo = 1;
+    let a=2;
+
+    for (let i=1; i<=n; i++) {
+        let termino = 4/(a*(a+1)*(a+2));
+        pi += signo * termino ;
+        signo *= -1;
+        a +=2;
+
+    }
+
+    alert ("Aproximación de pi con " + n + " términos (Nilakantha):\n" + pi) 
+} else {
+    alert ("Debe ingresar un número entero positivo.")
+}
+
 }
