@@ -380,11 +380,11 @@ function ejercicio14() {
                 }
             }
         }
-if (esPrimo){
-    alert("El número " + numero + " SÍ es PRIMO.");
-} else {
-    alert("El número " + numero + " NO es PRIMO.");
-}
+        if (esPrimo) {
+            alert("El número " + numero + " SÍ es PRIMO.");
+        } else {
+            alert("El número " + numero + " NO es PRIMO.");
+        }
     } else {
         alert("El valor ingresado no es válido.");
     }
@@ -398,12 +398,12 @@ if (esPrimo){
 //-->------------------------------------------------------------------------------------
 //15. Hacer un algoritmo en JavaScript que convierta 
 // centímetros a pulgadas y libras a kilogramos.
-function ejercicio15() { 
+function ejercicio15() {
     let centimetros = parseFloat(prompt("Ingrese la cantidad en centimetros: "));
     let libras = parseFloat(prompt("Ingrese la cantidad en Libras: "));
 
-    if (!isNaN(centimetros) && centimetros >=0 && !isNaN(libras) && libras >=0) {
-        let pulgadas = centimetros /2.54;
+    if (!isNaN(centimetros) && centimetros >= 0 && !isNaN(libras) && libras >= 0) {
+        let pulgadas = centimetros / 2.54;
         let kilogramos = libras * 0.453592;
 
         alert(
@@ -421,5 +421,477 @@ function ejercicio15() {
 
 //-->------------------------------------------------------------------------------------
 //-->------------------------------------------------------------------------------------
-//x. function ejercicio1X() {  }
+//16. Hacer un algoritmo en JavaScript que lea un número 
+// y según ese número, indique el día que corresponde.
 
+function ejercicio16() {
+    let numero = parseInt(prompt("Ingrese un número del 1 al 7"));
+    let dia = ""
+    if (!isNaN(numero) && numero >= 1 && numero <= 7) {
+        switch (numero) {
+            case 1:
+                dia = "Lunes";
+                break;
+            case 2:
+                dia = "Martes";
+                break
+            case 3:
+                dia = "Miércoles";
+                break;
+            case 4:
+                dia = "Jueves";
+                break;
+            case 5:
+                dia = "Viernes";
+                break;
+            case 6:
+                dia = "Sábado";
+                break;
+            case 7:
+                dia = "Domingo";
+                break;
+        }
+        alert("El día correspondiente es: " + dia);
+
+    } else {
+        alert("El número ingresado no es válido. Debe estar entre 1 y 7.");
+
+    }
+
+}
+
+
+//-->------------------------------------------------------------------------------------
+//-->------------------------------------------------------------------------------------
+//17. Hacer un algoritmo en JavaScript donde se ingrese 
+// una hora y nos calcule la hora dentro de un segundo.
+
+function ejercicio17() {
+    let horaStr = prompt("Ingrese la hora en formato HH:MM:SS (ejemplo 14:23:45):");
+    let partes = horaStr.split(":");
+
+    if (partes.length === 3) {
+        let horas = parseInt(partes[0]);
+        let minutos = parseInt(partes[1]);
+        let segundos = parseInt(partes[2]);
+
+        if (!isNaN(horas) && horas >= 0 && horas < 24 &&
+            !isNaN(minutos) && minutos >= 0 && minutos < 60 &&
+            !isNaN(segundos) && segundos >= 0 && segundos < 60
+        ) {
+            segundos += 1;
+            if (segundos === 60) {
+                segundos = 0;
+                minutos += 1;
+                if (minutos === 60) {
+                    minutos = 0;
+                    horas += 1;
+                    if (horas === 24) {
+                        horas = 0;
+
+                    }
+                }
+            }
+
+            let = nuevaHora =
+                (horas < 10 ? "0" : "") + horas + ":" +
+                (minutos < 10 ? "0" : "") + minutos + ":" +
+                (segundos < 10 ? "0" : "") + segundos;
+            alert("La hora dentro de un segundo es: " + nuevaHora);
+        } else {
+            alert("La hora ingresada no es válida.");
+        }
+
+
+    } else {
+        alert("El formato de hora ingresado no es válido. Debe ser HH:MM:SS.");
+
+    }
+
+}
+
+
+
+//-->------------------------------------------------------------------------------------
+//-->------------------------------------------------------------------------------------
+//18.	Hacer un algoritmo en JavaScript para una empresa 
+// se encarga de la venta y distribución de CD vírgenes. 
+// Los clientes pueden adquirir los artículos 
+// (supongamos un único producto de una única marca) 
+// por cantidad. Los precios son:
+// $10. Si se compran unidades separadas hasta 9.
+// $8. Si se compran entre 10 unidades hasta 99.
+// $7. Entre 100 y 499 unidades.
+// $6. Para mas de 500 unidades.
+
+
+function ejercicio18() {
+    let cantidad = parseInt(prompt("Ingrese la cantidad de CD a comprar:"));
+    let precioUnitario = 0;
+
+    if (!isNaN(cantidad) && cantidad > 0) {
+
+        if (cantidad <= 9) { precioUnitario = 10; }
+        else if (cantidad >= 10 && cantidad <= 99) { precioUnitario = 8; }
+        else if (cantidad >= 100 && cantidad <= 499) { precioUnitario = 7; }
+        else if (cantidad >= 500) {
+            precioUnitario = 6;
+        }
+        let totalVenta = cantidad * precioUnitario;
+        let gananciaVendedor = totalVenta * 0.0825;
+        alert(
+            "Cantidad de CDs: " + cantidad +
+            "\nPrecio unitario: $ " + precioUnitario +
+            "\nTotal Venta Cliente: $ " + totalVenta +
+            "\nGanancia del vendedor: $ " + gananciaVendedor
+        );
+
+
+
+    } else {
+        alert("La cantidad ingresada no es válida.");
+    }
+
+
+
+}
+
+
+
+//-->------------------------------------------------------------------------------------
+//-->------------------------------------------------------------------------------------
+//19. Hacer un algoritmo en JavaScript para una heladería
+//  se tienen 4 tipos de empleados ordenados de la siguiente
+//  forma con su número identificador y salario diario 
+// correspondiente:
+//Cajero (56$/día).
+//Servidor (64$/día).
+//Preparador de mezclas (80$/día).
+//Mantenimiento (48$/día).
+//El dueño de la tienda desea tener un programa donde sólo 
+// ingrese dos números enteros que representen al número 
+// identificador del empleado y la cantidad de días que 
+// trabajó en la semana (6 días máximos). 
+// Y el programa le mostrará por pantalla la cantidad de 
+// dinero que el dueño le debe pagar al empleado que ingresó
+
+function ejercicio19() {
+    let idEmpleado = parseInt(prompt("Ingrese el número identificador del empleado:\n1 - Cajero\n2 - Servidor\n3 - Preparador de mezclas\n4 - Mantenimiento"));
+    let diasTrabajados = parseInt(prompt("Ingrese la cantidad de días trabajados (máximo 6):"));
+
+    let salarioDiario = 0;
+    switch (idEmpleado) {
+        case 1:
+            salarioDiario = 56;
+            break;
+        case 2:
+            salarioDiario = 64;
+            break;
+        case 3:
+            salarioDiario = 80;
+            break;
+        case 4:
+            salarioDiario = 48;
+            break;
+        default:
+            alert("Identificador de empleado no válido.");
+            return;
+    }
+
+    if (!isNaN(diasTrabajados) && diasTrabajados > 0 && diasTrabajados <= 6) {
+        let totalPagar = salarioDiario * diasTrabajados;
+        alert(
+            "Empleado #" + idEmpleado +
+            "\nDías trabajados: " + diasTrabajados +
+            "\nSalario diario: $ " + salarioDiario +
+            "\nTotal a pagar: $ " + totalPagar
+
+        );
+
+    }
+    else {
+        alert("La cantidad de días trabajados no es válida (debe ser entre 1 y 6).");
+    }
+
+}
+
+
+
+
+//-->------------------------------------------------------------------------------------
+//-->------------------------------------------------------------------------------------
+//20. Hacer un algoritmo en JavaScript que que lea 4 números
+//enteros positivos y verifique y realice las siguientes operaciones:
+//¿Cuántos números son Pares?
+//¿Cuál es el mayor de todos?
+//Si el tercero es par, calcular el cuadrado del segundo.
+//Si el primero es menor que el cuarto, calcular la media de los 4 números.
+//Si el segundo es mayor que el tercero, verificar si el tercero esta comprendido entre los valores 50 y 700. Si cumple se cumple la segunda condición, calcular la suma de los 4 números.
+
+
+function ejercicio20() {
+    let n1 = parseInt(prompt("Ingrese el primer número entero positivo:"));
+    let n2 = parseInt(prompt("Ingrese el segundo número entero positivo:"));
+    let n3 = parseInt(prompt("Ingrese el tercer número entero positivo:"));
+    let n4 = parseInt(prompt("Ingrese el cuarto número entero positivo:"));
+    if (
+        !isNaN(n1) && n1 > 0 &&
+        !isNaN(n2) && n2 > 0 &&
+        !isNaN(n3) && n3 > 0 &&
+        !isNaN(n4) && n4 > 0
+    ) {
+
+        let pares = [n1, n2, n3, n4].filter(num => num % 2 === 0).length;
+
+        let mayor = Math.max(n1, n2, n3, n4);
+
+        let cuadradoSegundo = null;
+        if (n3 % 2 === 0) {
+            cuadradoSegundo = n2 * n2;
+        }
+
+
+        let media = null;
+        if (n1 < n4) {
+            media = (n1 + n2 + n3 + n4) / 4;
+        }
+
+
+        let suma = null;
+        if (n2 > n3 && n3 >= 50 && n3 <= 700) {
+            suma = n1 + n2 + n3 + n4;
+        }
+
+        let mensaje =
+            "Cantidad de números pares: " + pares +
+            "\nMayor de todos: " + mayor;
+
+        if (cuadradoSegundo !== null) {
+            mensaje += "\nEl cuadrado del segundo número (porque el tercero es par): " + cuadradoSegundo;
+        }
+        if (media !== null) {
+            mensaje += "\nLa media de los 4 números (porque el primero es menor que el cuarto): " + media;
+        }
+        if (suma !== null) {
+            mensaje += "\nLa suma de los 4 números (porque el segundo es mayor que el tercero y el tercero está entre 50 y 700): " + suma;
+        }
+
+        alert(mensaje);
+    } else {
+        alert("Todos los valores deben ser enteros positivos.");
+    }
+}
+
+
+//-->------------------------------------------------------------------------------------
+//-->------------------------------------------------------------------------------------
+//21. Hacer un algoritmo en JavaScript que permita calcular el 
+// factorial de un número.
+
+function ejercicio21() {
+    let numero = parseInt(prompt("Ingrese un número entero positivo para calcular su factorial:"));
+    if (!isNaN(numero) && numero >= 0) {
+        let factorial = 1;
+        for (let i = 2; i <= numero; i++) {
+            factorial *= i;
+        }
+        alert("El factorial de " + numero + " es: " + factorial);
+
+    }
+    else {
+        alert("Debe ingresar un número entero positivo.")
+    }
+
+}
+
+
+//-->------------------------------------------------------------------------------------
+//-->------------------------------------------------------------------------------------
+//22. Hacer un algoritmo en JavaScript para calcular la 
+// suma de los n primeros números.
+
+function ejercicio22() {
+    let n = parseInt(prompt("Ingrese el valor de n (número entero positivo):"));
+
+    if (!isNaN(n) && n > 0) {
+        let suma = n * (n + 1) / 2;
+        alert("La suma de los " + n + " primeros números es: " + suma);
+    } else {
+        alert("Debe ingresar un número entero positivo.");
+    }
+}
+
+
+//-->------------------------------------------------------------------------------------
+//-->------------------------------------------------------------------------------------
+//23. Hacer un algoritmo en JavaScript para calcular 
+// la suma de los números impares menores o iguales a n.
+function ejercicio23() {
+    let n = parseInt(prompt("Ingrese el valor de n (número entero positivo):"));
+    if (!isNaN(n) && n > 0) {
+        let suma = 0;
+        for (let i = 1; i <= n; i += 2) {
+            suma += i;
+        }
+        alert("La suma de los números impares menores o iguales a " + n + " es: " + suma);
+    } else {
+        alert("Debe ingresar un número entero positivo.");
+    }
+}
+
+
+//-->------------------------------------------------------------------------------------
+//-->------------------------------------------------------------------------------------
+//24. Hacer un algoritmo en JavaScript para realizar 
+// la suma de todos los números pares hasta el 1000. 
+
+function ejercicio24() {
+    let suma = 0;
+    for (let i = 2; i <= 1000; i += 2) {
+        suma += i;
+    }
+    alert("La suma de todos los números pares hasta el 1000 es: " + suma);
+
+}
+
+
+
+//-->------------------------------------------------------------------------------------
+//-->------------------------------------------------------------------------------------
+//25. Hacer un algoritmo en JavaScript para calcular el factorial
+//  de un número de una forma distinta.
+// Factorial usando función recursiva
+
+
+function ejercicio25() {
+    function factorial(n) {
+        if (n === 0 || n === 1) return 1;
+        return n * factorial(n - 1);
+    }
+    let numero = parseInt(prompt("Ingrese un número entero positivo para calcular su factorial:"));
+    if (!isNaN(numero) && numero >= 0) {
+        let resultado = factorial(numero);
+        alert("El factorial de " + numero + " es: " + resultado);
+    } else {
+        alert("Debe ingresar un número entero positivo.");
+    }
+}
+
+
+//-->------------------------------------------------------------------------------------
+//-->------------------------------------------------------------------------------------
+//26. Hacer un algoritmo en JavaScript para calcular el resto
+//  y cociente por medio de restas sucesivas.
+
+function ejercicio26() {  
+let dividendo = parseInt(prompt("Ingrese el dividendo (entero positivo):"));
+let divisor = parseInt(prompt("Ingrese el divisor (entero positivo, distinto de cero):"));
+
+if (
+        !isNaN(dividendo) && dividendo >= 0 &&
+        !isNaN(divisor) && divisor > 0
+)
+{
+    let cociente = 0;
+    let resto =  dividendo  ;
+    while (resto >= divisor){
+        resto -= divisor;
+        cociente ++;
+    }
+
+    alert (
+        "Cociente: " + cociente +
+        "\nResto: " + resto
+    )
+
+}
+else (
+    alert("Debe ingresar valores válidos (dividendo >= 0, divisor > 0).")
+)
+
+}
+
+
+
+//-->------------------------------------------------------------------------------------
+//-->------------------------------------------------------------------------------------
+//27. Hacer un algoritmo en JavaScript para determinar la 
+// media de una lista indefinida de números positivos, 
+// se debe acabar el programa al ingresar un número negativo.
+
+function ejercicio27() { 
+    let suma = 0;
+    let contador = 0;
+
+    while (true) {
+        let numero = parseFloat(prompt("Ingrese un número positivo (negativo para terminar):"));
+    if (isNaN(numero)){
+        alert("Debe ingresar un número válido.");
+        continue; 
+    }
+    
+    if (numero < 0) break ;
+    suma += numero;
+    contador ++;
+    }
+
+    if (contador >0 ) {
+        let media =  suma/contador;
+        alert("La media de los números ingresados es: " + media);
+
+    } else {
+        alert("No se ingresaron números positivos.");
+    }
+
+}
+
+
+
+//-->------------------------------------------------------------------------------------
+//-->------------------------------------------------------------------------------------
+//28. Hacer un algoritmo en JavaScript para calcular la suma 
+// de los primeros cien números con un ciclo repetir. 
+
+function ejercicio28() {  
+    let suma = 0;
+    let i=1;
+    do {
+        suma += i;
+        i++;
+    } while (i <=100 );
+        alert("La suma de los primeros cien números es: " + suma);
+}
+
+
+
+//-->------------------------------------------------------------------------------------
+//-->------------------------------------------------------------------------------------
+//29. Hacer un algoritmo en JavaScript para calcular la
+// suma de los primeros cien números con un ciclo mientras.
+
+function ejercicio29() {  
+let suma = 0;
+let i=1 ;
+
+while(i<=100) {
+    suma += i;
+    i++;
+}
+alert("La suma de los primeros cien números es: " + suma);
+}
+
+
+//-->------------------------------------------------------------------------------------
+//-->------------------------------------------------------------------------------------
+//30. Hacer un algoritmo en JavaScript para calcular 
+// la suma de los primeros cien números con un ciclo para.
+
+
+function ejercicio30() {  
+let suma = 0;
+for (let i=1 ; i<=100 ; i++) 
+    {
+        suma = suma + i;
+    }
+alert ("La suma de los primeros cien números es: " + suma);
+}
