@@ -495,7 +495,7 @@ function ejercicio18(){
 document.getElementById("BtnEjercicio18").addEventListener("click",ejercicio18);
 
 function ejercicio19(){
-let inputNumero = document.getElementById("diasTrabajados");
+    let inputNumero = document.getElementById("diasTrabajados");
     let numero = Number(inputNumero.value);
     const radios = document.getElementsByName("empleados");
     let seleccionado;
@@ -543,3 +543,60 @@ let inputNumero = document.getElementById("diasTrabajados");
     
 }
 document.getElementById("BtnEjercicio19").addEventListener("click",ejercicio19);
+
+function ejercicio20(){
+    let inputNumero1=document.getElementById("N1");
+    let inputNumero2=document.getElementById("N2");
+    let inputNumero3=document.getElementById("N3");
+    let inputNumero4=document.getElementById("N4");
+    let numero1 = Number(inputNumero1.value);
+    let numero2 = Number(inputNumero2.value);
+    let numero3 = Number(inputNumero3.value);
+    let numero4 = Number(inputNumero4.value);
+
+    pares=0;
+    if (numero1%2==0) {
+            pares = pares +1;}
+    if (numero2%2==0) {
+            pares = pares +1;}
+    if (numero3%2==0) {
+            pares = pares +1;}
+    if (numero4%2==0) {
+            pares = pares +1;}
+    document.getElementById("operacion1").textContent=("Numeros pares: ")+pares;
+    mayor = numero1;
+    if (numero2>mayor) {
+        mayor = numero2;}
+    if (numero3>mayor) {
+        mayor = numero3;}
+    if (numero4>mayor) {
+        mayor = numero4;
+    }
+    document.getElementById("operacion2").textContent=("Numero mayor: ")+mayor;
+    if (numero3%2==0) {
+        cuadrado = numero2^2;
+        document.getElementById("operacion3").textContent=("El tercero es par, el cuadrado del segundo número es: ")+ cuadrado;
+    }
+    if (numero1<numero4) {
+        media = (numero1+numero2+numero3+numero4)/4;
+        document.getElementById("operacion4").textContent=("El primero es menor que el cuarto, la media de los 4 números es: ")+media;
+    }
+    if (numero2>numero3&&numero3>=50&&numero3<=700) {
+        suma = numero1+numero2+numero3+numero4;
+        document.getElementById("operacion5").textContent=("El segundo es mayor que el tercero y el tercero está entre 50 y 700, La suma de los 4 números es:")+suma;
+    }
+
+}
+document.getElementById("BtnEjercicio20").addEventListener("click",ejercicio20);
+
+function ejercicio21(){
+    let inputFactorial = document.getElementById("number");
+    numero = Number(inputFactorial.value);
+
+    factorial=1;
+    for (let i = 1; i <= numero; i++) {
+        factorial=factorial*i;
+    }
+    document.getElementById("factorial").textContent=("El factorial es: ")+factorial;
+}
+document.getElementById("BtnEjercicio21").addEventListener("click",ejercicio21);
