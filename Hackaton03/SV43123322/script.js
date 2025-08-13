@@ -1184,4 +1184,4 @@ if (!isNaN (n) && n>0) {
     alert ("Debe ingresar un número entero positivo.")
 }
 
-}
+}gi
