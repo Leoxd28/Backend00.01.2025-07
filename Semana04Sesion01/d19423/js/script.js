@@ -1,6 +1,8 @@
 console.log("Inicio de la aplicacion");
 let arrCliente = [];
-document.getElementById("crearPedido").addEventListener("click", () => {
+document.getElementById("crearPedido").addEventListener("click", recibirPedido2)
+
+function recibirPedido() {
     console.log("Hizo Click");
     let nombre = prompt("Dime tu nombre");
     let objCliente = {
@@ -59,8 +61,7 @@ document.getElementById("crearPedido").addEventListener("click", () => {
     let html = JSON2HTMLList(arrCliente);
     console.log(html)
     document.getElementById("comandas").appendChild(html)
-})
-
+}
 
 function preguntarAzucar(objCliente) {
     let respuesta = prompt("Quieres Azucar 1:SI, 2:NO")
@@ -107,6 +108,126 @@ function preguntarLeche(objCliente) {
     }
 
     return objCliente;
+}
+
+function recibirPedido2() {
+    let cliente = prompt("Dime tu Nombre");
+    let objCliente = {
+        nombre: cliente
+    }
+    objCliente = addProducto(objCliente);
+    objCliente = addExtra("Leche",objCliente);
+    objCliente = addExtra("Azucar", objCliente);
+    objCliente = addExtra("Toppins", objCliente);
+
+
+    arrCliente.push(objCliente)
+    console.log(arrCliente)
+    let html = JSON2HTMLList(arrCliente);
+    console.log(html)
+    document.getElementById("comandas").innerHTML = "";
+    document.getElementById("comandas").appendChild(html) ;
+}
+
+let arrProductos = [
+    {
+        id: "cafe",
+        opciones: [
+            "Americano", "Expreso", "Latte", "Mocca"
+        ]
+    },
+    {
+        id: "postres",
+        opciones: [
+            "Torta de Chocolate", "Croissant", "Triple"
+        ]
+    }
+]
+
+let arrExtras = [
+    {
+        id: "Leche",
+        opciones: [
+            "Normal", "Leche de Almendras", "Leche de Soya"
+        ]
+    },
+    {
+        id: "Azucar",
+        opciones: [
+            "Azucar Morena", "Azucar Blanca", "Stevia"
+        ]
+    },
+    {
+        id: "Toppins",
+        opciones: [
+            "Crema", "Chocolate", "Vainilla"
+        ]
+    }
+]
+
+function addProducto(objCliente) {
+    let strListaProductos = `escoge tu producto \n`;
+    for (let index = 0; index < arrProductos.length; index++) {
+        const element = arrProductos[index].id;
+        strListaProductos += `${index} = ${element} \n`;
+    }
+    console.log(strListaProductos)
+    let opcion = prompt(strListaProductos);
+    console.log(opcion)
+    strListaProductos = "";
+    let tipoProducto;
+    let strProducto;
+    for (let index = 0; index < arrProductos.length; index++) {
+        if (index == parseInt(opcion)) {
+            strProducto = arrProductos[index].id;
+            tipoProducto = arrProductos[index].opciones;
+            break;
+        }
+
+    }
+    console.log(tipoProducto)
+    for (let index = 0; index < tipoProducto.length; index++) {
+        const element = tipoProducto[index];
+        strListaProductos += `${index} = ${element} \n`
+    }
+    console.log(strListaProductos)
+    opcion = prompt(strListaProductos);
+    console.log(opcion)
+    for (let index = 0; index < tipoProducto.length; index++) {
+        if (index == opcion) {
+            const element = tipoProducto[index];
+            objCliente[strProducto] = element;
+            break;
+        }
+
+    }
+    console.log(objCliente);
+    return objCliente;
+}
+
+function addExtra(extra, objCliente){
+    let respuesta = prompt(`Deseas agregar ${extra} SI=1 NO=2`)
+    if(respuesta == "1"){
+        let lista = findNameById(arrExtras, extra);
+        let strOpciones = `Escohe tu opcion \n`;
+        let indice = 0;
+        lista.forEach(element => {
+            indice ++;
+            strOpciones += `${indice} = ${element} \n`
+        });
+        opcion = prompt(strOpciones);
+        for (let index = 0; index < lista.length; index++) {
+           if(index == parseInt(opcion)-1){
+            objCliente[extra] = lista[index]
+           }
+            
+        }
+    }
+    return objCliente;
+}
+
+function findNameById(list, id){
+    return list.find((obj)=> obj.id === id).opciones;
 }
 //  function noFlecha(a, b){
 //     return a+b;
