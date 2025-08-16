@@ -716,9 +716,9 @@ if (interr==1) {
 while (m<400) {
 vlpi+=-i*(4/(j*n*l))
 i=i*-1
-j+++
-n+++
-l+++
+j+=2
+n+=2
+l+=2
 m++
 }
 alert("el vlor de pi es "+vlpi)
