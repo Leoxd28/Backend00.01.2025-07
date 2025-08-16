@@ -162,24 +162,6 @@
         </div>
     </div>
 
-    <!-- function calculator(num1, num2, operation) {
-    switch(operation) {
-        case "+":
-            return num1 + num2;
-        case "-":
-            return num1 - num2;
-        case "x":
-        case "*":
-            return num1 * num2;
-        case "/":
-            return num2 !== 0 ? num1 / num2 : "No se puede dividir entre 0";
-        case "%":
-            return num1 % num2;
-        default:
-            return "El parametro no es reconocido"; 
-    }
-} -->
-
     <!-- CARDS -->
     <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
         <p>
@@ -224,6 +206,245 @@
         </div>
     </div>
 
+    <!-- CARDS -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+        <p>
+            14.- Cree una función donde, dado el número n, devuelva la suma de todos los números cuadrados incluyendo n.
+        </p>
+
+        <!-- container code -->
+        <div class="py-5">
+            <pre><code>
+<span class="keyword">function</span> sumaDeCuadrados(numero) {
+    <span class="keyword">let</span> suma = 0
+    <span class="keyword">for</span> (let i = 1; i &lt;= numero; i++) {
+        suma += i * i;
+    }
+    <span class="keyword">return</span> suma;
+}
+  </code></pre>
+        </div>
+        <div class="flex flex-col gap-4 items-center justify-center">
+            <input type="text" id="inputEjercicio14"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="num1" required />
+
+            <button id="btnEjercicio14"
+                class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg ">Enviar</button>
+        </div>
+    </div>
+
+    <!-- CARDS -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+        <p>
+            15.- Cree una función para multiplicar todos los valores en una matriz por la cantidad de valores en la
+            matriz dada
+        </p>
+        <!-- container code -->
+        <div class="py-5">
+            <pre><code>
+<span class="keyword">function</span> multiplyByTotalElements(array) {
+    <span class="keyword">let</span> totalDeElementos = array.length;
+    <span class="keyword">const</span> result array.map(item => item * totalDeElementos);
+    <span class="keyword">return</span> result;
+}
+  </code></pre>
+        </div>
+        <div class="flex flex-col gap-4 items-center justify-center">
+            <input type="text" id="inputEjercicio15"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="1,2,3,4..." required />
+
+            <button id="btnEjercicio15"
+                class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg ">Enviar</button>
+        </div>
+    </div>
+
+    <!-- CARDS -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+        <p>
+            16.- Cree una función que tome un número como argumento y devuelva una matriz de números contando desde este
+            número a cero.
+        </p>
+        <!-- container code -->
+        <div class="py-5">
+            <!-- <pre><code>
+<span class="keyword">function</span> multiplyByTotalElements(array) {
+    <span class="keyword">let</span> totalDeElementos = array.length;
+    <span class="keyword">const</span> result array.map(item => item * totalDeElementos);
+    <span class="keyword">return</span> result;
+}
+  </code></pre> -->
+        </div>
+        <div class="flex flex-col gap-4 items-center justify-center">
+            <input type="text" id="inputEjercicio16"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="Ingrese un numero" required />
+
+            <button id="btnEjercicio16"
+                class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg ">Enviar</button>
+        </div>
+    </div>
+
+    <!-- CARDS -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+        <p>
+            17.- Cree una función que tome una matriz y devuelva la diferencia entre los números más grandes y más
+            pequeños.
+        </p>
+        <!-- container code -->
+        <div class="py-5">
+            <!-- <pre><code>
+<span class="keyword">function</span> multiplyByTotalElements(array) {
+    <span class="keyword">let</span> totalDeElementos = array.length;
+    <span class="keyword">const</span> result array.map(item => item * totalDeElementos);
+    <span class="keyword">return</span> result;
+}
+  </code></pre> -->
+        </div>
+        <div class="flex flex-col gap-4 items-center justify-center">
+            <input type="text" id="inputEjercicio17"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="Ingrese un numero" required />
+
+            <button id="btnEjercicio17"
+                class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg ">Enviar</button>
+        </div>
+    </div>
+
+    <!-- CARDS -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+        <p>
+            18.- Cree una función que filtre las cadenas de una matriz y devuelva una nueva matriz que solo contenga
+            enteros.
+        </p>
+        <!-- container code -->
+        <div class="py-5">
+            <!-- <pre><code>
+<span class="keyword">function</span> multiplyByTotalElements(array) {
+    <span class="keyword">let</span> totalDeElementos = array.length;
+    <span class="keyword">const</span> result array.map(item => item * totalDeElementos);
+    <span class="keyword">return</span> result;
+}
+  </code></pre> -->
+        </div>
+        <div class="flex flex-col gap-4 items-center justify-center">
+            <input type="text" id="inputEjercicio18"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="Ingrese un numero" required />
+
+            <button id="btnEjercicio18"
+                class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg ">Enviar</button>
+        </div>
+    </div>
+
+    <!-- CARDS -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+        <p>
+            19.- Cree una función que tome dos argumentos (elemento, tiempos). El primer argumento (elemento) es el
+            elemento que necesita repetirse, mientras que el segundo argumento (veces) es la cantidad de veces que se
+            debe repetir el elemento. Devuelve el resultado en una matriz.
+        </p>
+        <!-- container code -->
+        <div class="py-5">
+            <!-- <pre><code>
+<span class="keyword">function</span> multiplyByTotalElements(array) {
+    <span class="keyword">let</span> totalDeElementos = array.length;
+    <span class="keyword">const</span> result array.map(item => item * totalDeElementos);
+    <span class="keyword">return</span> result;
+}
+  </code></pre> -->
+        </div>
+        <div class="flex flex-col gap-4 items-center justify-center">
+            <input type="text" id="element"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="Ingrese el elemento" required />
+            <input type="text" id="qty"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="Ingrese la cantidad" required />
+
+            <button id="btnEjercicio19"
+                class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg ">Enviar</button>
+        </div>
+    </div>
+
+        <!-- CARDS -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+        <p>
+            20.- Cree una función que tome dos argumentos (elemento, tiempos). El primer argumento (elemento) es el
+            elemento que necesita repetirse, mientras que el segundo argumento (veces) es la cantidad de veces que se
+            debe repetir el elemento. Devuelve el resultado en una matriz.
+        </p>
+        <!-- container code -->
+        <div class="py-5">
+            <!-- <pre><code>
+<span class="keyword">function</span> multiplyByTotalElements(array) {
+    <span class="keyword">let</span> totalDeElementos = array.length;
+    <span class="keyword">const</span> result array.map(item => item * totalDeElementos);
+    <span class="keyword">return</span> result;
+}
+  </code></pre> -->
+        </div>
+        <div class="flex flex-col gap-4 items-center justify-center">
+            <input type="text" id="inputEjercicio20"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="Ingrese la palabra" required />
+
+
+            <button id="btnEjercicio20"
+                class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg ">Enviar</button>
+        </div>
+    </div>
+
+      <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+        <p>
+            21.- Te dan una cadena de palabras. Debe encontrar la palabra "Nemo" y devolver una cadena como esta: "¡Encontré a Nemo en [el orden de la palabra que encuentra nemo]!".
+        </p>
+        <!-- container code -->
+        <div class="py-5">
+            <!-- <pre><code>
+<span class="keyword">function</span> multiplyByTotalElements(array) {
+    <span class="keyword">let</span> totalDeElementos = array.length;
+    <span class="keyword">const</span> result array.map(item => item * totalDeElementos);
+    <span class="keyword">return</span> result;
+}
+  </code></pre> -->
+        </div>
+        <div class="flex flex-col gap-4 items-center justify-center">
+            <input type="text" id="inputEjercicio21"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="Ingrese la palabra" required />
+
+
+            <button id="btnEjercicio21"
+                class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg ">Enviar</button>
+        </div>
+    </div>
+
+          <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+        <p>
+            22.- Cree una función que capitalice la última letra de cada palabra.
+        </p>
+        <!-- container code -->
+        <div class="py-5">
+            <!-- <pre><code>
+<span class="keyword">function</span> multiplyByTotalElements(array) {
+    <span class="keyword">let</span> totalDeElementos = array.length;
+    <span class="keyword">const</span> result array.map(item => item * totalDeElementos);
+    <span class="keyword">return</span> result;
+}
+  </code></pre> -->
+        </div>
+        <div class="flex flex-col gap-4 items-center justify-center">
+            <input type="text" id="inputEjercicio22"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="Ingrese la palabra" required />
+
+
+            <button id="btnEjercicio22"
+                class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg ">Enviar</button>
+        </div>
+    </div>
 </body>
 <script src="/app.js"></script>
 
