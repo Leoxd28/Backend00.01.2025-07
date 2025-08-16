@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Hackaton03</title>
+    <style>
+        pre {
+            background-color: #1e1e1e;
+            /* Fondo tipo VS Code */
+            color: #dcdcdc;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 14px;
+            border: 1px solid #333;
+        }
+
+        code {
+            font-family: 'Courier New', monospace;
+            line-height: 1.5;
+        }
+
+        /* Colores simples para "simular" resaltado */
+        .keyword {
+            color: #569cd6;
+        }
+
+        .string {
+            color: #ce9178;
+        }
+
+        .number {
+            color: #b5cea8;
+        }
+
+        .function {
+            color: #dcdcaa;
+        }
+    </style>
+</head>
+
+<body class="w-full h-auto min-h-screen grid place-content-center bg-black p-5 gap-15">
+    <h1 class="uppercase text-6xl text-white font-bold text-center">
+        Hackaton 04
+    </h1>
+    <!-- CARDS -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+        <p>
+            1.- Crea una función que retorne la suma de dos números.
+        </p>
+        <!-- container code -->
+        <div class="py-5">
+            <pre><code>
+<span class="keyword">function</span> sumaDeDosNumeros (a, b) {
+  return <span class="string">a + b</span>;
+} 
+  </code></pre>
+        </div>
+        <div class="flex flex-col gap-4 items-center justify-center">
+            <input type="text" id="inputEjercicio10"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="Ingrese numero:" required />
+
+            <input type="text" id="inputEjercicio11"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="Ingrese numero:" required />
+
+            <button id="btnEjercicio1"
+                class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg ">Enviar</button>
+        </div>
+    </div>
+
+    <!-- MAYOR: &gt; -->
+    <!-- MENOR: &lt; -->
+
+    <!-- CARDS -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+        <p>
+            2.- Crea una función que retorne la potencia de un número dado, esta función deberá recibir la potencia y el
+            número a potenciar.
+        </p>
+        <!-- container code -->
+        <div class="py-5">
+            <pre><code>
+<span class="keyword">function</span> potenciaDeUnNumero(base, exponente) {
+  <span class="keyword">let</span> acumulado =  <span class="number">1</span>;
+  <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; exponente; i++ ) {
+        acumulado *= base;
+  }
+  <span class="keyword">return</span> <span class="string">acumulado</span>;
+} 
+  </code></pre>
+        </div>
+        <div class="flex flex-col gap-4 items-center justify-center">
+            <input type="text" id="base"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="Ingrese base:" required />
+
+            <input type="text" id="exponente"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="Ingrese exponente:" required />
+
+            <button id="btnEjercicio2"
+                class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg ">Enviar</button>
+        </div>
+    </div>
+
+    <!-- CARDS -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+        <p>
+            3.- Crea una función que tome números y devuelva la suma de sus cubos.
+            sumOfCubes(1, 5, 9) ➞ 855
+        </p>
+        <!-- container code -->
+        <div class="py-5">
+            <pre><code>
+<span class="keyword">function</span> sumaDeCubos(...nums) {
+  <span class="keyword">let</span> suma =  <span class="number">0</span>;
+  <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; nums.length; i++) {
+        suma += nums[i] ** <span class="number">3</span>;
+  }
+  <span class="keyword">return</span> <span class="string">suma</span>;
+} 
+  </code></pre>
+        </div>
+        <div class="flex flex-col gap-4 items-center justify-center">
+            <input type="text" id="inputEjercicio3"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="1,2,3,4,5,6...:" required />
+
+            <button id="btnEjercicio3"
+                class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg ">Enviar</button>
+        </div>
+    </div>
+
+    <!-- CARDS -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+        <p>
+            4.- Escribe una función que tome la base y la altura de un triángulo y devuelva su área. triArea(3, 2) ➞ 3
+        </p>
+        <!-- container code -->
+        <div class="py-5">
+            <pre><code>
+<span class="keyword">function</span> triArea(base, altura) {
+  <span class="keyword">return</span> <span class="string">(base * altura) / 2</span>;
+} 
+  </code></pre>
+        </div>
+        <div class="flex flex-col gap-4 items-center justify-center">
+            <input type="text" id="baseTri"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="base" required />
+            <input type="text" id="alturaTri"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="altura" required />
+
+            <button id="btnEjercicio4"
+                class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg ">Enviar</button>
+        </div>
+    </div>
+
+    <!-- function calculator(num1, num2, operation) {
+    switch(operation) {
+        case "+":
+            return num1 + num2;
+        case "-":
+            return num1 - num2;
+        case "x":
+        case "*":
+            return num1 * num2;
+        case "/":
+            return num2 !== 0 ? num1 / num2 : "No se puede dividir entre 0";
+        case "%":
+            return num1 % num2;
+        default:
+            return "El parametro no es reconocido"; 
+    }
+} -->
+
+    <!-- CARDS -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+        <p>
+            5.- Crea una función llamada calculator que recibe 3 parámetros, dos números y una operación matemática
+            (+,-,/,x,%), y si la operación no es correcta que envié un mensaje “El parámetro no es reconocido”
+            calculator(2,"+", 2) ➞ 4
+        </p>
+        <!-- container code -->
+        <div class="py-5">
+            <pre><code>
+<span class="keyword">function</span> calculator(num1,num2, operation) {
+    <span class="keyword">switch</span>(operation) {
+        <span class="keyword">case</span> "+":
+            <span class="keyword">return</span> num1 + num2;
+        <span class="keyword">case</span> "-":
+            <span class="keyword">return</span> num1 - num2;
+        <span class="keyword">case</span> "*":
+        <span class="keyword">case</span> "x":
+            <span class="keyword">return</span> num1 * num2;
+        <span class="keyword">case</span> "/":
+            <span class="keyword">return</span> num2 !== <span class="number">0</span> && num1 / num2;
+        <span class="keyword">case</span> "%":
+            <span class="keyword">return</span> num1 % num2;
+        <span class="keyword">default:</span>
+           <span class="keyword">return</span> <span class="string">"El parametro no es reconocido"</span>;
+} 
+  </code></pre>
+        </div>
+        <div class="flex flex-col gap-4 items-center justify-center">
+            <input type="text" id="num1"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="num1" required />
+            <input type="text" id="operation"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="+,-,/,x,%" required />
+            <input type="text" id="num2"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="num2" required />
+
+            <button id="btnEjercicio5"
+                class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg ">Enviar</button>
+        </div>
+    </div>
+
+</body>
+<script src="/app.js"></script>
+
+</html>

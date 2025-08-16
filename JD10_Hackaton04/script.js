@@ -1,22 +1,28 @@
 //-->------------------------------------------------------------------------------------
 //-->------------------------------------------------------------------------------------
 
-//1. Hacer un algoritmo en JavaScript que lea un número por el teclado y determinar si tiene tres dígitos.
-
+//1. Crea una función que retorne la suma de dos números.
 function ejercicioP1() {
+    let numero1 = Number(prompt("Ingrese primer número:"));
+    let numero2 = Number(prompt("Ingrese segundo número:"));
 
-    let numero = parseInt(prompt("Ingrese un número entero:"));
-    if (!isNaN(numero)) {
-        if (numero >= 100 && numero <= 999) {
-            alert("El número " + numero + " tiene tres dígitos.")
-        } else {
-            alert("El número " + numero + " no tiene tres dígitos.")
-        }
-    }
-    else {
-        alert("El valor ingresado no es un número válido.")
-    }
+        function sumaDeDosNumeros(a, b) {
+    return a + b
 }
+
+
+    if(isNaN(numero1) || isNaN(numero2)) {
+        alert('El numero ingresado no es válido.')
+    } else {
+        alert(`La suma de los numeros: ${numero1} + ${numero2} = ${sumaDeDosNumeros(numero1, numero2)}`)
+    }
+
+
+
+
+}
+
+
 
 
 //-->------------------------------------------------------------------------------------
