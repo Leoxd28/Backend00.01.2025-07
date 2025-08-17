@@ -643,12 +643,40 @@ function ejercicio20() {
 }
 
 
+//-->------------------------------------------------------------------------------------
+//-->------------------------------------------------------------------------------------
+// 21. Te dan una cadena de palabras. Debe encontrar la palabra "Nemo" y devolver una cadena como 
+// esta: "¡Encontré a Nemo en [el orden de la palabra que encuentra nemo]!".
+//findNemo("I am finding Nemo !") ➞ "I found Nemo at 4!"
+
+
+
+function ejercicio21() { 
+let frase =  prompt ("Ingrese una cadena de palabras:");
+const palabras = frase.split(" ");
+const indice =  palabras.findIndex(palabra => palabra.replace(/[^a-zA-Z]/g, "") === "Nemo");
+if (indice !== -1) {
+    alert (`Enconte "Nemo" en el orden ${indice + 1}!`);
+    
+} else {
+    alert ("Nemo no fue encontrado.");
+
+}
+
+}
+
+
+
 
 
 //-->------------------------------------------------------------------------------------
 //-->------------------------------------------------------------------------------------
-// 1.
+// 22. Cree una función que capitalice la última letra de cada palabra.
+// capLast("hello") ➞ "hellO"
 
-
-//  function ejercicio00() { }
+function ejercicio22() { 
+    let frase = prompt ("Ingrese una cadena de palabras:");
+    const capLast = str => str.split (' ').map(palabra => palabra.length > 0 ? palabra.slice(0,-1) + palabra.slice(-1).toUpperCase() : "").join(' ');
+    alert(capLast(frase));
+}
 
