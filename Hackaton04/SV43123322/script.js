@@ -1,5 +1,4 @@
-//-->------------------------------------------------------------------------------------
-//-->------------------------------------------------------------------------------------
+
 
 //1. Crea una función que retorne la suma de dos números.
 function ejercicioP1() {
@@ -76,11 +75,6 @@ function ejercicioP3() {
 }
 
 
-
-
-
-
-
 //-->------------------------------------------------------------------------------------
 //-->------------------------------------------------------------------------------------
 
@@ -154,6 +148,8 @@ function ejercicioP5() {
 //-- RETO 2: ESCRIBE LOS ALGORITMOS EN JAVASCRIPT
 //-->------------------------------------------------------------------------------------
 //-->------------------------------------------------------------------------------------
+
+
 // 1. Utilizando función arrow, crear una función que reciba como parámetros
 //  un nombre, 
 // apellido y edad y los retorne en un string concatenado 
@@ -178,9 +174,6 @@ function ejercicio01() {
 //sumOfCubes(1, 5, 9) ➞ 855
 // Since 1^3 + 5^3 + 9^3 = 1 + 125 + 729 = 855
 
-
-
-
 function ejercicio02() {
 
     let numerosEnCaracteres = prompt("Ingrese números con la estructura (a, b, c):");
@@ -204,14 +197,12 @@ function ejercicio02() {
     }
 }
 
+
 //-->------------------------------------------------------------------------------------
 //-->------------------------------------------------------------------------------------
 // 3. Crear una funcion que me retorne el tipo de valor
 //  entregado, 
 // invocar la función para los distintos tipos de js 
-
-
-
 
 function ejercicio03() {
 
@@ -388,9 +379,9 @@ function ejercicio10() {
 //11. Cree la función que toma una matriz con objetos y devuelve la suma de los presupuestos de las personas.
 
 /* getBudgets([
-  { name: "John", age: 21, budget: 23000 },
-  { name: "Steve",  age: 32, budget: 40000 },
-  { name: "Martin",  age: 16, budget: 2700 }
+{ name: "John", age: 21, budget: 23000 },
+{ name: "Steve",  age: 32, budget: 40000 },
+{ name: "Martin",  age: 16, budget: 2700 }
 ]) ➞ 65700  */
 
 function ejercicio11() {
@@ -411,9 +402,9 @@ function ejercicio11() {
 //-->------------------------------------------------------------------------------------
 // 12. Cree una función que tome una matriz de estudiantes y devuelva una matriz de nombres de estudiantes.
 /* getStudentNames([
-  { name: "Steve" },
-  { name: "Mike" },
-  { name: "John" }
+{ name: "Steve" },
+{ name: "Mike" },
+{ name: "John" }
 ]) ➞ ["Becky", "John", "Steve"]  */
 
 
@@ -438,9 +429,9 @@ function ejercicio12() {
 //-->------------------------------------------------------------------------------------
 // 13. Escriba una función que convierta un objeto en una matriz de claves y valores.
 /* objectToArray({
-  likes: 2,
-  dislikes: 3,
-  followers: 10
+likes: 2,
+dislikes: 3,
+followers: 10
 }) ➞ [["likes", 2], ["dislikes", 3], ["followers", 10]]   */
 
 
@@ -467,8 +458,6 @@ function ejercicio13() {
 // 1 + 4 + 9 =
 // 14
 
-
-
 function ejercicio14() {
     let n = Number(prompt("Ingrese el número n:"));
 
@@ -494,8 +483,6 @@ function ejercicio14() {
 // 15. Cree una función para multiplicar todos los valores en una matriz por la cantidad de valores en la matriz dada
 //  multiplyByLength([2, 3, 1, 0]) ➞ [8, 12, 4, 0]
 
-
-
 function ejercicio15() {
     let entrada = prompt("Ingrese los números separados por coma (ejemplo: 2,3,1,0):");
     const arrNum = entrada.split(',').map(Number);
@@ -515,8 +502,6 @@ function ejercicio15() {
 //-->------------------------------------------------------------------------------------
 //16. Cree una función que tome un número como argumento y devuelva una matriz de números contando desde este número a cero.
 // countdown(5) ➞ [5, 4, 3, 2, 1, 0]
-
-
 
 function ejercicio16() {
     let n = Number(prompt("Ingrese el número inicial para el conteo regresivo: "));
@@ -538,27 +523,6 @@ function ejercicio16() {
 }
 
 
-function ejercicio16() {
-    let n = Number(prompt("Ingrese el número inicial para el conteo regresivo:"));
-
-    if (isNaN(n) || n < 0) {
-        alert("El valor ingresado no es válido.");
-        return;
-    }
-
-    const countdown = num => {
-        let arr = [];
-        for (let i = num; i >= 0; i--) {
-            arr.push(i);
-        }
-        return arr;
-    };
-
-    alert(`El conteo regresivo es: ${countdown(n)}`);
-}
-
-
-
 //-->------------------------------------------------------------------------------------
 //-->------------------------------------------------------------------------------------
 // 17.	Cree una función que tome una matriz 
@@ -566,8 +530,6 @@ function ejercicio16() {
 //  y más pequeños.
 // diffMaxMin([10, 4, 1, 4, -10, -50, 32, 21]) ➞ 82
 // Smallest number is -50, biggest is 32.
-
-
 
 function ejercicio17() {
     let entrada = prompt("Ingrese los números separados por coma (ejemplo: 10,4,1,4,-10,-50,32,21):");
@@ -582,12 +544,11 @@ function ejercicio17() {
 }
 
 
+
 //-->------------------------------------------------------------------------------------
 //-->------------------------------------------------------------------------------------
 // 18. Cree una función que filtre las cadenas de una matriz y devuelva una nueva matriz que solo contenga enteros.
 //  filterList([1, 2, 3, "x", "y", 10]) ➞ [1, 2, 3, 10]
-
-
 
 function ejercicio18() {
 
@@ -606,8 +567,6 @@ function ejercicio18() {
 //-->------------------------------------------------------------------------------------
 // 19)	Cree una función que tome dos argumentos (elemento, tiempos). El primer argumento (elemento) es el elemento que necesita repetirse, mientras que el segundo argumento (veces) es la cantidad de veces que se debe repetir el elemento. Devuelve el resultado en una matriz.
 //  repeat(13, 5) ➞ [13, 13, 13, 13, 13]
-
-
 
 function ejercicio19() {
     let elemento = prompt("Ingrese el elemento a repetir:");
@@ -629,8 +588,6 @@ function ejercicio19() {
 // en una cadena con una vocal especificada.
 //  "apples and bananas".vreplace("u") ➞ "upplus und bununus"
 
-
-
 String.prototype.vreplace = function(vocal) {
     return this.replace(/[aeiou]/gi, vocal);
 };
@@ -648,7 +605,6 @@ function ejercicio20() {
 // 21. Te dan una cadena de palabras. Debe encontrar la palabra "Nemo" y devolver una cadena como 
 // esta: "¡Encontré a Nemo en [el orden de la palabra que encuentra nemo]!".
 //findNemo("I am finding Nemo !") ➞ "I found Nemo at 4!"
-
 
 
 function ejercicio21() { 
