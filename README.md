@@ -1,6 +1,8 @@
 # Backend00.01.2025-07
 Repositorio de Backend00.01.2025-07
 
+=======
+
 
 ## La primera vez
 
@@ -12,8 +14,10 @@ git fetch fuentes
 
 git merge fuentes/main main
 
+--
+## Docente
 
+Roberto Pineda
 
+## Alumnos
 
-
-Leonardo
