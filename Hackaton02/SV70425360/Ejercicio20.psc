@@ -36,7 +36,8 @@ Proceso Ejercicio20
 	
 	si n3 MOD 2 = 0 entonces
 		cuadrado <- n2^2
-		Escribir "El tercero es par, el cuadrado del segundo número es: ", cuadrado
+		Escribir "El tercero es par, el cuadrado del segundo
+		 número es: ", cuadrado
 	FinSi
 
 	
