@@ -1,20 +1,61 @@
-function ejercicio01(){
-    //1. Hacer un algoritmo en JavaScript que lea un número por el teclado y determinar si tiene tres dígitos.
-    console.log("Mensajes que salen en la consola");
-    // alert("Mensajes que salen como alertas");
-    let numero = parseInt( prompt("Escribe un numero"));
-    if(!isNaN(numero)){
-        if(numero>99 && numero<1000){
-            alert("Si tiene 3 Digitos")
-        }else{
-            alert("No tiene 3 digitos")
-        }
-    }
-    else{
-        alert("El valor ingresado no es un numero")
-    }
+function mensajeAlert(message){
+    const modal = document.getElementById("customAlert");
+    const alertMessage = document.getElementById("alertMessage");
+    alertMessage.textContent = message;
+    modal.style.display = "flex";
+
+    document.getElementById("closeAlert").addEventListener("click", function(){
+        modal.style.display = "none";
+    });
 }
+function ejercicio01(){
+
+    let inputNumero = document.getElementById("numero");
+    let numero =inputNumero.value;
+
+        if(numero===""){
+            mensajeAlert("Inserte un numero");
+            inputNumero.focus();
+            return;
+        }
+    
+        if(!isNaN(numero)){
+            if(numero>99 && numero<1000){
+            mensajeAlert("Si tiene 3 Digitos")
+            }else{
+            mensajeAlert("No tiene 3 digitos")
+            }
+        }
+        else{
+        mensajeAlert("El valor ingresado no es un numero")
+        }
+    inputNumero.value="";
+    inputNumero.focus();
+    }
+   
+document.getElementById("BtnEjercicio01").addEventListener("click", ejercicio01);
+
 
 function ejercicio02(){
-    //2. Hacer un algoritmo en JavaScript que lea un número entero por el teclado y determinar si es negativo.
+    let inputNumero = document.getElementById("numero2");
+    let numero = inputNumero.value;
+
+    if(numero===""){
+        mensajeAlert("Inserte un número")
+            inputNumero.focus();
+            return;
+        
+    }
+
+    if(!isNaN(numero)){
+        if (numero<0) {
+            mensajeAlert("Es un número negativo")
+        }
+        else{
+            mensajeAlert("Es un número positivo")
+        }
+    }
+    inputNumero.value="";
+    inputNumero.focus();   
 }
+document.getElementById("BtnEjercicio02").addEventListener("click", ejercicio02);
