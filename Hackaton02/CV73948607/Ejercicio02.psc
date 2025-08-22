@@ -1,5 +1,5 @@
-Algoritmo sin_titulo
-//Hacer un algoritmo en Pseint que lea un número entero por el teclado y determinar si es negativo
+Algoritmo Ejercicio02
+//Hacer un algoritmo en Pseint que lea un nï¿½mero entero por el teclado y determinar si es negativo
 Escribir "Ingerese su numero"
 Leer num1
 SI num1>0 Entonces

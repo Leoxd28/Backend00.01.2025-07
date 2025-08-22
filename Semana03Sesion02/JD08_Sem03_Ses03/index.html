@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Hackaton03</title>
+    <style>
+        pre {
+            background-color: #1e1e1e;
+            /* Fondo tipo VS Code */
+            color: #dcdcdc;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 14px;
+            border: 1px solid #333;
+        }
+
+        code {
+            font-family: 'Courier New', monospace;
+            line-height: 1.5;
+        }
+
+        /* Colores simples para "simular" resaltado */
+        .keyword {
+            color: #569cd6;
+        }
+
+        .string {
+            color: #ce9178;
+        }
+
+        .number {
+            color: #b5cea8;
+        }
+
+        .function {
+            color: #dcdcaa;
+        }
+    </style>
+</head>
+
+<body class="w-full h-auto min-h-screen grid place-content-center bg-black p-5 gap-15">
+    <h1 class="uppercase text-6xl text-white font-bold text-center">
+        Hackaton 03
+    </h1>
+    <!-- CARDS -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+        <p>
+            1.- Hacer un algoritmo en JavaScript que lea un número por el teclado y determinar si tiene tres dígitos.
+        </p>
+        <!-- container code -->
+        <div class="py-5">
+            <pre><code>
+<span class="keyword">let</span> numero = Number(<span class="function"></span><span class="">inputEjercicio1.value</span><span class="number"></span>);
+
+<span class="keyword">if</span> (isNaN(numero)) {
+  console.log(<span class="string">"Debe ingresar un número válido."</span>);
+} <span class="keyword">else</span> {
+  <span class="keyword">let</span> valorAbsoluto = Math.abs(numero);
+  <span class="keyword">if</span> (valorAbsoluto &gt;= <span class="number">100</span> &amp;&amp; valorAbsoluto &lt;= <span class="number">999</span>) {
+    console.log(<span class="string">"El número tiene tres dígitos."</span>);
+  } <span class="keyword">else</span> {
+    console.log(<span class="string">"El número NO tiene tres dígitos."</span>);
+  }
+}
+  </code></pre>
+        </div>
+        <div class="flex flex-row gap-10 items-center justify-center">
+            <input type="text" id="inputEjercicio1"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="Ingrese numero:" required />
+
+            <button id="btnEjercicio1"
+                class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg ">Enviar</button>
+        </div>
+    </div>
+
+<!-- CARDS -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+        <p>
+            2.- Hacer un algoritmo en JavaScript que lea un número entero por el teclado y determinar si es negativo.
+        </p>
+        <!-- container code -->
+        <div class="py-5">
+<pre><code>
+<span class="keyword">let</span> numero = Number(<span class="function"></span><span class="">inputEjercicio1.value</span><span class="number"></span>);
+
+<span class="keyword">if</span> (isNaN(numero)) {
+  console.log(<span class="string">"Debe ingresar un número válido."</span>);
+} <span class="keyword">else</span> {
+  <span class="keyword">if</span> (numero &gt; <span class="number">0</span>) {
+    console.log(<span class="string">"El numero No es negetivo."</span>);
+  } <span class="keyword">else</span> {
+    console.log(<span class="string">"El numero es negetivo."</span>);
+  }
+}
+  </code></pre>
+        </div>
+        <div class="flex flex-row gap-10 items-center justify-center">
+            <input type="text" id="inputEjercicio2"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="Ingrese numero entero:" required />
+
+            <button id="btnEjercicio2"
+                class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg ">Enviar</button>
+        </div>
+    </div>
+  
+    <!-- CARDS -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+        <p>
+            2.- Hacer un algoritmo en JavaScript que lea un número entero por el teclado y determinar si es negativo.
+        </p>
+        <!-- container code -->
+        <div class="py-5">
+<pre><code>
+<span class="keyword">let</span> numero = Number(<span class="function"></span><span class="">inputEjercicio1.value</span><span class="number"></span>);
+
+<span class="keyword">if</span> (isNaN(numero)) {
+  console.log(<span class="string">"Debe ingresar un número válido."</span>);
+} <span class="keyword">else</span> {
+  <span class="keyword">if</span> (numero &gt; <span class="number">0</span>) {
+    console.log(<span class="string">"El numero No es negetivo."</span>);
+  } <span class="keyword">else</span> {
+    console.log(<span class="string">"El numero es negetivo."</span>);
+  }
+}
+  </code></pre>
+        </div>
+        <div class="flex flex-row gap-10 items-center justify-center">
+            <input type="text" id="inputEjercicio2"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="Ingrese numero entero:" required />
+
+            <button id="btnEjercicio2"
+                class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg ">Enviar</button>
+        </div>
+    </div>
+    
+</body>
+<script src="/app.js"></script>
+
+</html>

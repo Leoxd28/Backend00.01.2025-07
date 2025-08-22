@@ -1,17 +1,12 @@
 Algoritmo ejercicio21
-//  Hacer un algoritmo en Pseint para calcular la suma de los números impares menores o iguales a n.
+// Hacer un algoritmo en Pseint para calcular la suma de los n primeros nï¿½meros.
 	Escribir "Ingrese numero"	
 	Leer num
+	i=1
 	tota=0
-	i=0
-	
-	Repetir
-		im=2*i+1
-		si im<= num Entonces
-			tota=tota+im
-		FinSi
+	Repetir  
+		tota=tota+i		
 		i=i+1
-	Hasta Que im>=num 
-	Escribir tota
-	
+	Hasta Que  i>num
+	Escribir "las sunma hasta el numero ingresado es " tota
 FinAlgoritmo
