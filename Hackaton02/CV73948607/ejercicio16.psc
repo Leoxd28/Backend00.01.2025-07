@@ -1,5 +1,5 @@
-Algoritmo ejercicio11
-	//Hacer un algoritmo en Pseint que lea un número y según ese número, indique el día que corresponde.
+67Algoritmo ejercicio11
+	//Hacer un algoritmo en Pseint que lea un nï¿½mero y segï¿½n ese nï¿½mero, indique el dï¿½a que corresponde.
 	Escribir "Escribe un numero "
 	Leer num
 	dia = num MOD 7

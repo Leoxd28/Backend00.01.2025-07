@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Hackaton03</title>
+    <style>
+        pre {
+            background-color: #1e1e1e;
+            /* Fondo tipo VS Code */
+            color: #dcdcdc;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 14px;
+            border: 1px solid #333;
+        }
+
+        code {
+            font-family: 'Courier New', monospace;
+            line-height: 1.5;
+        }
+
+        /* Colores simples para "simular" resaltado */
+        .keyword {
+            color: #569cd6;
+        }
+
+        .string {
+            color: #ce9178;
+        }
+
+        .number {
+            color: #b5cea8;
+        }
+
+        .function {
+            color: #dcdcaa;
+        }
+    </style>
+</head>
+
+<body class="w-full h-auto min-h-screen grid place-content-center bg-black p-5 gap-15">
+    <h1 class="uppercase text-6xl text-white font-bold text-center">
+        Hackaton 03
+    </h1>
+    <!-- CARDS 1 -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+        <p>
+            1.- Hacer un algoritmo en JavaScript que lea un número por el teclado y determinar si tiene tres dígitos.
+        </p>
+        <!-- container code -->
+        <div class="py-5">
+            <pre><code>
+<span class="keyword">let</span> numero = Number(<span class="function"></span><span class="">inputEjercicio1.value</span><span class="number"></span>);
+
+<span class="keyword">if</span> (isNaN(numero)) {
+  console.log(<span class="string">"Debe ingresar un número válido."</span>);
+} <span class="keyword">else</span> {
+  <span class="keyword">let</span> valorAbsoluto = Math.abs(numero);
+  <span class="keyword">if</span> (valorAbsoluto &gt;= <span class="number">100</span> &amp;&amp; valorAbsoluto &lt;= <span class="number">999</span>) {
+    console.log(<span class="string">"El número tiene tres dígitos."</span>);
+  } <span class="keyword">else</span> {
+    console.log(<span class="string">"El número NO tiene tres dígitos."</span>);
+  }
+}
+  </code></pre>
+        </div>
+        <div class="flex flex-row gap-10 items-center justify-center">
+            <input type="text" id="inputEjercicio1"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="Ingrese numero:" required />
+
+            <button id="btnEjercicio1"
+                class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg ">Enviar</button>
+        </div>
+    </div>
+
+    <!-- CARDS 2 -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+        <p>
+            2.- Hacer un algoritmo en JavaScript que lea un número entero por el teclado y determinar si es negativo.
+        </p>
+        <!-- container code -->
+        <div class="py-5">
+            <pre><code>
+<span class="keyword">let</span> numero = Number(<span class="function"></span><span class="">inputEjercicio2.value</span><span class="number"></span>);
+
+<span class="keyword">if</span> (isNaN(numero)) {
+  console.log(<span class="string">"Debe ingresar un número válido."</span>);
+} <span class="keyword">else</span> {
+  <span class="keyword">if</span> (numero &gt; <span class="number">0</span>) {
+    console.log(<span class="string">"El numero No es negetivo."</span>);
+  } <span class="keyword">else</span> {
+    console.log(<span class="string">"El numero es negetivo."</span>);
+  }
+}
+  </code></pre>
+        </div>
+        <div class="flex flex-row gap-10 items-center justify-center">
+            <input type="text" id="inputEjercicio2"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="Ingrese numero entero:" required />
+
+            <button id="btnEjercicio2"
+                class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg ">Enviar</button>
+        </div>
+    </div>
+
+    <!-- CARDS 3 -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+        <p>
+            3.- Hacer un algoritmo en JavaScript que lea un número y determinar si termina en 4.
+        </p>
+        <!-- container code -->
+        <div class="py-5">
+            <pre><code>
+<span class="keyword">let</span> numero = Number(<span class="function"></span><span class="">inputEjercicio3.value</span><span class="number"></span>);
+
+<span class="keyword">if</span> (isNaN(numero)) {
+  console.log(<span class="string">"Debe ingresar un número válido."</span>);
+} <span class="keyword">else</span> {
+  <span class="keyword">if</span> (Math.abs(numero) % <span class="number">10</span> === <span class="number">4</span>) {
+    console.log(<span class="string">"El número termina en 4."</span>);
+  } <span class="keyword">else</span> {
+    console.log(<span class="string">"El número NO termina en 4."</span>);
+  }
+}
+  </code></pre>
+        </div>
+        <div class="flex flex-row gap-10 items-center justify-center">
+            <input type="text" id="inputEjercicio3"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="Ingrese numero entero:" required />
+
+            <button id="btnEjercicio3"
+                class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg ">Enviar</button>
+        </div>
+    </div>
+    <!-- CARDS 4 -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+        <p>
+            4.- Hacer un algoritmo en JavaScript que lea tres números enteros y los muestre de menor a mayor.
+        </p>
+        <!-- container code -->
+        <div class="py-5">
+            <pre><code>
+<span class="keyword">let</span> num1 = Number(<span class="function"></span><span class="">inputEjercicio4_1.value</span><span class="number"></span>);
+<span class="keyword">let</span> num2 = Number(<span class="function"></span><span class="">inputEjercicio4_2.value</span><span class="number"></span>);
+<span class="keyword">let</span> num3 = Number(<span class="function"></span><span class="">inputEjercicio4_3.value</span><span class="number"></span>);
+<span class="keyword">if</span> (isNaN(num1) || isNaN(num2) || isNaN(num3)) {
+  <span class="function">mostrarResultado4</span>(<span class="string">"Debe ingresar números válidos."</span>);
+} <span class="keyword">else</span> {
+  <span class="keyword">let</span> numeros = [num1, num2, num3];
+  numeros.sort((a, b) => a - b);
+  <span class="function">mostrarResultado4</span>(<span class="string">"Números ordenados de menor a mayor: "</span> + numeros.join(<span class="string">", "</span>));
+}
+            </code></pre>
+        </div>
+        <div class="flex flex-row gap-10 items-center justify-center">
+            <input type="text" id="inputEjercicio4_1"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="Ingrese primer numero:" required />
+            <input type="text" id="inputEjercicio4_2"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="Ingrese segundo numero:" required />
+            <input type="text" id="inputEjercicio4_3"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="Ingrese tercer numero:" required />
+
+            <button id="btnEjercicio4"
+                class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg ">Enviar</button>
+        </div>
+        <div id="resultadoEjercicio4" class="mt-4 text-black"></div>
+    </div>
+    <!-- CARDS 5 -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+        <p class="max-w-xl mx-auto">
+            5.- Hacer un algoritmo en JavaScript para una tienda de zapatos que tiene una promoción de descuento para vender al mayor, 
+            esta dependerá del número de zapatos que se compren. Si son más de diez, se les dará un 10% de descuento sobre el total de la compra; 
+            si el número de zapatos es mayor de veinte pero menor de treinta, se le otorga un 20% de descuento; y si son más treinta zapatos se 
+            otorgará un 40% de descuento. El precio de cada zapato es de $80.
+        </p>
+        <!-- container code -->
+        <div class="py-5">
+            <pre><code>
+<span class="keyword">let</span> cantidadZapatos = Number(<span class="function"></span><span class="">inputEjercicio5.value</span><span class="number"></span>);
+<span class="keyword">if</span> (isNaN(cantidadZapatos) || cantidadZapatos &lt; <span class="number">0</span>) {
+  <span class="function">mostrarResultado5</span>(<span class="string">"Debe ingresar una cantidad válida."</span>);
+} <span class="keyword">else</span> {
+    <span class="keyword">let</span> precioPorZapato = <span class="number">80</span>;
+    <span class="keyword">let</span> totalCompra = cantidadZapatos * precioPorZapato;
+    <span class="keyword">let</span> descuento = <span class="number">0</span>;
+    <span class="keyword">if</span> (cantidadZapatos &gt; <span class="number">30</span>) {
+        descuento = <span class="number">0.40</span>;
+    } <span class="keyword">else</span> <span class="keyword">if</span> (cantidadZapatos &gt; <span class="number">20</span>) {
+        descuento = <span class="number">0.20</span>;
+    } <span class="keyword">else</span> <span class="keyword">if</span> (cantidadZapatos &gt; <span class="number">10</span>) {
+        descuento = <span class="number">0.10</span>;
+    }
+    <span class="keyword">let</span> totalConDescuento = totalCompra * ( <span class="number">1</span> - descuento);
+    <span class="function">mostrarResultado5</span>(<span class="string">"Total a pagar: $"</span> + totalConDescuento.toFixed(<span class="number">2</span>));
+}
+            </code></pre>
+        </div>
+        <div class="flex flex-row gap-10 items-center justify-center">
+            <input type="text" id="inputEjercicio5"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="Ingrese cantidad de zapatos:" required />
+
+            <button id="btnEjercicio5"
+                class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg ">Enviar</button>
+        </div>
+        <div id="resultadoEjercicio5" class="mt-4 text-black"></div>
+    </div>
+    <!-- CARDS 6 -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+        <p class="max-w-xl mx-auto">
+            6.- Hacer un algoritmo en JavaScript para ayudar a un trabajador a saber cuál será su sueldo semanal, 
+            se sabe que si trabaja 40 horas o menos, se le pagará $20 por hora, pero si trabaja más de 40 horas 
+            entonces las horas extras se le pagarán a $25 por hora.
+        </p>
+        <!-- container code -->
+        <div class="py-5">
+            <pre><code>
+<span class="keyword">let</span> horasTrabajadas = Number(<span class="function"></span><span class="">inputEjercicio6.value</span><span class="number"></span>);
+<span class="keyword">if</span> (isNaN(horasTrabajadas) || horasTrabajadas &lt; <span class="number">0</span>) {
+  console.log(<span class="string">"Debe ingresar una cantidad válida."</span>);
+} <span class="keyword">else</span> {
+  <span class="keyword">let</span> sueldoSemanal = <span class="number">0</span>;
+  <span class="keyword">if</span> (horasTrabajadas &lt;= <span class="number">40</span>) {
+    sueldoSemanal = horasTrabajadas * <span class="number">20</span>;
+  } <span class="keyword">else</span> {
+    <span class="keyword">let</span> horasExtras = horasTrabajadas - <span class="number">40</span>;
+    sueldoSemanal = (<span class="number">40</span> * <span class="number">20</span>) + (horasExtras * <span class="number">25</span>);
+  }
+    console.log(<span class="string">"Sueldo semanal: $"</span> + sueldoSemanal.toFixed(<span class="number">2</span>));
+}
+            </code></pre>
+        </div>
+        <div class="flex flex-row gap-10 items-center justify-center">
+            <input type="text" id="inputEjercicio6"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="Ingrese horas trabajadas:" required />
+
+            <button id="btnEjercicio6"
+                class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg ">Enviar</button>
+        </div>
+        <div id="resultadoEjercicio6" class="mt-4 text-black"></div>
+    </div>
+    <!-- CARDS 7 -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+        <p class="max-w-xl mx-auto">
+            7.- Hacer un algoritmo en JavaScript para una tienda de helado que da un descuento por compra 
+            a sus clientes con membresía dependiendo de su tipo, sólo existen tres tipos de membresía, 
+            tipo A, tipo B y tipo C. Los descuentos son los siguientes:
+            Tipo A 10% de descuento Tipo B 15% de descuento Tipo C 20% de descuento
+        </p>
+        <!-- container code -->
+        <div class="py-5">
+            <pre><code>
+<span class="keyword">let</span> tipoMembresia = <span class="function"></span><span class="">inputEjercicio7.value.trim().toUpperCase()</span><span class="number"></span>;
+<span class="keyword">let</span> totalCompra = Number(<span class="function"></span><span class="">inputEjercicio7_2.value</span><span class="number"></span>);
+<span class="keyword">if</span> (isNaN(totalCompra) || totalCompra &lt; <span class="number">0</span>) {
+  <span class="function">mostrarResultado7</span>(<span class="string">"Debe ingresar un total de compra válido."</span>);
+} <span class="keyword">else</span> {
+    <span class="keyword">let</span> descuento = <span class="number">0</span>;
+    <span class="keyword">if</span> (tipoMembresia === <span class="string">"A"</span>) {
+        descuento = <span class="number">0.10</span>;
+    } <span class="keyword">else</span> <span class="keyword">if</span> (tipoMembresia === <span class="string">"B"</span>) {
+        descuento = <span class="number">0.15</span>;
+    } <span class="keyword">else</span> <span class="keyword">if</span> (tipoMembresia === <span class="string">"C"</span>) {
+        descuento = <span class="number">0.20</span>;
+    } <span class="keyword">else</span> {
+        <span class="function">mostrarResultado7</span>(<span class="string">"Tipo de membresía no válido. Use A, B o C."</span>);
+        descuento = <span class="number">0</span>;
+    }
+    <span class="keyword">let</span> totalConDescuento = totalCompra * ( <span class="number">1</span> - descuento);
+    <span class="function">mostrarResultado7</span>(<span class="string">"Total a pagar después del descuento: $"</span> + totalConDescuento.toFixed(<span class="number">2</span>));
+}
+            </code></pre>
+        </div>
+        <div class="flex flex-row gap-10 items-center justify-center">
+            <input type="text" id="inputEjercicio7"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="Ingrese tipo de membresia (A, B, C):" required />
+            <input type="text" id="inputEjercicio7_2"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="Ingrese total de compra:" required />
+
+            <button id="btnEjercicio7"
+                class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg ">Enviar</button>
+        </div>
+        <div id="resultadoEjercicio7" class="mt-4 text-black"></div>
+    </div>
+    <!-- CARDS 8 -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+        <p class="max-w-xl mx-auto">
+            8.- Hacer un algoritmo en JavaScript para calcular el promedio de tres notas 
+            y determinar si el estudiante aprobó o no.
+        </p>
+        <!-- container code -->
+        <div class="py-5">
+            <pre><code>
+<span class="keyword">let</span> nota1 = Number(<span class="function"></span><span class="">inputEjercicio8_1.value</span><span class="number"></span>);
+<span class="keyword">let</span> nota2 = Number(<span class="function"></span><span class="">inputEjercicio8_2.value</span><span class="number"></span>);
+<span class="keyword">let</span> nota3 = Number(<span class="function"></span><span class="">inputEjercicio8_3.value</span><span class="number"></span>);
+<span class="keyword">if</span> (isNaN(nota1) || isNaN(nota2) || isNaN(nota3) || nota1 &lt; <span class="number">0</span> || nota1 &gt; <span class="number">100</span> || nota2 &lt; <span class="number">0</span> || nota2 &gt; <span class="number">100</span> || nota3 &lt; <span class="number">0</span> || nota3 &gt; <span class="number">100</span>) {
+  <span class="function">mostrarResultado8</span>(<span class="string">"Debe ingresar notas válidas entre 0 y 100."</span>);
+} <span class="keyword">else</span> {
+    <span class="keyword">let</span> promedio = (nota1 + nota2 + nota3) / <span class="number">3</span>;
+    <span class="keyword">if</span> (promedio &gt;= <span class="number">60</span>) {
+        <span class="function">mostrarResultado8</span>(<span class="string">"Aprobado con promedio: "</span> + promedio.toFixed(<span class="number">2</span>));
+    } <span class="keyword">else</span> {
+        <span class="function">mostrarResultado8</span>(<span class="string">"Reprobado con promedio: "</span> + promedio.toFixed(<span class="number">2</span>));
+    }
+}
+            </code></pre>
+        </div>
+        <div class="flex flex-row gap-10 items-center justify-center">
+            <input type="text" id="inputEjercicio8_1"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="Ingrese primera nota (0-100):" required />
+            <input type="text" id="inputEjercicio8_2"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="Ingrese segunda nota (0-100):" required />
+            <input type="text" id="inputEjercicio8_3"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="Ingrese tercera nota (0-100):" required />
+
+            <button id="btnEjercicio8"
+                class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg ">Enviar</button>
+        </div>
+        <div id="resultadoEjercicio8" class="mt-4 text-black"></div>
+    </div>
+    <!-- CARDS 9 -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+        <p class="max-w-xl mx-auto">
+            9.- Hacer un algoritmo en JavaScript para determinar el aumento de un trabajador, 
+            se debe tomar en cuenta que si ganaba más de $2000 tendrá un aumento del 5%, si generaba 
+            menos de $2000 su aumento será de un 10%.
+        </p>
+        <!-- container code -->
+        <div class="py-5">
+            <pre><code>
+<span class="keyword">let</span> salarioActual = Number(<span class="function"></span><span class="">inputEjercicio9.value</span><span class="number"></span>);
+<span class="keyword">if</span> (isNaN(salarioActual) || salarioActual &lt; <span class="number">0</span>) {
+  <span class="function">mostrarResultado9</span>(<span class="string">"Debe ingresar un salario válido."</span>);
+} <span class="keyword">else</span> {
+    <span class="keyword">let</span> aumento = <span class="number">0</span>;
+    <span class="keyword">if</span> (salarioActual &gt;= <span class="number">2000</span>) {
+        aumento = <span class="number">0.05</span>;
+    } <span class="keyword">else</span> {
+        aumento = <span class="number">0.10</span>;
+    }
+    <span class="keyword">let</span> nuevoSalario = salarioActual * ( <span class="number">1</span> + aumento);
+    <span class="function">mostrarResultado9</span>(<span class="string">"Nuevo salario después del aumento: $"</span> + nuevoSalario.toFixed(<span class="number">2</span>));
+}
+            </code></pre>
+        </div>
+        <div class="flex flex-row gap-10 items-center justify-center">
+            <input type="text" id="inputEjercicio9"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="Ingrese salario actual:" required />
+
+            <button id="btnEjercicio9"
+                class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg ">Enviar</button>
+        </div>
+        <div id="resultadoEjercicio9" class="mt-4 text-black"></div>
+    </div>
+    <!-- CARDS 10 -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+        <p class="max-w-xl mx-auto">
+            10.- Hacer un algoritmo en JavaScript que diga si un número es par o impar.
+        </p>
+        <!-- container code -->
+        <div class="py-5">
+            <pre><code>
+<span class="keyword">let</span> numero = Number(<span class="function"></span><span class="">inputEjercicio10.value</span><span class="number"></span>);
+<span class="keyword">if</span> (isNaN(numero)) {
+    <span class="function">mostrarResultado10</span>(<span class="string">"Debe ingresar un número válido."</span>);
+} <span class="keyword">else</span> {
+    <span class="keyword">if</span> (numero % <span class="number">2</span> === <span class="number">0</span>) {
+        <span class="function">mostrarResultado10</span>(<span class="string">"El número es par."</span>);
+    } <span class="keyword">else</span> {
+        <span class="function">mostrarResultado10</span>(<span class="string">"El número es impar."</span>);
+    }
+}
+            </code></pre>
+        </div>
+        <div class="flex flex-row gap-10 items-center justify-center">
+            <input type="text" id="inputEjercicio10"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="Ingrese numero entero:" required />
+
+            <button id="btnEjercicio10"
+                class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg ">Enviar</button>
+        </div>
+        <div id="resultadoEjercicio10" class="mt-4 text-black"></div>
+    </div>
+    <!-- CARDS 11 -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+        <p class="max-w-xl mx-auto">
+            11.- Hacer un algoritmo en JavaScript que lea tres números y diga cuál es el mayor.
+        </p>
+        <!-- container code -->
+        <div class="py-5">
+            <pre><code>
+<span class="keyword">let</span> num1 = Number(<span class="function"></span><span class="">inputEjercicio11_1.value</span><span class="number"></span>);
+<span class="keyword">let</span> num2 = Number(<span class="function"></span><span class="">inputEjercicio11_2.value</span><span class="number"></span>);
+<span class="keyword">let</span> num3 = Number(<span class="function"></span><span class="">inputEjercicio11_3.value</span><span class="number"></span>);
+<span class="keyword">if</span> (isNaN(num1) || isNaN(num2) || isNaN(num3)) {
+  <span class="function">mostrarResultado11</span>(<span class="string">"Debe ingresar números válidos."</span>);
+} <span class="keyword">else</span> {
+    <span class="keyword">let</span> mayor = num1;
+    <span class="keyword">if</span> (num2 &gt; mayor) {
+        mayor = num2;
+    }
+    <span class="keyword">if</span> (num3 &gt; mayor) {
+        mayor = num3;
+    }
+    <span class="function">mostrarResultado11</span>(<span class="string">"El número mayor es: "</span> + mayor);
+}
+            </code></pre>
+        </div>
+        <div class="flex flex-row gap-10 items-center justify-center">
+            <input type="text" id="inputEjercicio11_1"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="Ingrese primer numero:" required />
+            <input type="text" id="inputEjercicio11_2"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="Ingrese segundo numero:" required />
+            <input type="text" id="inputEjercicio11_3"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="Ingrese tercer numero:" required />
+
+            <button id="btnEjercicio11"
+                class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg ">Enviar</button>
+        </div>
+        <div id="resultadoEjercicio11" class="mt-4 text-black"></div>
+    </div>
+    <!-- CARDS 12 -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+        <p class="max-w-xl mx-auto">
+            12.- Hacer un algoritmo en JavaScript que lea dos números y diga cuál es el mayor.
+        </p>
+        <!-- container code -->
+        <div class="py-5">
+            <pre><code>
+<span class="keyword">let</span> num1 = Number(<span class="function"></span><span class="">inputEjercicio12_1.value</span><span class="number"></span>);
+<span class="keyword">let</span> num2 = Number(<span class="function"></span><span class="">inputEjercicio12_2.value</span><span class="number"></span>);
+<span class="keyword">if</span> (isNaN(num1) || isNaN(num2)) {
+  <span class="function">mostrarResultado12</span>(<span class="string">"Debe ingresar números válidos."</span>);
+} <span class="keyword">else</span> {
+    <span class="keyword">if</span> (num1 &gt; num2) {
+        <span class="function">mostrarResultado12</span>(<span class="string">"El número mayor es: "</span> + num1);
+    } <span class="keyword">else</span> <span class="keyword">if</span> (num2 &gt; num1) {
+        <span class="function">mostrarResultado12</span>(<span class="string">"El número mayor es: "</span> + num2);
+    } <span class="keyword">else</span> {
+        <span class="function">mostrarResultado12</span>(<span class="string">"Los números son iguales."</span>);
+    }
+}
+            </code></pre>
+        </div>
+        <div class="flex flex-row gap-10 items-center justify-center">
+            <input type="text" id="inputEjercicio12_1"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="Ingrese primer numero:" required />
+            <input type="text" id="inputEjercicio12_2"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="Ingrese segundo numero:" required />
+
+            <button id="btnEjercicio12"
+                class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg ">Enviar</button>
+        </div>
+        <div id="resultadoEjercicio12" class="mt-4 text-black"></div>
+    </div>
+    <!-- CARDS 13 -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+        <p class="max-w-xl mx-auto">
+            13.- Hacer un algoritmo en JavaScript que lea una letra y diga si es una vocal.
+        </p>
+        <!-- container code -->
+        <div class="py-5">
+            <pre><code>
+<span class="keyword">let</span> letra = <span class="function"></span><span class="">inputEjercicio13.value.trim().toLowerCase()</span><span class="number"></span>;
+<span class="keyword">if</span> (letra.length !== <span class="number">1</span> || !/[a-z]/.test(letra)) {
+  <span class="function">mostrarResultado13</span>(<span class="string">"Debe ingresar una sola letra."</span>);
+} <span class="keyword">else</span> {
+    <span class="keyword">if</span> (letra === <span class="string">"a"</span> || letra === <span class="string">"e"</span> || letra === <span class="string">"i"</span> || letra === <span class="string">"o"</span> || letra === <span class="string">"u"</span>) {
+        <span class="function">mostrarResultado13</span>(<span class="string">"La letra es una vocal."</span>);
+    } <span class="keyword">else</span> {
+        <span class="function">mostrarResultado13</span>(<span class="string">"La letra NO es una vocal."</span>);
+    }
+}
+            </code></pre>
+        </div>
+        <div class="flex flex-row gap-10 items-center justify-center">
+            <input type="text" id="inputEjercicio13"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="Ingrese una letra:" required />
+
+            <button id="btnEjercicio13"
+                class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg ">Enviar</button>
+        </div>
+        <div id="resultadoEjercicio13" class="mt-4 text-black"></div>
+    </div>
+    <!-- CARDS 14 -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+        <p class="max-w-xl mx-auto">
+            14.- Hacer un algoritmo en JavaScript que lea un número y diga si es positivo, negativo o cero.
+        </p>
+        <!-- container code -->
+        <div class="py-5">
+            <pre><code>
+<span class="keyword">let</span> numero = Number(<span class="function"></span><span class="">inputEjercicio14.value</span><span class="number"></span>);
+<span class="keyword">if</span> (isNaN(numero)) {
+    <span class="function">mostrarResultado14</span>(<span class="string">"Debe ingresar un número válido."</span>);
+} <span class="keyword">else</span> {
+    <span class="keyword">if</span> (numero > <span class="number">0</span>) {
+        <span class="function">mostrarResultado14</span>(<span class="string">"El número es positivo."</span>);
+    } <span class="keyword">else</span> <span class="keyword">if</span> (numero < <span class="number">0</span>) {
+        <span class="function">mostrarResultado14</span>(<span class="string">"El número es negativo."</span>);
+    } <span class="keyword">else</span> {
+        <span class="function">mostrarResultado14</span>(<span class="string">"El número es cero."</span>);
+    }
+}
+            </code></pre>
+        </div>
+        <div class="flex flex-row gap-10 items-center justify-center">
+            <input type="text" id="inputEjercicio14"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                placeholder="Ingrese numero entero:" required />
+
+            <button id="btnEjercicio14"
+                class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg ">Enviar</button>
+        </div>
+        <div id="resultadoEjercicio14" class="mt-4 text-black"></div>
+    </div>
+    <!-- CARDS 15 -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+    <p class="max-w-xl mx-auto">
+        15.- Hacer un algoritmo en JavaScript que convierta centímetros a pulgadas y libras a kilogramos.
+    </p>
+    <!-- container code -->
+    <div class="py-5">
+        <pre><code>
+<span class="keyword">let</span> centimetros = Number(<span class="">inputCm.value</span>);
+<span class="keyword">let</span> libras = Number(<span class="">inputLb.value</span>);
+
+<span class="keyword">if</span> (isNaN(centimetros) || isNaN(libras)) {
+    <span class="function">mostrarResultado15</span>(<span class="string">"Debe ingresar valores numéricos válidos."</span>);
+} <span class="keyword">else</span> {
+    <span class="keyword">let</span> pulgadas = centimetros / <span class="number">2.54</span>;
+    <span class="keyword">let</span> kilogramos = libras * <span class="number">0.453592</span>;
+
+    <span class="function">mostrarResultado15</span>(
+        <span class="string">`Centímetros a pulgadas: ${pulgadas.toFixed(2)}\nLibras a kilogramos: ${kilogramos.toFixed(2)}`</span>
+    );
+}
+        </code></pre>
+    </div>
+    <div class="flex flex-col md:flex-row gap-5 items-center justify-center">
+        <input type="text" id="inputCm"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5"
+            placeholder="Ingrese centímetros:" required />
+
+        <input type="text" id="inputLb"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5"
+            placeholder="Ingrese libras:" required />
+
+        <button id="btnEjercicio15"
+            class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg">Enviar</button>
+    </div>
+    <div id="resultadoEjercicio15" class="mt-4 text-black whitespace-pre-line"></div>
+    </div>
+    <!-- CARDS 16 -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+    <p class="max-w-xl mx-auto">
+        16.- Hacer un algoritmo en JavaScript que lea un número y según ese número, indique el día que corresponde.
+    </p>
+    <!-- container code -->
+    <div class="py-5">
+        <pre><code>
+<span class="keyword">let</span> numeroDia = Number(<span class="">inputDia.value</span>);
+
+<span class="keyword">if</span> (isNaN(numeroDia) || numeroDia &lt; <span class="number">1</span> || numeroDia &gt; <span class="number">7</span>) {
+    <span class="function">mostrarResultado16</span>(<span class="string">"Ingrese un número entre 1 y 7."</span>);
+} <span class="keyword">else</span> {
+    <span class="keyword">let</span> dias = [<span class="string">"Lunes"</span>, <span class="string">"Martes"</span>, <span class="string">"Miércoles"</span>, <span class="string">"Jueves"</span>, <span class="string">"Viernes"</span>, <span class="string">"Sábado"</span>, <span class="string">"Domingo"</span>];
+    <span class="function">mostrarResultado16</span>(<span class="string">`El día correspondiente es: ${dias[numeroDia - 1]}`</span>);
+}
+        </code></pre>
+    </div>
+    <div class="flex flex-row gap-10 items-center justify-center">
+        <input type="text" id="inputDia"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5"
+            placeholder="Ingrese número del 1 al 7:" required />
+
+        <button id="btnEjercicio16"
+            class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg">Enviar</button>
+    </div>
+    <div id="resultadoEjercicio16" class="mt-4 text-black"></div>
+    </div>
+    <!-- CARDS 17 -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+    <p class="max-w-xl mx-auto">
+        17.- Hacer un algoritmo en JavaScript donde se ingrese una hora y nos calcule la hora dentro de un segundo.
+    </p>
+    <!-- container code -->
+    <div class="py-5">
+        <pre><code>
+<span class="keyword">let</span> horaTexto = <span class="">inputHora.value</span>;
+<span class="keyword">let</span> partes = horaTexto.split(<span class="string">":"</span>);
+
+<span class="keyword">if</span> (partes.length !== <span class="number">3</span>) {
+    <span class="function">mostrarResultado17</span>(<span class="string">"Formato inválido. Use HH:MM:SS."</span>);
+} <span class="keyword">else</span> {
+    <span class="keyword">let</span> horas = Number(partes[<span class="number">0</span>]);
+    <span class="keyword">let</span> minutos = Number(partes[<span class="number">1</span>]);
+    <span class="keyword">let</span> segundos = Number(partes[<span class="number">2</span>]);
+
+    <span class="keyword">if</span> (isNaN(horas) || isNaN(minutos) || isNaN(segundos)) {
+        <span class="function">mostrarResultado17</span>(<span class="string">"Ingrese valores numéricos válidos."</span>);
+    } <span class="keyword">else</span> {
+        segundos++;
+        <span class="keyword">if</span> (segundos === <span class="number">60</span>) {
+            segundos = <span class="number">0</span>;
+            minutos++;
+            <span class="keyword">if</span> (minutos === <span class="number">60</span>) {
+                minutos = <span class="number">0</span>;
+                horas = (horas + <span class="number">1</span>) % <span class="number">24</span>;
+            }
+        }
+
+        <span class="function">mostrarResultado17</span>(
+            <span class="string">`Hora dentro de un segundo: ${String(horas).padStart(2, '0')}:${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}`</span>
+        );
+    }
+}
+        </code></pre>
+    </div>
+    <div class="flex flex-row gap-10 items-center justify-center">
+        <input type="text" id="inputHora"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5"
+            placeholder="Ingrese hora (HH:MM:SS):" required />
+
+        <button id="btnEjercicio17"
+            class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg">Enviar</button>
+    </div>
+    <div id="resultadoEjercicio17" class="mt-4 text-black"></div>
+    </div>
+    <!-- CARDS 18 -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+    <p class="max-w-xl mx-auto">
+        18.- Hacer un algoritmo en JavaScript para una empresa se encarga de la venta y distribución de CD vírgenes. 
+        Los clientes pueden adquirir los artículos (supongamos un único producto de una única marca) por cantidad. Los precios son:
+        $10. Si se compran unidades separadas hasta 9.
+        $8. Si se compran entre 10 unidades hasta 99.
+        $7. Entre 100 y 499 unidades.
+        $6. Para mas de 500 unidades.
+        La ganancia para el vendedor es de 8,25 % de la venta. Realizar un algoritmo en JavaScript que dado un número 
+        de CDs a vender calcule el precio total para el cliente y la ganancia para el vendedor.
+    </p>
+    <!-- container code -->
+    <div class="py-5">
+        <pre><code>
+<span class="keyword">let</span> cantidad = Number(<span class="">inputCDs.value</span>);
+<span class="keyword">let</span> precioUnitario;
+
+<span class="keyword">if</span> (isNaN(cantidad) || cantidad &lt;= <span class="number">0</span>) {
+    <span class="function">mostrarResultado18</span>(<span class="string">"Ingrese una cantidad válida mayor a cero."</span>);
+} <span class="keyword">else</span> {
+    <span class="keyword">if</span> (cantidad &lt;= <span class="number">9</span>) {
+        precioUnitario = <span class="number">10</span>;
+    } <span class="keyword">else if</span> (cantidad &lt;= <span class="number">99</span>) {
+        precioUnitario = <span class="number">8</span>;
+    } <span class="keyword">else if</span> (cantidad &lt;= <span class="number">499</span>) {
+        precioUnitario = <span class="number">7</span>;
+    } <span class="keyword">else</span> {
+        precioUnitario = <span class="number">6</span>;
+    }
+
+    <span class="keyword">let</span> totalVenta = cantidad * precioUnitario;
+    <span class="keyword">let</span> ganancia = totalVenta * <span class="number">0.0825</span>;
+
+    <span class="function">mostrarResultado18</span>(
+        <span class="string">`Total a pagar: $${totalVenta.toFixed(2)}\nGanancia del vendedor: $${ganancia.toFixed(2)}`</span>
+    );
+}
+        </code></pre>
+    </div>
+    <div class="flex flex-row gap-10 items-center justify-center">
+        <input type="text" id="inputCDs"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5"
+            placeholder="Ingrese cantidad de CDs:" required />
+
+        <button id="btnEjercicio18"
+            class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg">Enviar</button>
+    </div>
+    <div id="resultadoEjercicio18" class="mt-4 text-black whitespace-pre-line"></div>
+    </div>
+    <!-- CARDS 19 -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+    <p class="max-w-xl mx-auto">
+        19.- Hacer un algoritmo en JavaScript para una heladería se tienen 4 tipos de empleados ordenados 
+        de la siguiente forma con su número identificador y salario diario correspondiente:
+        Cajero (56$/día).
+        Servidor (64$/día).
+        Preparador de mezclas (80$/día).
+        Mantenimiento (48$/día).
+        El dueño de la tienda desea tener un programa donde sólo ingrese dos números enteros que representen al número 
+        identificador del empleado y la cantidad de días que trabajó en la semana (6 días máximos). 
+        Y el programa le mostrará por pantalla la cantidad de dinero que el dueño le debe pagar al empleado que ingresó
+    </p>
+    <!-- container code -->
+    <div class="py-5">
+        <pre><code>
+<span class="keyword">let</span> idEmpleado = Number(<span class="">inputID.value</span>);
+<span class="keyword">let</span> diasTrabajados = Number(<span class="">inputDias.value</span>);
+
+<span class="keyword">let</span> salarios = {
+    <span class="number">1</span>: <span class="number">56</span>,  <span class="comment">// Cajero</span>
+    <span class="number">2</span>: <span class="number">64</span>,  <span class="comment">// Servidor</span>
+    <span class="number">3</span>: <span class="number">80</span>,  <span class="comment">// Preparador</span>
+    <span class="number">4</span>: <span class="number">48</span>   <span class="comment">// Mantenimiento</span>
+};
+
+<span class="keyword">if</span> (!salarios[idEmpleado] || isNaN(diasTrabajados) || diasTrabajados &lt; <span class="number">1</span> || diasTrabajados &gt; <span class="number">6</span>) {
+    <span class="function">mostrarResultado19</span>(<span class="string">"Datos inválidos. ID entre 1-4 y días entre 1-6."</span>);
+} <span class="keyword">else</span> {
+    <span class="keyword">let</span> pago = salarios[idEmpleado] * diasTrabajados;
+    <span class="function">mostrarResultado19</span>(<span class="string">`Pago semanal: $${pago.toFixed(2)}`</span>);
+}
+        </code></pre>
+    </div>
+    <div class="flex flex-col md:flex-row gap-5 items-center justify-center">
+        <input type="text" id="inputID"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5"
+            placeholder="ID del empleado (1-4):" required />
+
+        <input type="text" id="inputDias"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5"
+            placeholder="Días trabajados (1-6):" required />
+
+        <button id="btnEjercicio19"
+            class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg">Enviar</button>
+    </div>
+    <div id="resultadoEjercicio19" class="mt-4 text-black"></div>
+    </div>
+    <!-- CARDS 20 -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+    <p class="max-w-xl mx-auto">
+        20.- Hacer un algoritmo en JavaScript que que lea 4 números enteros positivos y verifique y realice las siguientes operaciones:
+            ¿Cuántos números son Pares?
+            ¿Cuál es el mayor de todos?
+            Si el tercero es par, calcular el cuadrado del segundo.
+            Si el primero es menor que el cuarto, calcular la media de los 4 números.
+            Si el segundo es mayor que el tercero, verificar si el tercero esta comprendido entre los valores 50 y 700. 
+            Si cumple se cumple la segunda condición, calcular la suma de los 4 números.
+    </p>
+    <!-- container code -->
+    <div class="py-5">
+        <pre><code>
+<span class="keyword">let</span> n1 = Number(<span class="">inputN1.value</span>);
+<span class="keyword">let</span> n2 = Number(<span class="">inputN2.value</span>);
+<span class="keyword">let</span> n3 = Number(<span class="">inputN3.value</span>);
+<span class="keyword">let</span> n4 = Number(<span class="">inputN4.value</span>);
+
+<span class="keyword">if</span> ([n1, n2, n3, n4].some(n => isNaN(n) || n &lt;= <span class="number">0</span>)) {
+    <span class="function">mostrarResultado20</span>(<span class="string">"Todos los valores deben ser enteros positivos."</span>);
+} <span class="keyword">else</span> {
+    <span class="keyword">let</span> resultado = <span class="string">""</span>;
+
+    <span class="comment">// ¿Cuántos son pares?</span>
+    <span class="keyword">let</span> pares = [n1, n2, n3, n4].filter(n => n % <span class="number">2</span> === <span class="number">0</span>).length;
+    resultado += <span class="string">`Cantidad de números pares: ${pares}\n`</span>;
+
+    <span class="comment">// ¿Cuál es el mayor?</span>
+    <span class="keyword">let</span> mayor = Math.max(n1, n2, n3, n4);
+    resultado += <span class="string">`Mayor número: ${mayor}\n`</span>;
+
+    <span class="comment">// Si el tercero es par, cuadrado del segundo</span>
+    <span class="keyword">if</span> (n3 % <span class="number">2</span> === <span class="number">0</span>) {
+        resultado += <span class="string">`Cuadrado del segundo número: ${n2 ** 2}\n`</span>;
+    }
+
+    <span class="comment">// Si el primero &lt; cuarto, calcular media</span>
+    <span class="keyword">if</span> (n1 &lt; n4) {
+        <span class="keyword">let</span> media = (n1 + n2 + n3 + n4) / <span class="number">4</span>;
+        resultado += <span class="string">`Media de los 4 números: ${media.toFixed(2)}\n`</span>;
+    }
+
+    <span class="comment">// Si segundo &gt; tercero y tercero entre 50 y 700, sumar todos</span>
+    <span class="keyword">if</span> (n2 &gt; n3 &amp;&amp; n3 &gt;= <span class="number">50</span> &amp;&amp; n3 &lt;= <span class="number">700</span>) {
+        <span class="keyword">let</span> suma = n1 + n2 + n3 + n4;
+        resultado += <span class="string">`Suma de los 4 números: ${suma}\n`</span>;
+    }
+
+    <span class="function">mostrarResultado20</span>(resultado);
+}
+        </code></pre>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 items-center justify-center">
+        <input type="text" id="inputN1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5" placeholder="Número 1:" required />
+        <input type="text" id="inputN2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5" placeholder="Número 2:" required />
+        <input type="text" id="inputN3" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5" placeholder="Número 3:" required />
+        <input type="text" id="inputN4" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5" placeholder="Número 4:" required />
+    </div>
+    <div class="flex justify-center mt-4">
+        <button id="btnEjercicio20"
+            class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg">Enviar</button>
+    </div>
+    <div id="resultadoEjercicio20" class="mt-4 text-black whitespace-pre-line"></div>
+    </div>
+    <!-- CARDS 21 -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+    <p class="max-w-xl mx-auto">
+        21.- Hacer un algoritmo en JavaScript que permita calcular el factorial de un número.
+    </p>
+    <!-- container code -->
+    <div class="py-5">
+        <pre><code>
+<span class="keyword">let</span> numero = Number(<span class="">inputFactorial.value</span>);
+
+<span class="keyword">if</span> (isNaN(numero) || numero &lt; <span class="number">0</span> || !Number.isInteger(numero)) {
+    <span class="function">mostrarResultado21</span>(<span class="string">"Ingrese un número entero no negativo."</span>);
+} <span class="keyword">else</span> {
+    <span class="keyword">let</span> factorial = <span class="number">1</span>;
+    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">2</span>; i &lt;= numero; i++) {
+        factorial *= i;
+    }
+    <span class="function">mostrarResultado21</span>(<span class="string">`El factorial de ${numero} es: ${factorial}`</span>);
+}
+        </code></pre>
+    </div>
+    <div class="flex flex-row gap-10 items-center justify-center">
+        <input type="text" id="inputFactorial"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5"
+            placeholder="Ingrese número entero ≥ 0:" required />
+
+        <button id="btnEjercicio21"
+            class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg">Enviar</button>
+    </div>
+    <div id="resultadoEjercicio21" class="mt-4 text-black"></div>
+    </div>
+    <!-- CARDS 22 -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+    <p class="max-w-xl mx-auto">
+        22.- Hacer un algoritmo en JavaScript para calcular la suma de los n primeros números.
+    </p>
+    <!-- container code -->
+    <div class="py-5">
+        <pre><code>
+<span class="keyword">let</span> n = Number(<span class="">inputSuma.value</span>);
+
+<span class="keyword">if</span> (isNaN(n) || n &lt; <span class="number">1</span> || !Number.isInteger(n)) {
+    <span class="function">mostrarResultado22</span>(<span class="string">"Ingrese un número entero positivo."</span>);
+} <span class="keyword">else</span> {
+    <span class="keyword">let</span> suma = (n * (n + <span class="number">1</span>)) / <span class="number">2</span>;
+    <span class="function">mostrarResultado22</span>(<span class="string">`La suma de los ${n} primeros números es: ${suma}`</span>);
+}
+        </code></pre>
+    </div>
+    <div class="flex flex-row gap-10 items-center justify-center">
+        <input type="text" id="inputSuma"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5"
+            placeholder="Ingrese número entero ≥ 1:" required />
+
+        <button id="btnEjercicio22"
+            class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg">Enviar</button>
+    </div>
+    <div id="resultadoEjercicio22" class="mt-4 text-black"></div>
+    </div>
+    <!-- CARDS 23 -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+    <p class="max-w-xl mx-auto">
+        23.- Hacer un algoritmo en JavaScript para calcular la suma de los números impares menores o iguales a n.
+    </p>
+    <!-- container code -->
+    <div class="py-5">
+        <pre><code>
+<span class="keyword">let</span> n = Number(<span class="">inputImpares.value</span>);
+
+<span class="keyword">if</span> (isNaN(n) || n &lt; <span class="number">1</span> || !Number.isInteger(n)) {
+    <span class="function">mostrarResultado23</span>(<span class="string">"Ingrese un número entero positivo."</span>);
+} <span class="keyword">else</span> {
+    <span class="keyword">let</span> suma = <span class="number">0</span>;
+    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt;= n; i += <span class="number">2</span>) {
+        suma += i;
+    }
+    <span class="function">mostrarResultado23</span>(<span class="string">`La suma de los números impares ≤ ${n} es: ${suma}`</span>);
+}
+        </code></pre>
+    </div>
+    <div class="flex flex-row gap-10 items-center justify-center">
+        <input type="text" id="inputImpares"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5"
+            placeholder="Ingrese número entero ≥ 1:" required />
+
+        <button id="btnEjercicio23"
+            class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg">Enviar</button>
+    </div>
+    <div id="resultadoEjercicio23" class="mt-4 text-black"></div>
+    </div>
+    <!-- CARDS 24 -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+    <p class="max-w-xl mx-auto">
+        24.- Hacer un algoritmo en JavaScript para realizar la suma de todos los números pares hasta el 1000.
+    </p>
+    <!-- container code -->
+    <div class="py-5">
+        <pre><code>
+<span class="keyword">let</span> suma = <span class="number">0</span>;
+
+<span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">2</span>; i &lt;= <span class="number">1000</span>; i += <span class="number">2</span>) {
+    suma += i;
+}
+
+<span class="function">mostrarResultado24</span>(<span class="string">`La suma de los números pares hasta 1000 es: ${suma}`</span>);
+        </code></pre>
+    </div>
+    <div class="flex flex-row gap-10 items-center justify-center">
+        <button id="btnEjercicio24"
+            class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg">Calcular</button>
+    </div>
+    <div id="resultadoEjercicio24" class="mt-4 text-black"></div>
+    </div>
+    <!-- CARDS 25 -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+    <p class="max-w-xl mx-auto">
+        25.- Hacer un algoritmo en JavaScript para calcular el factorial de un número de una forma distinta.
+    </p>
+    <!-- container code -->
+    <div class="py-5">
+        <pre><code>
+<span class="keyword">function</span> factorialRecursivo(n) {
+    <span class="keyword">if</span> (n === <span class="number">0</span> || n === <span class="number">1</span>) {
+        <span class="keyword">return</span> <span class="number">1</span>;
+    }
+    <span class="keyword">return</span> n * factorialRecursivo(n - <span class="number">1</span>);
+}
+
+<span class="keyword">let</span> numero = Number(<span class="">inputFactorialRecursivo.value</span>);
+
+<span class="keyword">if</span> (isNaN(numero) || numero &lt; <span class="number">0</span> || !Number.isInteger(numero)) {
+    <span class="function">mostrarResultado25</span>(<span class="string">"Ingrese un número entero no negativo."</span>);
+} <span class="keyword">else</span> {
+    <span class="keyword">let</span> resultado = factorialRecursivo(numero);
+    <span class="function">mostrarResultado25</span>(<span class="string">`El factorial de ${numero} es: ${resultado}`</span>);
+}
+        </code></pre>
+    </div>
+    <div class="flex flex-row gap-10 items-center justify-center">
+        <input type="text" id="inputFactorialRecursivo"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5"
+            placeholder="Ingrese número entero ≥ 0:" required />
+
+        <button id="btnEjercicio25"
+            class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg">Enviar</button>
+    </div>
+    <div id="resultadoEjercicio25" class="mt-4 text-black"></div>
+    </div>
+    <!-- CARDS 26 -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+    <p class="max-w-xl mx-auto">
+        26.- Hacer un algoritmo en JavaScript para calcular el cociente y el resto por medio de restas sucesivas.
+    </p>
+    <!-- container code -->
+    <div class="py-5">
+        <pre><code>
+<span class="keyword">let</span> dividendo = Number(<span class="">inputDividendo.value</span>);
+<span class="keyword">let</span> divisor = Number(<span class="">inputDivisor.value</span>);
+
+<span class="keyword">if</span> (
+    isNaN(dividendo) || isNaN(divisor) ||
+    !Number.isInteger(dividendo) || !Number.isInteger(divisor) ||
+    divisor &lt;= <span class="number">0</span> || dividendo &lt; <span class="number">0</span>
+) {
+    <span class="function">mostrarResultado26</span>(<span class="string">"Ingrese números enteros válidos. El divisor debe ser mayor que cero."</span>);
+} <span class="keyword">else</span> {
+    <span class="keyword">let</span> cociente = <span class="number">0</span>;
+    <span class="keyword">while</span> (dividendo &gt;= divisor) {
+        dividendo -= divisor;
+        cociente++;
+    }
+    <span class="function">mostrarResultado26</span>(<span class="string">`Cociente: ${cociente}, Resto: ${dividendo}`</span>);
+}
+        </code></pre>
+    </div>
+    <div class="flex flex-row gap-10 items-center justify-center">
+        <input type="text" id="inputDividendo"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5"
+            placeholder="Ingrese dividendo ≥ 0:" required />
+
+        <input type="text" id="inputDivisor"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5"
+            placeholder="Ingrese divisor > 0:" required />
+
+        <button id="btnEjercicio26"
+            class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg">Calcular</button>
+    </div>
+    <div id="resultadoEjercicio26" class="mt-4 text-black"></div>
+    </div>
+    <!-- CARDS 27 -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+    <p class="max-w-xl mx-auto">
+        27.- Hacer un algoritmo en JavaScript para determinar la media de una lista indefinida de números positivos. El programa debe finalizar al ingresar un número negativo.
+    </p>
+    <!-- container code -->
+    <div class="py-5">
+        <pre><code>
+<span class="keyword">let</span> suma = <span class="number">0</span>;
+<span class="keyword">let</span> contador = <span class="number">0</span>;
+
+<span class="keyword">function</span> agregarNumero(n) {
+    <span class="keyword">if</span> (n &lt; <span class="number">0</span>) {
+        <span class="keyword">if</span> (contador === <span class="number">0</span>) {
+            <span class="function">mostrarResultado27</span>(<span class="string">"No se ingresaron números positivos."</span>);
+        } <span class="keyword">else</span> {
+            <span class="keyword">let</span> media = suma / contador;
+            <span class="function">mostrarResultado27</span>(<span class="string">`Media: ${media.toFixed(2)} (basado en ${contador} valores)`</span>);
+        }
+    } <span class="keyword">else</span> {
+        suma += n;
+        contador++;
+        <span class="function">mostrarResultado27</span>(<span class="string">`Número agregado: ${n}`</span>);
+    }
+}
+        </code></pre>
+    </div>
+    <div class="flex flex-row gap-10 items-center justify-center">
+        <input type="text" id="inputMedia"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5"
+            placeholder="Ingrese número positivo o negativo para terminar:" required />
+
+        <button id="btnEjercicio27"
+            class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg">Agregar</button>
+    </div>
+    <div id="resultadoEjercicio27" class="mt-4 text-black"></div>
+    </div>
+    <!-- CARDS 28 -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+    <p class="max-w-xl mx-auto">
+        28.- Hacer un algoritmo en JavaScript para calcular la suma de los primeros cien números con un ciclo repetir.
+    </p>
+    <!-- container code -->
+    <div class="py-5">
+        <pre><code>
+<span class="keyword">let</span> suma = <span class="number">0</span>;
+<span class="keyword">let</span> i = <span class="number">1</span>;
+
+<span class="keyword">do</span> {
+    suma += i;
+    i++;
+} <span class="keyword">while</span> (i &lt;= <span class="number">100</span>);
+
+<span class="function">mostrarResultado28</span>(<span class="string">`La suma de los primeros 100 números es: ${suma}`</span>);
+        </code></pre>
+    </div>
+    <div class="flex flex-row gap-10 items-center justify-center">
+        <button id="btnEjercicio28"
+            class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg">Calcular</button>
+    </div>
+    <div id="resultadoEjercicio28" class="mt-4 text-black"></div>
+    </div>
+    <!-- CARDS 29 -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+    <p class="max-w-xl mx-auto">
+        29.- Hacer un algoritmo en JavaScript para calcular la suma de los primeros cien números con un ciclo mientras.
+    </p>
+    <!-- container code -->
+    <div class="py-5">
+        <pre><code>
+<span class="keyword">let</span> suma = <span class="number">0</span>;
+<span class="keyword">let</span> i = <span class="number">1</span>;
+
+<span class="keyword">while</span> (i &lt;= <span class="number">100</span>) {
+    suma += i;
+    i++;
+}
+
+<span class="function">mostrarResultado29</span>(<span class="string">`La suma de los primeros 100 números es: ${suma}`</span>);
+        </code></pre>
+    </div>
+    <div class="flex flex-row gap-10 items-center justify-center">
+        <button id="btnEjercicio29"
+            class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg">Calcular</button>
+    </div>
+    <div id="resultadoEjercicio29" class="mt-4 text-black"></div>
+    </div>
+    <!-- CARDS 30 -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+    <p class="max-w-xl mx-auto">
+        30.- Hacer un algoritmo en JavaScript para calcular la suma de los primeros cien números con un ciclo para.
+    </p>
+    <!-- container code -->
+    <div class="py-5">
+        <pre><code>
+<span class="keyword">let</span> suma = <span class="number">0</span>;
+
+<span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt;= <span class="number">100</span>; i++) {
+    suma += i;
+}
+
+<span class="function">mostrarResultado30</span>(<span class="string">`La suma de los primeros 100 números es: ${suma}`</span>);
+        </code></pre>
+    </div>
+    <div class="flex flex-row gap-10 items-center justify-center">
+        <button id="btnEjercicio30"
+            class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg">Calcular</button>
+    </div>
+    <div id="resultadoEjercicio30" class="mt-4 text-black"></div>
+    </div>
+    <!-- CARDS 31 -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+    <p class="max-w-xl mx-auto">
+        31.- Hacer un algoritmo en JavaScript para calcular la media de los números pares e impares, sólo se ingresará diez números.
+    </p>
+
+    <!-- Formulario para ingresar los 10 números -->
+    <div class="grid grid-cols-2 gap-4 py-5" id="inputsEjercicio31">
+        <!-- Se generan 10 inputs desde el script -->
+    </div>
+
+    <div class="flex flex-row gap-10 items-center justify-center">
+        <button id="btnEjercicio31"
+            class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg">Calcular</button>
+    </div>
+
+    <div id="resultadoEjercicio31" class="mt-4 text-black"></div>
+    </div>
+    <!-- CARDS 32 -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+    <p class="max-w-xl mx-auto">
+        32.- Se quiere saber cuál es la ciudad con la población de más personas. Son tres provincias y once ciudades. Hacer un algoritmo en JavaScript que nos permita saber eso.
+    </p>
+
+    <!-- Formulario para ingresar ciudades y poblaciones -->
+    <div class="py-5 grid grid-cols-1 gap-4" id="inputsEjercicio32">
+        <!-- Se generan dinámicamente los inputs desde el script -->
+    </div>
+
+    <div class="flex flex-row gap-10 items-center justify-center">
+        <button id="btnEjercicio32"
+            class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg">Calcular</button>
+    </div>
+
+    <div id="resultadoEjercicio32" class="mt-4 text-black"></div>
+    </div>
+    <!-- CARDS 33 -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+    <p class="max-w-xl mx-auto">
+        33.- Hacer un algoritmo en JavaScript que permita al usuario continuar con el programa.
+    </p>
+
+    <!-- Interfaz para decidir si continuar -->
+    <div class="py-5 flex flex-col gap-4 items-center">
+        <p class="text-gray-700">¿Deseas continuar con el programa?</p>
+        <div class="flex gap-6">
+            <button id="btnContinuar33"
+                class="bg-green-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-green-600 border border-green-600 transition-colors duration-300 ease-in-out hover:shadow-lg">Sí</button>
+            <button id="btnSalir33"
+                class="bg-red-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-red-600 border border-red-600 transition-colors duration-300 ease-in-out hover:shadow-lg">No</button>
+        </div>
+    </div>
+
+    <div id="resultadoEjercicio33" class="mt-4 text-black text-center"></div>
+    </div>
+    <!-- CARDS 34 -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+        <p>
+            34.- Hacer un algoritmo en JavaScript que imprima la tabla de multiplicar de los números del uno al nueve.
+        </p>
+        <!-- container code -->
+        <div class="py-5">
+            <pre><code>
+<span class="keyword"></span> Al hacer clic en el botón, mostrar la tabla de multiplicar del 1 al 9
+</code></pre>
+        </div>
+        <div class="flex flex-row gap-10 items-center justify-center">
+            <button id="btnEjercicio34"
+                class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg ">
+                Mostrar tablas
+            </button>
+        </div>
+        <div id="resultadoEjercicio34" class="mt-4 text-black"></div>
+    </div>
+    <!-- CARDS 35 -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+    <p class="max-w-xl mx-auto">
+        35.- Hacer un algoritmo en JavaScript que nos permita saber cuál es el número mayor y menor. Se debe ingresar sólo veinte números.
+    </p>
+
+    <!-- Botón para generar y calcular -->
+    <div class="py-5 flex flex-col gap-4 items-center">
+        <button id="btnEjercicio35"
+            class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg">Generar y Calcular</button>
+    </div>
+
+    <!-- Mostrar los números generados -->
+    <div id="numerosGenerados35" class="mt-4 text-gray-700 text-center"></div>
+
+    <!-- Mostrar resultado -->
+    <div id="resultadoEjercicio35" class="mt-4 text-black text-center font-bold"></div>
+    </div>
+    <!-- CARDS 36 -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+    <p class="max-w-xl mx-auto">
+        36.- Hacer un algoritmo en JavaScript para calcular la serie de Fibonacci.
+    </p>
+
+    <!-- Input para cantidad de términos -->
+    <div class="py-5 flex flex-col gap-4 items-center">
+        <input type="number" id="inputFibonacci36" placeholder="Cantidad de términos"
+            class="border border-gray-300 rounded px-3 py-2 w-64 text-center" min="1" max="100">
+        <button id="btnEjercicio36"
+            class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg">Calcular</button>
+    </div>
+
+    <!-- Mostrar resultado -->
+    <div id="resultadoEjercicio36" class="mt-4 text-black text-center"></div>
+    </div>
+    <!-- CARDS 37 -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+    <p class="max-w-xl mx-auto">
+        37.- Hacer un algoritmo en JavaScript para conseguir el M.C.D de un número por medio del algoritmo de Euclides. Los números serán generados aleatoriamente.
+    </p>
+
+    <!-- Botones -->
+    <div class="py-5 flex flex-row gap-6 justify-center">
+        <button id="btnEjercicio37"
+            class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg">Generar y Calcular</button>
+        <button id="btnRepetir37"
+            class="bg-gray-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-gray-600 border border-gray-600 transition-colors duration-300 ease-in-out hover:shadow-lg">Repetir</button>
+    </div>
+
+    <!-- Mostrar números generados -->
+    <div id="numerosGenerados37" class="mt-4 text-gray-700 text-center font-medium"></div>
+
+    <!-- Tabla de pasos -->
+    <div class="mt-4 max-w-xl mx-auto">
+        <table class="w-full border border-gray-300 text-sm text-left">
+            <thead class="bg-gray-100">
+                <tr>
+                    <th class="border px-3 py-2">Paso</th>
+                    <th class="border px-3 py-2">Operación</th>
+                </tr>
+            </thead>
+            <tbody id="tablaPasosEuclides37"></tbody>
+        </table>
+    </div>
+
+    <!-- Mostrar resultado final -->
+    <div id="resultadoEjercicio37" class="mt-6 text-black text-center font-bold text-lg"></div>
+    </div>
+    <!-- CARDS 38 -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+    <p class="max-w-xl mx-auto">
+        38.- Hacer un algoritmo en JavaScript que nos permita saber si un número es un número perfecto. El número será generado de forma aleatoria.
+    </p>
+
+    <!-- Botón para generar y verificar -->
+    <div class="py-5 flex flex-col gap-4 items-center">
+        <button id="btnEjercicio38"
+            class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg">Verificar número perfecto</button>
+    </div>
+
+    <!-- Mostrar número generado -->
+    <div id="numeroGenerado38" class="mt-4 text-gray-700 text-center font-medium"></div>
+
+    <!-- Mostrar divisores y suma -->
+    <div id="detallesPerfecto38" class="mt-4 text-sm text-gray-600 text-left max-w-xl mx-auto"></div>
+
+    <!-- Mostrar resultado final -->
+    <div id="resultadoEjercicio38" class="mt-4 text-black text-center font-bold text-lg"></div>
+    </div>
+    <!-- CARDS 39 -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+    <p class="max-w-xl mx-auto">
+        39.- Hacer un algoritmo en JavaScript que cumpla con la aproximación del número π con la serie de Gregory-Leibniz. La fórmula que se debe aplicar es:<br>
+        <code>π ≈ (4/1) - (4/3) + (4/5) - (4/7) + (4/9) - (4/11) + ...</code>
+    </p>
+
+    <!-- Input para cantidad de términos -->
+    <div class="py-5 flex flex-col gap-4 items-center">
+        <input type="number" id="inputTerminos39" placeholder="Cantidad de términos"
+            class="border border-gray-300 rounded px-3 py-2 w-64 text-center" min="1" max="100000">
+        <button id="btnEjercicio39"
+            class="bg-blue-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-600 transition-colors duration-300 ease-in-out hover:shadow-lg">Calcular π</button>
+    </div>
+
+    <!-- Mostrar resultado -->
+    <div id="resultadoEjercicio39" class="mt-4 text-black text-center font-bold text-lg"></div>
+    </div>
+    <!-- CARDS 40 -->
+    <div class="bg-white bg-white rounded-xs shadow-2xl shadow-white p-5">
+    <p class="max-w-xl mx-auto">
+        40.- Hacer un algoritmo en JavaScript que cumpla con la aproximación del número π con la serie de Nilakantha. La fórmula que se debe aplicar es:<br>
+        <code>π ≈ 3 + 4/(2·3·4) - 4/(4·5·6) + 4/(6·7·8) - 4/(8·9·10) + ...</code>
+    </p>
+
+    <!-- Input para cantidad de términos -->
+    <div class="py-5 flex flex-col gap-4 items-center">
+        <input type="number" id="inputTerminos40" placeholder="Cantidad de términos"
+            class="border border-gray-300 rounded px-3 py-2 w-64 text-center" min="1" max="100000">
+        <button id="btnEjercicio40"
+            class="bg-green-600 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-green-600 border border-green-600 transition-colors duration-300 ease-in-out hover:shadow-lg">Calcular π</button>
+    </div>
+
+    <!-- Mostrar resultado -->
+    <div id="resultadoEjercicio40" class="mt-4 text-black text-center font-bold text-lg"></div>
+    </div>
+
+</body>
+<script src="app.js"></script>
+
+</html>

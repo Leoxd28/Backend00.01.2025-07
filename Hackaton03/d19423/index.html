@@ -7,10 +7,38 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <button onclick="ejercicio01()">Ejercicio 01</button>
-    <br>
-    <button onclick="ejercicio02()">Ejercicio 02</button>
+    
+    <div>
+        <p>1. Hacer un algoritmo en JavaScript que lea un número por el teclado y determinar si tiene tres dígitos.</p>
+        <label for="numero">Inserte número: </label>
+        <input id="numero" type="text" required>
+        <button id="BtnEjercicio01">Verificar</button>
+        <br>
+    </div>
+    <div>
+        <p>2. Hacer un algoritmo en JavaScript que lea un número entero por el teclado y determinar si es negativo.</p>
+        <label for="numero2">Inserte número: </label>
+        <input id="numero2" type="text" required>
+        <button id="BtnEjercicio02">Verificar</button>
+        <br>
+    </div>
+    <div>
+        <p>3. Hacer un algoritmo en JavaScript que lea un número y determinar si termina en 4.</p>
+        <label for="numero3">Inserte número: </label>
+        <input id="numero3" type="text" required>
+        <button id="BtnEjercicio03">Verificar</button>
+        <br>
+    </div>
+    
+    
 
     <script src="js/script.js"></script>
+    <div id="customAlert" class="modal-alert">
+        <div class="modal-content">
+            <p id="alertMessage"></p>
+            <button id="closeAlert">Aceptar</button>
+        </div>
+
+    </div>
 </body>
 </html>
