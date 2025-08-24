@@ -1,4 +1,4 @@
-const blackList = ['12345', '12345', '12345', '12345', '12345'];
+const blackList = ['1234', '2222', '3333', '4444', '5555'];
 
 class Phone {
     constructor(serial, imei, brand) {
@@ -7,10 +7,10 @@ class Phone {
         this.brand = brand;
         this.isElegible = false;
     }
-
+    // Metodo
     checkElegibility() {
-        // Revisar ;a lista negra
-        if (blackList.includes(imei)) {
+        // revisar lista negra
+        if (blackList.includes(this.imei)) {
             this.isElegible = false;
         } else {
             this.isElegible = true;
@@ -35,16 +35,16 @@ class Repair {
     constructor(phone) {
         this.phone = phone;
         this.diagnosis = '';
-        this.authorization = false;
+        this.autorization = false;
         this.downPayment = 0;
         this.thecnician = null;
         this.parts = [];
-        this.status = 'En Revision';
+        this.status = 'En Revisión';
         this.id = Date.now();
     }
 
     saveDiagnostic(diagnosis) {
-        this.diagnosis = diagnosis
+        this.diagnosis = diagnosis;
     }
 
     confirmAuthorization(hasAuth, payment) {
@@ -56,7 +56,7 @@ class Repair {
         for (let tech of thecnicians) {
             if (tech.canRepair(this.phone.brand)) {
                 this.thecnician = id;
-                // return `Asignado a ${tech.name}`
+
             }
         }
     }
@@ -72,10 +72,10 @@ class Repair {
 }
 
 const thecnicians = [
-    new Thecnician('Juan Peres', ['iphone', 'honor', 'samsung']),
-    new Thecnician('Carlos Peres', ['iphone', 'samsung']),
-    new Thecnician('Maria Peres', ['honor', 'oppo']),
-    new Thecnician('Rocio Peres', ['iphone', 'oppo']),
+    new Thecnician('Roberto Salazar', ['Iphone', 'Honor', 'Samsung']),
+    new Thecnician('Carlos Martinez', ['Oppo', 'Samsung']),
+    new Thecnician('Maria Silva', ['Honor', 'Huawei']),
+    new Thecnician('Rocio Durand', ['Iphone', 'Huawei']),
 ]
 
 function showSection(sectionId) {
@@ -89,10 +89,11 @@ function hiddenSection(sectionId) {
 
 showSection('register-repair-form');
 
+
 // Proceso de Reparacion
 let currentRepair = null;
-// const phone = new Phone(24352345, 243423423, 'honor');
-// currentRepair = new Repair(phone);
+
+
 
 document.getElementById('send-repair').addEventListener('click', () => {
     const serial = document.getElementById('serial').value;
@@ -117,7 +118,6 @@ document.getElementById('send-repair').addEventListener('click', () => {
     } else {
         alert('Telefono Registrado como robado.')
     }
-
 })
 
 document.getElementById('send-first-diagnosis').addEventListener('click', () => {
@@ -142,19 +142,19 @@ document.getElementById('send-first-diagnosis').addEventListener('click', () => 
 
     hiddenSection('first-diagnosis-section');
 
-    const selectTech = document.getElementById('tech-select');
+    const selectTech = document.getElementById("tech-select");
 
     const filterTechs = thecnicians.filter(tech => {
         return tech.skills.includes(currentRepair.phone.brand)
     })
 
     filterTechs.forEach(item => {
-        const newOtion = document.createElement('option')
+        const newOtion = document.createElement("option");
         newOtion.value = item.id;
         newOtion.textContent = item.name;
         selectTech.appendChild(newOtion);
     })
-
+    
     showSection("select-thecnician");
 })
 
@@ -173,8 +173,10 @@ document.getElementById('send-tech').addEventListener('click', () => {
 
     currentRepair = null;
 
-    alert('Reparacion creada y asiganda de manera correcta');
+    alert('Reparacion creada y asignada de manera correcta');
 
     hiddenSection('select-thecnician');
     showSection('register-repair-form');
+
+
 })
