@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestión de Reparaciones</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>📱 Gestión de Reparaciones</h1>
+  </header>
+
+  <main>
+    <section class="form-section">
+      <h2>Ingreso de Teléfono</h2>
+      <form id="formIngreso">
+        <input type="text" id="imei" placeholder="IMEI" required />
+        <input type="text" id="serie" placeholder="Número de serie" required />
+        <select id="marca" required>
+          <option value="">Selecciona marca</option>
+          <option value="android">Android</option>
+          <option value="ios">iOS</option>
+        </select>
+        <textarea id="diagnostico" placeholder="Diagnóstico inicial" required></textarea>
+        <input type="number" id="abono" placeholder="Abono (mínimo 0.5)" step="0.01" required />
+        <label><input type="checkbox" id="autorizacion" required/> Autorización escrita del usuario</label>
+        <input type="text" id="repuesto" placeholder="Repuesto a agregar" required/>
+        <button type="submit">Registrar Reparación</button>
+      </form>
+    </section>
+
+    <section class="estado-section">
+      <h2>📋 Estado de Equipos</h2>
+      <ul id="listaEstados"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Reparaciones Tech | Sistema modularizado por Leonardo</p>
+  </footer>
+
+  <script type="module" src="scripts/ui.js"></script>
+</body>
+</html>
