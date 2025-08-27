@@ -14,7 +14,28 @@
 
 <body>
 
-    <h1>Listo!!</h1>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="jumbotron">
+                    <h2>Gundam Inventory</h2>
+                        <a class="btn btn-primary btn-large clsAccion" id="agregar" href="http://www.x-codec.net">Agregar</a>
+                        <a class="btn btn-primary btn-large clsAccion" id="eliminarTodos" href="http://www.x-codec.net">Eliminar</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <table id="tblKits" class="table">
+                <thead>
+                    <th data-field="nombre">Nombre</th>
+                    <th data-field="descripcion">Descripcion</th>
+                    <th data-field="escala">Escala</th>
+                    <th>Accion</th>
+                </thead>
+            </table>
+        </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
