@@ -59,7 +59,9 @@
       </div>
     </div>
   </body>
-  <script>
+  <script type="module">
+    import { thecnicians_person } from "./data/thecnicians_person.js";
+    
     const data = JSON.parse(localStorage.getItem("repairs"));
     const id_input = document.getElementById("id_input");
 
@@ -85,6 +87,7 @@
       const section_information = document.getElementById(
         "section-information"
       );
+      
       section_information.innerHTML = `
             <div class="flex flex-row items-center justify-start gap-10">
                 <p class="flex flex-row justify-start w-full text-left">Autorizacion:</p>

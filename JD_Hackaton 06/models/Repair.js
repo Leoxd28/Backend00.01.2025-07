@@ -24,7 +24,7 @@ export class Repair {
     assignTechnician(id) {
         for (let tech of thecnicians_person) {
             if (tech.canRepair(this.phone.brand)) {
-                this.thecnician = id;
+                this.thecnician = tech.name;
                 // return `Asignado a ${tech.name}`
             }
         }

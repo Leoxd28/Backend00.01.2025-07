@@ -78,8 +78,11 @@ document.getElementById('send-tech').addEventListener('click', () => {
     currentRepair.assignTechnician(techSelect);
 
     currentRepair.addPart(parts);
-    const listofRepairs = localStorage.getItem('repairs') ? [] : localStorage.setItem('repairs', JSON.stringify([]));
+    
+    // console.log('localStorage.getItem', localStorage.getItem('repairs'));
 
+    const listofRepairs = localStorage.getItem('repairs') !== undefined ? JSON.parse(localStorage.getItem('repairs')) : [];
+    
     listofRepairs.push(currentRepair);
 
     localStorage.setItem('repairs', JSON.stringify(listofRepairs));
