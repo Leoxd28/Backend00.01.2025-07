@@ -23,7 +23,7 @@ const Reserva = function () {
             confirmButtonText: "Guardar",
             cancelButtonText: "Cancelar",
             html: `
-            <input id="origen" type="text" placeholder="Cual es la ciudad de Origen"
+            <input id="origen" type="text" placeholder="Cual es la ciusdad de Origen"
     class="form-control input-md">
 <input id="destino" type="text" placeholder="Cual es la Ciudad de Destino"
     class="form-control input-md">
