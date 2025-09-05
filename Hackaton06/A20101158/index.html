@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Hackaton06</title>
+</head>
+
+<body class="min-h-screen bg-gray-900 p-6 space-y-10">
+
+    <div class="w-full max-w-5xl mx-auto bg-white rounded-xl shadow-2xl p-8 space-y-10">
+
+        <!-- 🛠 Registro de Reparación -->
+        <section id="register-repair-form" class="space-y-6">
+            <h1 class="text-3xl font-bold text-center text-gray-800 uppercase">Registrar Nueva Reparación</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label for="serial" class="block text-sm font-medium text-gray-700">Número de Serie</label>
+                    <input id="serial" type="text"
+                        class="mt-1 block w-full rounded-lg border-gray-300 bg-gray-50 p-2.5 text-sm focus:ring-blue-500 focus:border-blue-500"
+                        placeholder="Ingrese número de serie" />
+                </div>
+                <div>
+                    <label for="imei" class="block text-sm font-medium text-gray-700">Número de IMEI</label>
+                    <input id="imei" type="text"
+                        class="mt-1 block w-full rounded-lg border-gray-300 bg-gray-50 p-2.5 text-sm focus:ring-blue-500 focus:border-blue-500"
+                        placeholder="Ingrese número de IMEI" />
+                </div>
+                <div>
+                    <label for="brand" class="block text-sm font-medium text-gray-700">Marca</label>
+                    <select id="brand"
+                        class="mt-1 block w-full rounded-lg border-gray-300 bg-gray-50 p-2.5 text-sm focus:ring-blue-500 focus:border-blue-500">
+                        <option value="">Seleccione una marca</option>
+                        <option value="iphone">iPhone</option>
+                        <option value="oppo">Oppo</option>
+                        <option value="samsung">Samsung</option>
+                        <option value="honor">Honor</option>
+                    </select>
+                </div>
+            </div>
+            <div class="flex justify-center">
+                <button id="send-repair"
+                    class="mt-4 px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-white hover:text-blue-600 border border-blue-600 transition">
+                    Enviar
+                </button>
+            </div>
+        </section>
+
+        <!-- 📋 Primer Diagnóstico -->
+        <section id="first-diagnosis-section" class="hidden space-y-6">
+            <h1 class="text-2xl font-bold text-center text-gray-800 uppercase">Registrar Primer Diagnóstico</h1>
+            <div class="space-y-4">
+                <div>
+                    <label for="first-diagnosis" class="block text-sm font-medium text-gray-700">Diagnóstico</label>
+                    <textarea id="first-diagnosis"
+                        class="mt-1 block w-full rounded-lg border-gray-300 bg-gray-50 p-2.5 text-sm focus:ring-blue-500 focus:border-blue-500 min-h-[180px]"
+                        placeholder="Ingrese primer diagnóstico"></textarea>
+                </div>
+                <div class="flex items-center gap-2">
+                    <input id="authorization" type="checkbox"
+                        class="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500" />
+                    <label for="authorization" class="text-sm font-medium text-gray-700">Autorización escrita del
+                        usuario</label>
+                </div>
+                <div>
+                    <label for="payment" class="block text-sm font-medium text-gray-700">Pago inicial</label>
+                    <input id="payment" type="number" min="0"
+                        class="mt-1 block w-full rounded-lg border-gray-300 bg-gray-50 p-2.5 text-sm focus:ring-blue-500 focus:border-blue-500"
+                        placeholder="Ingrese abono inicial" />
+                </div>
+            </div>
+            <div class="flex justify-center">
+                <button id="send-first-diagnosis"
+                    class="mt-4 px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-white hover:text-blue-600 border border-blue-600 transition">
+                    Guardar
+                </button>
+            </div>
+        </section>
+
+        <!-- 👨‍🔧 Técnico y Partes -->
+        <section id="select-thecnician" class="hidden space-y-6">
+            <h1 class="text-2xl font-bold text-center text-gray-800 uppercase">Asignar Técnico y Partes</h1>
+            <div class="space-y-4">
+                <div>
+                    <label for="tech-select" class="block text-sm font-medium text-gray-700">Técnico</label>
+                    <select id="tech-select"
+                        class="mt-1 block w-full rounded-lg border-gray-300 bg-gray-50 p-2.5 text-sm focus:ring-blue-500 focus:border-blue-500">
+                        <option value="">Seleccione un técnico</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="parts" class="block text-sm font-medium text-gray-700">Partes</label>
+                    <input id="parts" type="text"
+                        class="mt-1 block w-full rounded-lg border-gray-300 bg-gray-50 p-2.5 text-sm focus:ring-blue-500 focus:border-blue-500"
+                        placeholder="Pantalla rota, Flex de audio, ..." />
+                </div>
+            </div>
+            <div class="flex justify-center">
+                <button id="send-tech"
+                    class="mt-4 px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-white hover:text-blue-600 border border-blue-600 transition">
+                    Guardar
+                </button>
+            </div>
+        </section>
+    </div>
+    <!-- 📊 Tabla de Reparaciones -->
+    <div class="w-full max-w-5xl mx-auto bg-white rounded-xl shadow-2xl p-8 space-y-6">
+        <section id="repairs-table-section" class="hidden space-y-6">
+            <h2 class="text-2xl font-bold text-gray-800">Listado de Reparaciones</h2>
+            <div class="overflow-x-auto rounded-lg shadow">
+                <table class="min-w-full divide-y divide-gray-200 text-sm">
+                    <thead class="bg-blue-100 text-blue-800 uppercase font-semibold">
+                        <tr>
+                            <th class="px-4 py-2 text-left">ID</th>
+                            <th class="px-4 py-2 text-left">Serial</th>
+                            <th class="px-4 py-2 text-left">IMEI</th>
+                            <th class="px-4 py-2 text-left">Marca</th>
+                            <th class="px-4 py-2 text-left">Diagnóstico</th>
+                            <th class="px-4 py-2 text-left">Técnico</th>
+                            <th class="px-4 py-2 text-left">Partes</th>
+                            <th class="px-4 py-2 text-left">Pago Inicial</th>
+                            <th class="px-4 py-2 text-left">Autorización</th>
+                        </tr>
+                    </thead>
+                    <tbody id="repairs-table-body" class="divide-y divide-gray-100 bg-white">
+                        <!-- Filas generadas dinámicamente -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <script src="app.js" type="module"></script>
+</body>
+
+</html>
