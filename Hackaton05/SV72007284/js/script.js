@@ -213,19 +213,19 @@ class Celular extends Dispositivo {
     agregarDuenio(nombreDuenio) {
         this.duenio = nombreDuenio;
     }
-    async verificarIMEI(imeiCelular) {
+    verificarIMEI(imeiCelular) {
         if (imeisReportados.includes(imeiCelular)) {
-            return Swal.fire("Error", "El IMEI ha sido reportado. No se puede realizar el servicio.", "error")
-                .then(() => false);
+            Swal.fire("Error", "El IMEI ha sido reportado. No se puede realizar el servicio.", "error");
+            return false;
         } else {
             this.imei = imeiCelular;
             return true;
         }
     }
-    async verificarNumeroSerie(serieCelular) {
+    verificarNumeroSerie(serieCelular) {
         if (numSerieReportados.includes(serieCelular)) {
-            return Swal.fire("Error", "El número de serie ha sido reportado. No se puede realizar el servicio.", "error")
-                .then(() => false);
+            Swal.fire("Error", "El número de serie ha sido reportado. No se puede realizar el servicio.", "error")
+            return false;
         } else {
             this.serie = serieCelular;
             return true;
