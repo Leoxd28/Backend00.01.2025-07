@@ -1,2 +1,2 @@
 
-console.log("Inicio de la aplicacion de Roberto Pineda ")
+console.log("Inicio de la aplicacion de Jhosep Cueva ")
