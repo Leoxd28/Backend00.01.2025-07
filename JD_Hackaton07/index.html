@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <title>Hackaton07</title>
+
+  </head>
+
+ <body class="bg-[#f2f2f2] grid place-content-center w-full min-h-svh">
+
+
+
+    <!-- ----------------------------------------------------------------------
+Ejercicio 1. Ingrese el usuario de github
+--------------------------------------------------------------------- -->
+      <section class="w-full grid place-content-center py-10">
+      <div
+        id="github-section"
+        class="flex w-full flex-row gap-5 items-end justify-center p-5 bg-white rounded-lg shadow-lg max-w-sm"
+      >
+        <div>
+          <label for="serial" class="text-sm"
+            >Ejercicio 1. Ingrese el usuario de github:</label
+          >
+          <input
+            type="text"
+            id="user-github"
+            class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5"
+            placeholder="rpinedaec83"
+            required
+          />
+        </div>
+        <button
+          type="button"
+          id="btn-github"
+          class="bg-blue-400 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-400 transition-colors duration-300 ease-in-out hover:shadow-lg"
+        >
+          Guardar
+        </button>
+      </div>
+      <div id="result-github" class="hidden max-w-sm"></div>
+</section> 
+
+
+
+<!-- ----------------------------------------------------------------------
+Ejercicio 13. Ingrese el nombre de la película 
+--------------------------------------------------------------------- -->
+<section class="w-full flex flex-col items-center justify-center py-10 border border-black">
+  <div
+    class="flex w-full flex-row gap-5 items-end justify-center p-5 bg-white rounded-lg shadow-lg max-w-sm"
+  >
+    <div>
+      <label for="movie-input" class="text-sm"
+        >Ejercicio 13. Ingrese el nombre de la película:</label
+      >
+      <div class="flex gap-2">
+        <input
+          type="text"
+          id="movie-input"
+          class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5"
+          placeholder="nombre de la pelicula"
+          required
+        />
+        <button
+          id="movie-search"
+          class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+        >
+          BUSCAR
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="result-movies" class="w-full min-w-xl grid grid-cols-3 gap-4 p-10"></div>
+</section>
+
+
+<!-- ----------------------------------------------------------------------
+Ejercicio 14. Ingrese el nombre de la película 
+--------------------------------------------------------------------- -->
+ <section class="w-full flex flex-col items-center justify-center py-10 border border-black">
+  <div class="flex w-full flex-row gap-5 items-end justify-center p-5 bg-white rounded-lg shadow-lg max-w-sm">
+    <div>
+      <label for="movie-detail-input" class="text-sm">
+        Ejercicio 14. Ingrese el nombre de la película que necesita DETALLE:
+      </label>
+      <div class="flex gap-2">
+        <input
+          type="text"
+          id="movie-detail-input"
+          class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5"
+          placeholder="nombre de la pelicula"
+          required
+        />
+        <button
+          id="movie-detail-search"
+          class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+        >
+          BUSCAR
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="result-movie-detail" class="w-full min-w-xl grid grid-cols-3 gap-4 p-10"></div>
+</section>
+ 
+
+
+  </body>
+  <script src="app.js"></script>
+</html>
