@@ -38,23 +38,23 @@ pagina web en NodeJS que nos ayude a consultar la siguiente lista de API's:
 - 11. Consultar citas famosas    
 - 12. Consultar datos ficticios de un usuario  
 - 13. Consultar el top de peliculas de estreno   --> OK
-- 14. Consultar el detalle de una pelicula especifica
+- 14. Consultar el detalle de una pelicula especifica  --> OK
 - 15. Consultar datos especificos de Marte
 
 
 Referencias: 
 
-- https://api.github.com/users/rpinedaec83
-- https://api.nasa.gov
+- https://api.github.com/users/rpinedaec83 ok
+- https://api.nasa.gov ok
 - https://www.frankfurter.app
-- https://pokeapi.co
-- https://rickandmortyapi.com
+- https://pokeapi.co ok
+- https://rickandmortyapi.com  ok
 - https://www.thecocktaildb.com
 - https://fakestoreapi.com
 - https://unsplash.com/developers
 - https://quotes.rest
 - https://randomuser.me
-- https://developer.themoviedb.org/docs
+- https://developer.themoviedb.org/docs ok
 
 
 ### V.	Solución del reto

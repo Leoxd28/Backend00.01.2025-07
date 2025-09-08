@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <title>Hackaton07</title>
+
+</head>
+
+<body class="bg-[#f2f2f2] grid place-content-center w-full min-h-svh">
+
+
+
+  <!-- ----------------------------------------------------------------------
+Ejercicio 1. Consultar los datos de GitHub de un usuario especifico.      
+--------------------------------------------------------------------- -->
+  <section class="w-full grid place-content-center py-10">
+    <div id="github-section"
+      class="flex w-full flex-row gap-5 items-end justify-center p-5 bg-white rounded-lg shadow-lg max-w-sm">
+      <div>
+        <label for="serial" class="text-sm">Ejercicio 1. Ingrese el usuario de github:</label>
+        <input type="text" id="user-github"
+          class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5"
+          placeholder="rpinedaec83" required />
+      </div>
+      <button type="button" id="btn-github"
+        class="bg-blue-400 text-white rounded-lg px-6 py-2 hover:cursor-pointer hover:bg-white hover:text-blue-600 border border-blue-400 transition-colors duration-300 ease-in-out hover:shadow-lg">
+        Guardar
+      </button>
+    </div>
+    <div id="result-github" class="hidden max-w-sm"></div>
+  </section>
+
+
+  <!-- ----------------------------------------------------------------------
+Ejercicio 2. Consultar el Clima de una ciudad o ubicacion especifica     
+--------------------------------------------------------------------- -->
+
+<section class="w-full flex flex-col items-center justify-center py-10 border border-black">
+  <div class="flex w-full flex-row gap-5 items-end justify-center p-5 bg-white rounded-lg shadow-lg max-w-sm">
+    <div>
+      <label for="weather-city-input" class="text-sm">
+        Ejercicio 2. Consultar el Clima de una ciudad o ubicación específica:
+      </label>
+      <div class="flex gap-2">
+        <input
+          type="text"
+          id="weather-city-input"
+          class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5"
+          placeholder="Ej: Lima,Peru"
+          required
+        />
+        <button
+          id="weather-search-btn"
+          class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+        >
+          CONSULTAR
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="weather-result" class="w-full min-w-xl grid grid-cols-1 gap-4 p-10"></div>
+</section>
+
+
+
+  <!-- ----------------------------------------------------------------------
+Ejercicio 3. Consultar el tipo de cambio del dolar en Perú 
+--------------------------------------------------------------------- -->
+  
+<section class="w-full flex flex-col items-center justify-center py-10 border border-black">
+  <div class="flex w-full flex-row gap-5 items-end justify-center p-5 bg-white rounded-lg shadow-lg max-w-sm">
+    <div>
+      <label for="usd-pen-btn" class="text-sm">
+        Ejercicio 3. Consultar el tipo de cambio del dolar en Perú:
+      </label>
+      <div class="flex gap-2">
+        <button
+          id="usd-pen-btn"
+          class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700"
+        >
+          CONSULTAR
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="usd-pen-result" class="w-full min-w-xl grid grid-cols-1 gap-4 p-10"></div>
+</section>
+
+
+
+
+
+  <!-- ----------------------------------------------------------------------
+Ejercicio 4. Consultar la lista de Pokemones actual 
+--------------------------------------------------------------------- -->
+  <section class="w-full flex flex-col items-center justify-center py-10 border border-black">
+    <div class="flex w-full flex-row gap-5 items-end justify-center p-5 bg-white rounded-lg shadow-lg max-w-sm">
+      <div>
+        <label for="pokemon-list-input" class="text-sm">
+          Ejercicio 4. Consultar la lista de Pokemones actual:
+        </label>
+        <div class="flex gap-2">
+          <!-- <input
+          type="text"
+          id="pokemon-list-input"
+          class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5"
+          placeholder="Ingresar de la pelicula"
+          required
+        />  -->
+          <button id="pokemon-list-search" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+            BUSCAR
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="result-pokemon-list" class="w-full min-w-xl grid grid-cols-3 gap-4 p-10"></div>
+  </section>
+
+
+
+
+  <!-- ----------------------------------------------------------------------
+Ejercicio 5. Consultar los poderes de un pokemon especifico              
+--------------------------------------------------------------------- -->
+  <section class="w-full flex flex-col items-center justify-center py-10 border border-black">
+    <div class="flex w-full flex-row gap-5 items-end justify-center p-5 bg-white rounded-lg shadow-lg max-w-sm">
+      <div>
+        <label for="pokemon-abilities-input" class="text-sm">
+          Ejercicio 5. Consultar los poderes de un pokemon especifico:
+        </label>
+        <div class="flex gap-2">
+          <input type="text" id="pokemon-abilities-input"
+            class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5"
+            placeholder="Ingresar nombre de un Pokemon" required />
+          <button id="pokemon-abilities-search" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+            BUSCAR
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="result-pokemon-abilities" class="w-full min-w-xl grid grid-cols-3 gap-4 p-10"></div>
+  </section>
+
+
+
+
+  <!-- ----------------------------------------------------------------------
+Ejercicio 6. Consultar los principales personajes de Rick and Morty                  
+--------------------------------------------------------------------- -->
+  <section class="w-full flex flex-col items-center justify-center py-10 border border-black">
+    <div class="flex w-full flex-row gap-5 items-end justify-center p-5 bg-white rounded-lg shadow-lg max-w-sm">
+      <div>
+        <label for="characters-RickAndMorty-input" class="text-sm">
+          Ejercicio 6. Consultar los principales personajes de Rick and Morty:
+        </label>
+        <div class="flex gap-2">
+          <!-- <input
+          type="text"
+          id="characters-RickAndMorty-input"
+          class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5"
+          placeholder="nombre de la pelicula"
+          required
+        />  -->
+          <button id="characters-RickAndMorty-search"
+            class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+            BUSCAR
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="result-characters-RickAndMorty" class="w-full min-w-xl grid grid-cols-3 gap-4 p-10"></div>
+  </section>
+
+
+
+  <!-- ----------------------------------------------------------------------
+Ejercicio 7. Consultar el detalle de cada personaje de Rick and Morty
+--------------------------------------------------------------------- -->
+  <section class="w-full flex flex-col items-center justify-center py-10 border border-black">
+    <div class="flex w-full flex-row gap-5 items-end justify-center p-5 bg-white rounded-lg shadow-lg max-w-sm">
+      <div>
+        <label for="characters-RickAndMorty-uno-input" class="text-sm">
+          Ejercicio 7. Consultar el detalle de cada personaje de Rick and Morty:
+        </label>
+        <div class="flex gap-2">
+          <input type="text" id="characters-RickAndMorty-uno-input"
+            class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5"
+            placeholder="Nombre de personaje (Rick Sanchez, Morty Smith, etc)" required />
+          <button id="characters-RickAndMorty-uno-search"
+            class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+            BUSCAR
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="result-characters-RickAndMorty-uno" class="w-full min-w-xl grid grid-cols-3 gap-4 p-10"></div>
+  </section>
+
+
+
+
+
+
+  <!-- ----------------------------------------------------------------------
+Ejercicio 13. Consultar el top de peliculas de estreno   
+--------------------------------------------------------------------- -->
+  <section class="w-full flex flex-col items-center justify-center py-10 border border-black">
+    <div class="flex w-full flex-row gap-5 items-end justify-center p-5 bg-white rounded-lg shadow-lg max-w-sm">
+      <div>
+        <label for="movie-input" class="text-sm">Ejercicio 13. Ingrese el nombre de la película:</label>
+        <div class="flex gap-2">
+          <input type="text" id="movie-input"
+            class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5"
+            placeholder="Ingresar nombre de la pelicula" required />
+          <button id="movie-search" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+            BUSCAR
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="result-movies" class="w-full min-w-xl grid grid-cols-3 gap-4 p-10"></div>
+  </section>
+
+
+  <!-- ----------------------------------------------------------------------
+Ejercicio 14. Consultar el detalle de una pelicula especifica
+--------------------------------------------------------------------- -->
+  <section class="w-full flex flex-col items-center justify-center py-10 border border-black">
+    <div class="flex w-full flex-row gap-5 items-end justify-center p-5 bg-white rounded-lg shadow-lg max-w-sm">
+      <div>
+        <label for="movie-detail-input" class="text-sm">
+          Ejercicio 14. Ingrese el nombre de la película que necesita DETALLE:
+        </label>
+        <div class="flex gap-2">
+          <input type="text" id="movie-detail-input"
+            class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5"
+            placeholder="Ingresar nombre de la pelicula" required />
+          <button id="movie-detail-search" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+            BUSCAR
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="result-movie-detail" class="w-full min-w-xl grid grid-cols-3 gap-4 p-10"></div>
+  </section>
+
+
+
+  <!-- ----------------------------------------------------------------------
+Ejercicio 15. Consultar datos especificos de Marte
+--------------------------------------------------------------------- -->
+
+<section class="w-full flex flex-col items-center justify-center py-10 border border-black">
+  <div class="flex w-full flex-row gap-5 items-end justify-center p-5 bg-white rounded-lg shadow-lg max-w-sm">
+    <div>
+      <label for="mars-sol-input" class="text-sm">
+        Ejercicio 15. Consultar imágenes del planeta Marte (Curiosity, sol):
+      </label>
+      <div class="flex gap-2">
+        <input
+          type="number"
+          id="mars-sol-input"
+          class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5"
+          placeholder="Ingrese nro día misión:0, 100, 1000 , 500, etc)"
+          min="0"
+          required
+        />
+        <button
+          id="mars-search"
+          class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+        >
+          BUSCAR
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="mars-result" class="w-full min-w-xl grid grid-cols-3 gap-4 p-10"></div>
+</section>
+
+
+
+
+
+</body>
+<script src="app.js"></script>
+
+</html>
