@@ -17,7 +17,7 @@ const KitStore = function(){
     console.log("Inicio el KitStore")
     arrKits = JSON.parse(localStorage.getItem("kits"))
     $("#tblKits").bootstrapTable({ data: arrKits });
-}();
+}(); 
 
 let btnAgregar = document.getElementById("agregar")
 console.log(btnAgregar);
@@ -27,7 +27,7 @@ btnAgregar.addEventListener("click",async (e)=>{
     await pedirDatos().then((obj)=>{
        if(obj){
         arrKits.push(obj);
-        $("#tblKits").bootstrapTable("load", arrKits);
+        $("#tblKits").bootstrapT3able("load", arrKits);
         localStorage.setItem("kits",JSON.stringify(arrKits))
        }
     })
@@ -55,8 +55,8 @@ async function pedirDatos(data=null) {
             <input id="nombre" type="text" placeholder="Dime el Nombre" class="form-control input-md">
             <input id="descripcion" type="text" placeholder="Dime la descripcion" class="form-control input-md">
             <input id="escala" type="text" placeholder="Dime la escala" class="form-control input-md">
+            <input id="isCustom" type="text" placehold  er="Es o no es Custom" class="form-control input-md">
             <input id="imagen" type="text" placeholder="Dime la imagen" class="form-control input-md">
-            <input id="isCustom" type="text" placeholder="Es o no es Custom" class="form-control input-md">
             <input id="custom" type="text" placeholder="Cual es el custom" class="form-control input-md">
             `,
             preConfirm: () => {

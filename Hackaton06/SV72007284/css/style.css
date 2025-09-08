@@ -1,0 +1,32 @@
+.clsAccion {
+  font-weight: 700;
+}
+
+#tblServicios {
+  margin-top: 20px;
+}
+
+.btn {
+  margin-right: 5px;
+}
+
+.jumbotron h2 {
+  font-weight: bold;
+}
+
+.jumbotron .btn {
+  margin-right: 10px;
+}
+
+body {
+  background-color: #f8f9fa;
+}
+
+.container-fluid {
+  padding: 2em;
+}
+
+.estado-servicio {
+  font-weight: bold;
+  color: #007bff;
+}
