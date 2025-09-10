@@ -1,0 +1,69 @@
+{
+	"info": {
+		"_postman_id": "57f5da86-542a-419e-98e8-a7e854a9cf63",
+		"name": "Backend 07.2025",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24238005"
+	},
+	"item": [
+		{
+			"name": "inicio",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Traer Alumnos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/alumno",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"alumno"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Traer Un Alumno",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/alumno/1",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"alumno",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "http://localhost:3001",
+			"type": "default"
+		}
+	]
+}
