@@ -50,3 +50,14 @@ exports.agregarAlumno = (req, res) => {
     if (handleData.guardarData(cursos))
         res.status(200).json(curso.alumnos);
 }
+
+exports.traerAlumno = (req, res) => {
+    
+        cursos = handleData.cargarData();
+        let idCurso = req.params.id;
+        let curso = cursos.find(a => a.id == req.params.id);
+        console.log(idCurso);
+        let alumno = curso.alumnos.find(a=>a.id==req.params.idAlumno)
+        res.status(200).json(alumno);
+
+}
