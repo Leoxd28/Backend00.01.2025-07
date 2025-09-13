@@ -1,0 +1,39 @@
+[
+  {
+    "id": 1,
+    "nombre": "Matemanticas",
+    "alumnos": [
+      {
+        "id": 1,
+        "nombre": "Roberto",
+        "nota": 19
+      },
+      {
+        "id": 2,
+        "nombre": "David",
+        "nota": 16
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "nombre": "Historia",
+    "alumnos": [
+      {
+        "id": 1,
+        "nombre": "Roberto",
+        "nota": 14
+      },
+      {
+        "id": 2,
+        "nombre": "David",
+        "nota": 19
+      },
+      {
+        "id": 3,
+        "nombre": "Juan",
+        "nota": 20
+      }
+    ]
+  }
+]
