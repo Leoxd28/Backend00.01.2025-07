@@ -1,4 +1,3 @@
-
 var express = require('express');
 var router = express.Router();
 const cursos = require('../controllers/cursos.controller');
@@ -53,16 +52,12 @@ router.post('/:id/alumnos', [auth, validateNombre], cursos.agregarAlumno);
 //-------------------------------------------------------------------------------
 
 // GET /cursos/filtros?page=1&limit=2&sort=asc|desc
-/*router.get('/filtros', [auth], (req, res) => {
-  const { readCursos } = require('../utils/handleData');
-  let cursos = readCursos();*/
 router.get('/filtros', [auth], (req, res) => {
   const { readCursos } = require('../utils/handleData');
   let cursos = readCursos();
-  console.log('Cursos leídos:', cursos); // <-- Agrega esto
-  res.json({ debug: cursos });
-});
 
+  console.log('Cursos leídos:', JSON.stringify(cursos, null, 2));
+  
   // Ordenamiento por id
   const sort = req.query.sort === 'desc' ? 'desc' : 'asc';
   cursos = cursos.sort((a, b) => sort === 'asc' ? a.id - b.id : b.id - a.id);

@@ -25,12 +25,17 @@ const cargarData = () => {
 
 // Funciones para cursos.json (readCursos, writeCursos)
 const DATA_PATH = path.join(__dirname, '..', 'cursos.json');
+console.log('Ruta cursos.json:', DATA_PATH);
 
 function readCursos() {
     if (!fs.existsSync(DATA_PATH)) return [];
     const data = fs.readFileSync(DATA_PATH, 'utf-8');
+
+    console.log(data);
     return JSON.parse(data || '[]');
 }
+
+console.log(DATA_PATH)
 
 function writeCursos(cursos) {
     fs.writeFileSync(DATA_PATH, JSON.stringify(cursos, null, 2));
