@@ -1,5 +1,4 @@
-const handleData = require('../utils/handleData')
-
+const handleData = require('../utils/handleData');
 let cursos = []
 
 exports.traerCursos = (req, res) => {
@@ -61,3 +60,26 @@ exports.traerAlumno = (req, res) => {
         res.status(200).json(alumno);
 
 }
+
+
+//-------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------
+// Hora 2 – CRUD con persistencia en JSON
+//------------------------------------------------------------------------------- 
+//------------------------------------------------------------------------------- 
+
+const { readCursos, writeCursos } = require('../utils/handleData');
+
+exports.crearCurso = (req, res) => {
+  const cursos = readCursos();
+  const { nombre } = req.body;
+  if (!nombre) return res.status(400).json({ error: 'Nombre es requerido' });
+  const nuevoCurso = {
+    id: cursos.length ? cursos[cursos.length - 1].id + 1 : 1,
+    nombre,
+    alumnos: []
+  };
+  cursos.push(nuevoCurso);
+  writeCursos(cursos);
+  res.status(201).json(nuevoCurso);
+};

@@ -1,26 +1,45 @@
 const fs = require('fs');
+const path = require('path');
 
-
-guardarData = (data)=>{
-    console.log(data)
+// Funciones para .env (guardarData, cargarData)
+const guardarData = (data) => {
     try {
-        fs.writeFileSync(process.env.DBFILE,JSON.stringify(data, null,2));
+        fs.writeFileSync(process.env.DBFILE, JSON.stringify(data, null, 2));
         return true;
     } catch (error) {
         return error;
     }
-}
+};
 
-cargarData = ()=>{
+const cargarData = () => {
     try {
-        if(fs.existsSync(process.env.DBFILE)){
+        if (fs.existsSync(process.env.DBFILE)) {
             let data = JSON.parse(fs.readFileSync(process.env.DBFILE));
             return data;
         }
+        return [];
     } catch (error) {
         return error;
     }
-}
-const handleData = {guardarData, cargarData}
+};
 
-module.exports = handleData;
+// Funciones para cursos.json (readCursos, writeCursos)
+const DATA_PATH = path.join(__dirname, '..', 'cursos.json');
+
+function readCursos() {
+    if (!fs.existsSync(DATA_PATH)) return [];
+    const data = fs.readFileSync(DATA_PATH, 'utf-8');
+    return JSON.parse(data || '[]');
+}
+
+function writeCursos(cursos) {
+    fs.writeFileSync(DATA_PATH, JSON.stringify(cursos, null, 2));
+}
+
+// Exporta todo en un solo objeto
+module.exports = {
+    guardarData,
+    cargarData,
+    readCursos,
+    writeCursos
+};
