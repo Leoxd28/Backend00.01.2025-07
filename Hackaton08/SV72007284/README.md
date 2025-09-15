@@ -138,8 +138,8 @@ SV72007284/
 - **PORT** — puerto donde correr la API (por defecto 3002)
 
 ## Ejecutar
-npm run dev
----
+> npm run dev
+
 ## Token y roles
 Se usan tokens falsos en el header checkRole y token:
 - **teacher123** - role: teacher (permiso completo)
