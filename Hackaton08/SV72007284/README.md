@@ -3,7 +3,7 @@
 > Entrega final — API lista
 
 ## Estructura del proyecto
-
+```
 SV72007284/
 ├─ src/
 │ ├─ controllers/
@@ -13,6 +13,8 @@ SV72007284/
 │ │ └─ student.controller.js
 │ ├─ data/
 │ │ └─ data.json
+│ ├─ img/
+│ │ └─ endPoints.png
 │ ├─ middlewares/
 │ │ ├─ auth.middleware.js
 │ │ ├─ permissions.middleware.js
@@ -26,9 +28,10 @@ SV72007284/
 │ └─ index.js
 ├─ package.json
 └─ README.md
+```
 ---
 ## Estructura de data.json
-
+```
 {
   "profesores": [
     {
@@ -129,6 +132,7 @@ SV72007284/
     }
   ]
 }
+```
 ---
 ## Variables de entorno
 - **PORT** — puerto donde correr la API (por defecto 3002)
@@ -142,12 +146,13 @@ Se usan tokens falsos en el header checkRole y token:
 - **student123** - role: student (permiso limitado)
 ---
 ## Endpoints
-![Endpoints](image.png)
+![Endpoints](src/img/endPoints.png)
 
 - **GET** - /api/courses
 - **GET** - /api/courses/1
 - **POST** - /api/courses
 body:
+```
 {
     "id": 4,
     "name": "JavaScript Avanzado",
@@ -156,8 +161,10 @@ body:
     "profesorId": 1,
     "creditos": 5
 }
+```
 - **PUT** - /api/courses/4
 body:
+```
 {
     "name": "JavaScript Avanzado II",
     "descripcion": "Profundización en conceptos de programación con JavaScript.",
@@ -165,16 +172,20 @@ body:
     "profesorId": 1,
     "creditos": 5
 }
+```
 - **DELETE** - /api/courses/4
 - **GET** - /api/courses/1/students
 - **POST** - /api/courses/1/students
 body:
+```
 {
   "alumnosIds": [3, 4]
 }
+```
 - **GET** - /api/students
 - **GET** - /api/students/1
 - **GET** - /api/courses/paginated?page=1&limit=2
+```
 {
     "page": 1,
     "limit": 2,
@@ -207,7 +218,9 @@ body:
         }
     ]
 }
+```
 - **GET** - /api/students?minNota=15&sort=desc
+```
 [
     {
         "id": 6,
@@ -235,7 +248,9 @@ body:
         "nota": 15
     }
 ]
+```
 - **GET** - /api/students/ranking
+```
 [
     {
         "id": 6,
@@ -274,14 +289,17 @@ body:
         "posicion": 6
     }
 ]
+```
 - **GET** - /api/export
 - **GET** - /api/dashboard
+```
 {
     "totalCursos": 4,
     "totalAlumnos": 6,
     "promedioGeneral": 16.8,
     "mejorAlumno": "Pedro Sánchez"
 }
+```
 ---
 
 **Autor:** *(Alexander Córdova)*  
