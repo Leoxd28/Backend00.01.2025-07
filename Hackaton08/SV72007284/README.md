@@ -151,8 +151,8 @@ Se usan tokens falsos en el header checkRole y token:
 - **GET** - /api/courses
 - **GET** - /api/courses/1
 - **POST** - /api/courses
-body:
 ```
+body:
 {
     "id": 4,
     "name": "JavaScript Avanzado",
@@ -163,8 +163,8 @@ body:
 }
 ```
 - **PUT** - /api/courses/4
-body:
 ```
+body:
 {
     "name": "JavaScript Avanzado II",
     "descripcion": "Profundización en conceptos de programación con JavaScript.",
@@ -176,8 +176,8 @@ body:
 - **DELETE** - /api/courses/4
 - **GET** - /api/courses/1/students
 - **POST** - /api/courses/1/students
-body:
 ```
+body:
 {
   "alumnosIds": [3, 4]
 }
