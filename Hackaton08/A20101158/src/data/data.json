@@ -1,0 +1,62 @@
+{
+  "profesores": [
+    {
+      "id": "f45e6789-012d-4fgh-3456-7890ijklmno1",
+      "nombre": "Dr. Juan Martínez",
+      "especialidad": "Programación"
+    },
+    {
+      "id": "g56f7890-123f-4hij-3456-7890klmnopq2",
+      "nombre": "Ing. Laura Fernández",
+      "especialidad": "Bases de Datos"
+    },
+    {
+      "id": "h67f8901-234g-4klm-4567-8901nopqrstu3",
+      "nombre": "MSc. Roberto Díaz",
+      "especialidad": "Redes y Comunicaciones"
+    }
+  ],
+  "alumnos": [
+    { "id": "a12f3456-789b-4cde-9012-3456789abc01", "nombre": "Carlos Pérez" },
+    { "id": "b23f4567-890c-4def-0123-456789abcd02", "nombre": "Ana Gómez" },
+    { "id": "c34f5678-901d-4ef0-1234-56789abcde03", "nombre": "Luis Torres" },
+    { "id": "d45f6789-012e-4f01-2345-6789abcdef04", "nombre": "María Rodríguez" },
+    { "id": "e56f7890-123f-4f12-3456-789abcdefg05", "nombre": "Jorge Castillo" },
+    { "id": "f67f8901-234g-4f23-4567-89abcdefghi06", "nombre": "Pedro Sánchez" }
+  ],
+  "courses": [
+    {
+      "id": "d8b3a1b0-9f25-4c9c-bb6c-8e91b9b9c111",
+      "name": "Introducción a la Programación",
+      "descripcion": "Curso básico de programación en distintos lenguajes.",
+      "alumnosIds": [
+        "a12f3456-789b-4cde-9012-3456789abc01",
+        "b23f4567-890c-4def-0123-456789abcd02"
+      ],
+      "profesorId": "f45e6789-012d-4fgh-3456-7890ijklmno1",
+      "creditos": 4
+    },
+    {
+      "id": "a7c5d2f3-4e6b-49a7-9a0c-3f2b9cbdc222",
+      "name": "Bases de Datos Avanzadas",
+      "descripcion": "Estudio de modelos de datos, normalización y SQL avanzado.",
+      "alumnosIds": [
+        "c34f5678-901d-4ef0-1234-56789abcde03",
+        "d45f6789-012e-4f01-2345-6789abcdef04",
+        "e56f7890-123f-4f12-3456-789abcdefg05"
+      ],
+      "profesorId": "g56f7890-123f-4hij-3456-7890klmnopq2",
+      "creditos": 5
+    },
+    {
+      "id": "c9d7e3f1-8a4b-42e7-9b0f-5f2b1cabc333",
+      "name": "Redes y Comunicaciones",
+      "descripcion": "Principios de redes de computadoras, protocolos y seguridad.",
+      "alumnosIds": [
+        "f67f8901-234g-4f23-4567-89abcdefghi06"
+      ],
+      "profesorId": "h67f8901-234g-4klm-4567-8901nopqrstu3",
+      "creditos": 3
+    }
+  ]
+}
