@@ -1,0 +1,155 @@
+[
+  {
+    "id": 91,
+    "nombre": "Matemanticas",
+    "alumnos": [
+      {
+        "id": 1,
+        "nombre": "Jhosep",
+        "nota": 20
+      },
+      {
+        "id": 2,
+        "nombre": "David",
+        "nota": 117
+      }
+    ]
+  },
+  {
+    "id": 92,
+    "nombre": "Historia",
+    "alumnos": [
+      {
+        "id": 1,
+        "nombre": "Jhosep",
+        "nota": 19
+      },
+      {
+        "id": 2,
+        "nombre": "David",
+        "nota": 17
+      },
+      {
+        "id": 3,
+        "nombre": "Juan",
+        "nota": 16
+      }
+    ]
+  },
+  {
+    "id": 93,
+    "nombre": "Ciencias",
+    "alumnos": [
+      {
+        "id": 1,
+        "nombre": "Ana",
+        "nota": 18
+      },
+      {
+        "id": 2,
+        "nombre": "Luis",
+        "nota": 15
+      }
+    ]
+  },
+  {
+    "id": 94,
+    "nombre": "Literatura",
+    "alumnos": [
+      {
+        "id": 1,
+        "nombre": "María",
+        "nota": 17
+      },
+      {
+        "id": 2,
+        "nombre": "Pedro",
+        "nota": 16
+      },
+      {
+        "id": 3,
+        "nombre": "Lucía",
+        "nota": 18
+      }
+    ]
+  },
+  {
+    "id": 95,
+    "nombre": "Educación Física",
+    "alumnos": [
+      {
+        "id": 1,
+        "nombre": "Carlos",
+        "nota": 17
+      },
+      {
+        "id": 2,
+        "nombre": "Sofía",
+        "nota": 18
+      }
+    ]
+  },
+  {
+    "id": 96,
+    "nombre": "Arte",
+    "alumnos": [
+      {
+        "id": 1,
+        "nombre": "Elena",
+        "nota": 18
+      },
+      {
+        "id": 2,
+        "nombre": "Miguel",
+        "nota": 17
+      }
+    ]
+  },
+  {
+    "id": 97,
+    "nombre": "Computación",
+    "alumnos": [
+      {
+        "id": 1,
+        "nombre": "Andrés",
+        "nota": 18
+      },
+      {
+        "id": 2,
+        "nombre": "Valeria",
+        "nota": 11
+      }
+    ]
+  },
+  {
+    "id": 98,
+    "nombre": "Quimica",
+    "alumnos": [
+      {
+        "id": 1,
+        "nombre": "Jose Hackaton08",
+        "nota": 17
+      },
+      {
+        "id": 2,
+        "nombre": "Roxana",
+        "nota": 16
+      },
+      {
+        "id": 3,
+        "nombre": "Estrella",
+        "nota": 15
+      },
+      {
+        "id": 4,
+        "nombre": "Alejandro",
+        "nota": 17
+      }
+    ]
+  },
+  {
+    "id": 99,
+    "nombre": "Gestión de Operaciones",
+    "alumnos": []
+  }
+]
