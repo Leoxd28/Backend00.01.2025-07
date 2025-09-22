@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>API Gateway Visual</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    input, button { margin: 5px; }
+    pre { background: #f4f4f4; padding: 10px; border-radius: 5px; }
+  </style>
+</head>
+<body>
+  <h1>🔗 API Gateway</h1>
+
+  <label>GitHub Username:</label>
+  <input id="githubUser" placeholder="ej: rpinedaec83">
+  <button onclick="callAPI('github')">Consultar GitHub</button>
+
+  <label>Ciudad (lat/lon):</label>
+  <input id="lat" placeholder="ej: -12.1">
+  <input id="lon" placeholder="ej: -77.0">
+  <button onclick="callAPI('weather')">Consultar Clima</button>
+
+  <button onclick="callAPI('currency')">Consultar Dólar en Perú</button>
+  <button onclick="callAPI('pokemon')">Listar Pokemones</button>
+  <input id="pokeName" placeholder="ej: pikachu">
+  <button onclick="callAPI('pokemonDetail')">Detalles de Pokémon</button>
+
+  <button onclick="callAPI('rickmorty')">Personajes Rick & Morty</button>
+  <input id="rickId" placeholder="ej: 1">
+  <button onclick="callAPI('rickDetail')">Detalle Rick & Morty</button>
+
+  <button onclick="callAPI('cocktails')">Top Cócteles</button>
+  <button onclick="callAPI('store')">Productos de Tienda</button>
+
+  <input id="photoQuery" placeholder="Tema ej: naturaleza">
+  <input id="photoSize" placeholder="Tamaño ej: small">
+  <button onclick="callAPI('photos')">Buscar Fotos</button>
+
+  <button onclick="callAPI('quote')">Cita Famosa</button>
+  <button onclick="callAPI('randomuser')">Usuario Ficticio</button>
+  <button onclick="callAPI('movies')">Top Películas</button>
+  <input id="movieId" placeholder="ID película ej: 550">
+  <button onclick="callAPI('movieDetail')">Detalle Película</button>
+
+  <input id="sol" placeholder="Sol ej: 1000">
+  <button onclick="callAPI('mars')">Fotos de Marte</button>
+
+  <h2>📄 Resultado</h2>
+  <pre id="output"></pre>
+
+  <script>
+    async function callAPI(type) {
+      let url = '/api/';
+      switch (type) {
+        case 'github':
+          url += `github/${document.getElementById('githubUser').value}`;
+          break;
+        case 'weather':
+          url += `weather?lat=${document.getElementById('lat').value}&lon=${document.getElementById('lon').value}`;
+          break;
+        case 'currency':
+          url += 'currency'; break;
+        case 'pokemon':
+          url += 'pokemon'; break;
+        case 'pokemonDetail':
+          url += `pokemon/${document.getElementById('pokeName').value}`; break;
+        case 'rickmorty':
+          url += 'rickmorty'; break;
+        case 'rickDetail':
+          url += `rickmorty/${document.getElementById('rickId').value}`; break;
+        case 'cocktails':
+          url += 'cocktails'; break;
+        case 'store':
+          url += 'store'; break;
+        case 'photos':
+          const q = document.getElementById('photoQuery').value;
+          const s = document.getElementById('photoSize').value;
+          url += `photos?query=${q}&size=${s}`; break;
+        case 'quote':
+          url += 'quote'; break;
+        case 'randomuser':
+          url += 'randomuser'; break;
+        case 'movies':
+          url += 'movies'; break;
+        case 'movieDetail':
+          url += `movies/${document.getElementById('movieId').value}`; break;
+        case 'mars':
+          url += `mars?sol=${document.getElementById('sol').value}`; break;
+      }
+
+      try {
+        const res = await fetch(url);
+        const data = await res.json();
+        document.getElementById('output').textContent = JSON.stringify(data, null, 2);
+      } catch (err) {
+        document.getElementById('output').textContent = 'Error: ' + err.message;
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "hackaton07-ejercicio",
+  "version": "1.0.0",
+  "description": "Consultas a APIs públicas ",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "Leonardo",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "node-fetch": "^3.3.1"
+  }
+}

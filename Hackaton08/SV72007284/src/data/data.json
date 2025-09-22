@@ -1,0 +1,100 @@
+{
+  "profesores": [
+    {
+      "id": 1,
+      "nombre": "Dr. Juan Martínez",
+      "especialidad": "Programación"
+    },
+    {
+      "id": 2,
+      "nombre": "Ing. Laura Fernández",
+      "especialidad": "Bases de Datos"
+    },
+    {
+      "id": 3,
+      "nombre": "MSc. Roberto Díaz",
+      "especialidad": "Redes y Comunicaciones"
+    }
+  ],
+  "alumnos": [
+    {
+      "id": 1,
+      "nombre": "Carlos Pérez",
+      "nota": 18
+    },
+    {
+      "id": 2,
+      "nombre": "Ana Gómez",
+      "nota": 15
+    },
+    {
+      "id": 3,
+      "nombre": "Luis Torres",
+      "nota": 19
+    },
+    {
+      "id": 4,
+      "nombre": "María Rodríguez",
+      "nota": 12
+    },
+    {
+      "id": 5,
+      "nombre": "Jorge Castillo",
+      "nota": 17
+    },
+    {
+      "id": 6,
+      "nombre": "Pedro Sánchez",
+      "nota": 20
+    }
+  ],
+  "courses": [
+    {
+      "id": 1,
+      "name": "Introducción a la Programación",
+      "descripcion": "Curso básico de programación en distintos lenguajes.",
+      "alumnosIds": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "profesorId": 1,
+      "creditos": 4
+    },
+    {
+      "id": 2,
+      "name": "Bases de Datos Avanzadas",
+      "descripcion": "Estudio de modelos de datos, normalización y SQL avanzado.",
+      "alumnosIds": [
+        3,
+        4,
+        5
+      ],
+      "profesorId": 2,
+      "creditos": 5
+    },
+    {
+      "id": 3,
+      "name": "Redes y Comunicaciones",
+      "descripcion": "Principios de redes de computadoras, protocolos y seguridad.",
+      "alumnosIds": [
+        6
+      ],
+      "profesorId": 3,
+      "creditos": 3
+    },
+    {
+      "id": 4,
+      "name": "JavaScript Avanzado",
+      "descripcion": "Profundización en conceptos de programación con JavaScript.",
+      "alumnosIds": [
+        2,
+        4,
+        6
+      ],
+      "profesorId": 1,
+      "creditos": 5
+    }
+  ]
+}
