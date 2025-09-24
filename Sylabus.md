@@ -59,7 +59,7 @@ Desarrollar desde cero el backend de una aplicación E-Commerce con autenticaci�
 - ¿Qué es un ORM?
 - Instalación y configuración de Sequelize.
 - Definición de modelos, relaciones, CRUD y migraciones.  
-**Hackatón:** Crear modelos relacionales con Sequelize y realizar operaciones CRUD con PostgreSQL.
+**Hackatón:** Crear modelos relacionales con Sequelize y realizar operaciones CRUD con Mysql.
 
 ## Semana 11: MongoDB y NoSQL
 - Modelo documental, colecciones, consultas.
