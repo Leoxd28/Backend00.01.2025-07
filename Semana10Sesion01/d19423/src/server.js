@@ -4,11 +4,13 @@ const { sequelize, User, Post, Comment } = require('./models');
 const syncDb = require('./sync-db');
 const {userRouter} = require('./routes/user.route')
 const {postRouter} = require('./routes/post.route')
+const {commentRouter} = require('./routes/comment.route')
 
 const app = express();
 app.use(express.json());
 app.use('/api/user', userRouter);
 app.use('/api/post', postRouter);
+app.use('/api/comment', commentRouter);
 
 app.use((req, res, next) => {
   res.header(

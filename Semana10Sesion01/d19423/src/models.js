@@ -21,14 +21,14 @@ const Comment = sequelize.define('Comment', {
   body: { type: DataTypes.TEXT, allowNull: false }
 }, { tableName: 'comments' });
 
-// Asociaciones
-User.hasMany(Post, { foreignKey: 'authorId', as: 'posts' });
-Post.belongsTo(User, { foreignKey: 'authorId', as: 'author' });
 
-Post.hasMany(Comment, { foreignKey: 'postId', as: 'comments' });
-Comment.belongsTo(Post, { foreignKey: 'postId', as: 'post' });
+User.hasMany(Post);
+Post.belongsTo(User);
 
-User.hasMany(Comment, { foreignKey: 'userId', as: 'comments' });
-Comment.belongsTo(User, { foreignKey: 'userId', as: 'author' });
+Post.hasMany(Comment);
+Comment.belongsTo(Post);
+
+User.hasMany(Comment);
+Comment.belongsTo(User);
 
 module.exports = { sequelize, User, Post, Comment };
