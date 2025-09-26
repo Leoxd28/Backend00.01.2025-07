@@ -3,4 +3,4 @@ use sakila;
 select * from customer order by last_name limit 10;
 
 -- 2. Mostrar todas las películas cuyo título empiece con la letra `A`.  
-select * from film where title like 'a%'
+select * from film where title like 'a%';
