@@ -1,4 +1,4 @@
-/*// src/models.js (ejemplo de centralización)
+// src/models.js (ejemplo de centralización)
 const { DataTypes } = require('sequelize');
 const sequelize = require('./db');
 
@@ -31,7 +31,7 @@ Comment.belongsTo(Post, { foreignKey: 'postId', as: 'post' });
 User.hasMany(Comment, { foreignKey: 'userId', as: 'comments' });
 Comment.belongsTo(User, { foreignKey: 'userId', as: 'author' });
 
-module.exports = { sequelize, User, Post, Comment };*/
+module.exports = { sequelize, User, Post, Comment };
 
 
 
@@ -48,7 +48,7 @@ module.exports = { sequelize, User, Post, Comment };*/
 
 
 
-const { DataTypes, Op } = require('sequelize');
+/*const { DataTypes, Op } = require('sequelize');
 const sequelize = require('./db');
 
 console.log('📋 [models] Defining database models...');
@@ -436,4 +436,4 @@ module.exports = {
     User,
     Post,
     sequelize
-};
+};*/

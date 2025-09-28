@@ -1,4 +1,4 @@
-/*const { Sequelize } = require('sequelize');
+ npm run devconst { Sequelize } = require('sequelize');
 require('dotenv').config();
 
 
@@ -10,7 +10,7 @@ process.env.DB_PASS,
 );
 
 
-module.exports = sequelize;*/
+module.exports = sequelize; 
 
 
  
@@ -46,7 +46,7 @@ module.exports = sequelize;*/
 
 
 
-
+/*
 const sequelize = require('./db');
 const { User, Post } = require('./models');
 
@@ -228,3 +228,5 @@ module.exports = {
     testModels,
     healthCheck
 };
+
+*/
