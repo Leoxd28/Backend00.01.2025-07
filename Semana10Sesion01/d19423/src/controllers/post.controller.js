@@ -5,7 +5,7 @@ const User = db.User;
 
 exports.addPost = async (req,res)=>{
     let post = req.body;
-    post.authorId = req.params.authorId;
+    post.UserId = req.params.authorId;
     
     console.log(post);
     await Post.create(post).then(data=>{
@@ -17,7 +17,7 @@ exports.addPost = async (req,res)=>{
 
 exports.getPosts = async(req,res)=>{
     await Post.findAll(
-       
+       {include:{model:User, attributes:["firstName", "lastName",'email']}}
     ).then(data=>{
         res.status(200).send(data)
     }).catch(error=>{
