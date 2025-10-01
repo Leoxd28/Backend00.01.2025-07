@@ -39,10 +39,10 @@ Base de datos: **sakila**
 ## 4. Subconsultas
 
 16. Listar los clientes que han gastado más que el promedio de todos los clientes.  
-17. Encontrar las películas cuyo precio de renta sea mayor que el promedio de todas.  
+17. Encontrar las películas cuyo precio de renta sea mayor que el promedio de todas. 
 18. Mostrar los actores que trabajaron en las mismas películas que `"NICK WAHLBERG"`.  
 19. Listar las películas que nunca han sido rentadas.  
-20. Mostrar los clientes que nunca han realizado un pago.  
+    20. Mostrar los clientes que nunca han realizado un pago.  
 
 ---
 
@@ -62,7 +62,7 @@ Base de datos: **sakila**
 27. Mostrar los clientes que hayan hecho más de 30 rentas.  
 28. Obtener las películas que hayan sido rentadas más de 50 veces.  
 29. Listar los actores que participan en más de 20 películas.  
-30. Encontrar las ciudades donde hay más de 10 clientes registrados.  
+30 . Encontrar las ciudades donde hay más de 10 clientes registrados.  
 
 ---
 
@@ -74,7 +74,7 @@ Base de datos: **sakila**
 34. Mostrar las ciudades que tienen clientes pero no tienen tiendas.  
 35. Encontrar los actores que no han actuado en ninguna película de Children.  
 
----
+--- 
 
 ## 8. CTEs y Derivadas
 
@@ -99,9 +99,10 @@ Base de datos: **sakila**
 ## 10. Retos Finales
 
 46. Encontrar la película con el mayor número de actores distintos.  
-47. Listar las 5 películas más largas que han sido alquiladas al menos una vez.  
-48. Calcular el ingreso promedio por película, mostrando solo aquellas que superen el promedio general.  
-49. Encontrar la categoría más rentable en total de ingresos.  
-50. Listar los 3 clientes más valiosos (mayor pago total) y las películas que más alquilaron.  
+    47. Listar las 5 películas más largas que han sido alquiladas al menos una vez.  
+    48. Calcular el ingreso promedio por película, mostrando solo aquellas que superen el promedio general.  
+    49. Encontrar la categoría más rentable en total de ingresos.  
+    50. Listar los 3 clientes más valiosos (mayor pago total) y las películas que más alquilaron.  
 
 ---
+        
