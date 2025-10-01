@@ -1,0 +1,1183 @@
+{
+    "info": {
+        "name": "Mini Learning Platform API",
+        "description": "Complete API collection for Mini Learning Platform with courses, lessons, enrollments and comments - Updated with comprehensive test data",
+        "version": "1.0.0",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "variable": [
+        {
+            "key": "baseUrl",
+            "value": "http://localhost:3000",
+            "type": "string"
+        },
+        {
+            "key": "userId",
+            "value": "1",
+            "type": "string"
+        },
+        {
+            "key": "instructorId",
+            "value": "2",
+            "type": "string"
+        },
+        {
+            "key": "adminId",
+            "value": "3",
+            "type": "string"
+        },
+        {
+            "key": "courseId",
+            "value": "1",
+            "type": "string"
+        },
+        {
+            "key": "lessonId",
+            "value": "1",
+            "type": "string"
+        },
+        {
+            "key": "enrollmentId",
+            "value": "1",
+            "type": "string"
+        },
+        {
+            "key": "commentId",
+            "value": "1",
+            "type": "string"
+        },
+        {
+            "key": "courseSlug",
+            "value": "introduction-to-nodejs",
+            "type": "string"
+        }
+    ],
+    "item": [
+        {
+            "name": "Health Check",
+            "item": [
+                {
+                    "name": "Health Check",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/health",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["health"]
+                        },
+                        "description": "Check API health status - Should return 200 with system info"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Root Endpoint",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/",
+                            "host": ["{{baseUrl}}"],
+                            "path": [""]
+                        },
+                        "description": "Get API information and available endpoints"
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Users",
+            "item": [
+                {
+                    "name": "Create User - Student",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "if (pm.response.code === 201) {",
+                                    "    const response = pm.response.json();",
+                                    "    if (response.user && response.user.id) {",
+                                    "        pm.collectionVariables.set('userId', response.user.id);",
+                                    "        console.log('✅ Set userId to:', response.user.id);",
+                                    "    }",
+                                    "} else {",
+                                    "    console.log('❌ User creation failed:', pm.response.text());",
+                                    "}"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"firstName\": \"Ana\",\n    \"lastName\": \"García\",\n    \"email\": \"ana.garcia@estudiante.com\",\n    \"passwordHash\": \"password123\",\n    \"role\": \"student\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/users",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "users"]
+                        },
+                        "description": "Create a new student user - Ana García"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create User - Instructor",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "if (pm.response.code === 201) {",
+                                    "    const response = pm.response.json();",
+                                    "    if (response.user && response.user.id) {",
+                                    "        pm.collectionVariables.set('instructorId', response.user.id);",
+                                    "        console.log('✅ Set instructorId to:', response.user.id);",
+                                    "    }",
+                                    "}"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"firstName\": \"Carlos\",\n    \"lastName\": \"Rodríguez\",\n    \"email\": \"carlos.instructor@academia.com\",\n    \"passwordHash\": \"instructor2024\",\n    \"role\": \"instructor\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/users",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "users"]
+                        },
+                        "description": "Create instructor - Carlos Rodríguez, expert in web development"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create User - Admin",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "if (pm.response.code === 201) {",
+                                    "    const response = pm.response.json();",
+                                    "    if (response.user && response.user.id) {",
+                                    "        pm.collectionVariables.set('adminId', response.user.id);",
+                                    "        console.log('✅ Set adminId to:', response.user.id);",
+                                    "    }",
+                                    "}"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"firstName\": \"María\",\n    \"lastName\": \"Administradora\",\n    \"email\": \"admin@plataforma.com\",\n    \"passwordHash\": \"admin2024secure\",\n    \"role\": \"admin\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/users",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "users"]
+                        },
+                        "description": "Create admin user - María Administradora"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Additional Students",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"firstName\": \"Luis\",\n    \"lastName\": \"Martínez\",\n    \"email\": \"luis.martinez@estudiante.com\",\n    \"passwordHash\": \"student123\",\n    \"role\": \"student\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/users",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "users"]
+                        },
+                        "description": "Create additional student - Luis Martínez"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get All Users",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/users",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "users"]
+                        },
+                        "description": "Get all users with default pagination (page=1, pageSize=10)"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Users with Filters - Students Only",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/users?role=student&q=ana&page=1&pageSize=5",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "users"],
+                            "query": [
+                                {
+                                    "key": "role",
+                                    "value": "student"
+                                },
+                                {
+                                    "key": "q",
+                                    "value": "ana"
+                                },
+                                {
+                                    "key": "page",
+                                    "value": "1"
+                                },
+                                {
+                                    "key": "pageSize",
+                                    "value": "5"
+                                }
+                            ]
+                        },
+                        "description": "Search students named 'ana' with pagination"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Users with Filters - Instructors",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/users?role=instructor&order=firstName:ASC",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "users"],
+                            "query": [
+                                {
+                                    "key": "role",
+                                    "value": "instructor"
+                                },
+                                {
+                                    "key": "order",
+                                    "value": "firstName:ASC"
+                                }
+                            ]
+                        },
+                        "description": "Get all instructors ordered by first name"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get User by ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/users/{{userId}}",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "users", "{{userId}}"]
+                        },
+                        "description": "Get specific user by ID with enrollment statistics"
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Courses",
+            "item": [
+                {
+                    "name": "Create Course - Node.js Fundamentals",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "if (pm.response.code === 201) {",
+                                    "    const response = pm.response.json();",
+                                    "    if (response.course && response.course.id) {",
+                                    "        pm.collectionVariables.set('courseId', response.course.id);",
+                                    "        pm.collectionVariables.set('courseSlug', response.course.slug);",
+                                    "        console.log('✅ Set courseId to:', response.course.id);",
+                                    "        console.log('✅ Set courseSlug to:', response.course.slug);",
+                                    "    }",
+                                    "}"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"title\": \"Fundamentos de Node.js para Principiantes\",\n    \"description\": \"Curso completo de Node.js desde cero. Aprende JavaScript del lado del servidor, manejo de módulos, NPM, APIs REST, Express.js y bases de datos. Incluye proyectos prácticos y ejercicios hands-on.\",\n    \"ownerId\": 2,\n    \"published\": false\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/courses",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "courses"]
+                        },
+                        "description": "Create Node.js fundamentals course (instructor only)"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Course - React Advanced",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"title\": \"React Avanzado y Hooks Modernos\",\n    \"description\": \"Domina React con hooks avanzados, Context API, custom hooks, optimización de rendimiento, testing con Jest y React Testing Library. Incluye proyecto de e-commerce completo.\",\n    \"ownerId\": 2,\n    \"published\": true\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/courses",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "courses"]
+                        },
+                        "description": "Create advanced React course (published)"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Course - Database Design",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"title\": \"Diseño de Bases de Datos con MySQL y Sequelize\",\n    \"description\": \"Aprende diseño de bases de datos relacionales, normalización, índices, consultas optimizadas y ORM con Sequelize. Incluye casos de estudio reales y mejores prácticas.\",\n    \"ownerId\": 2,\n    \"published\": true\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/courses",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "courses"]
+                        },
+                        "description": "Create database design course"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get All Courses",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/courses",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "courses"]
+                        },
+                        "description": "Get all courses with pagination and basic stats"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Published Courses Only",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/courses?published=true&order=createdAt:DESC&pageSize=5",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "courses"],
+                            "query": [
+                                {
+                                    "key": "published",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "order",
+                                    "value": "createdAt:DESC"
+                                },
+                                {
+                                    "key": "pageSize",
+                                    "value": "5"
+                                }
+                            ]
+                        },
+                        "description": "Get only published courses, newest first"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Search Courses - React",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/courses?q=react&published=true",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "courses"],
+                            "query": [
+                                {
+                                    "key": "q",
+                                    "value": "react"
+                                },
+                                {
+                                    "key": "published",
+                                    "value": "true"
+                                }
+                            ]
+                        },
+                        "description": "Search for React courses in title or description"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Course by Slug",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/courses/slug/{{courseSlug}}",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "courses", "slug", "{{courseSlug}}"]
+                        },
+                        "description": "Get complete course details by slug with lessons, owner, and stats"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Course - Publish",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"title\": \"Fundamentos de Node.js - Curso Completo 2025\",\n    \"description\": \"Curso ACTUALIZADO de Node.js desde cero con las mejores prácticas del 2025. Incluye ES6+, async/await, Express 5, MongoDB, JWT, testing y deployment en AWS.\",\n    \"published\": true\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/courses/{{courseId}}",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "courses", "{{courseId}}"]
+                        },
+                        "description": "Update course title, description and publish it"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Course (Soft Delete)",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/courses/3",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "courses", "3"]
+                        },
+                        "description": "Soft delete a course (only if no active enrollments)"
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Lessons",
+            "item": [
+                {
+                    "name": "Create Lesson 1 - Introduction",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "if (pm.response.code === 201) {",
+                                    "    const response = pm.response.json();",
+                                    "    if (response.lesson && response.lesson.id) {",
+                                    "        pm.collectionVariables.set('lessonId', response.lesson.id);",
+                                    "        console.log('✅ Set lessonId to:', response.lesson.id);",
+                                    "    }",
+                                    "}"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"title\": \"Introducción a Node.js y configuración del entorno\",\n    \"body\": \"# Bienvenido a Node.js\\n\\nEn esta primera lección aprenderás:\\n\\n## ¿Qué es Node.js?\\nNode.js es un runtime de JavaScript construido sobre el motor V8 de Chrome que permite ejecutar JavaScript en el servidor.\\n\\n## Configuración del entorno\\n1. Descargar Node.js desde nodejs.org\\n2. Verificar instalación: `node --version`\\n3. Configurar NPM: `npm --version`\\n4. Crear tu primer proyecto\\n\\n## Primer programa\\n```javascript\\nconsole.log('¡Hola desde Node.js!');\\n```\\n\\n**Ejercicio:** Crea un archivo `app.js` y ejecuta tu primer programa con `node app.js`\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/courses/{{courseId}}/lessons",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "courses", "{{courseId}}", "lessons"]
+                        },
+                        "description": "Create first lesson with introduction and environment setup"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Lesson 2 - Modules",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"title\": \"Sistema de módulos en Node.js - CommonJS y ES6\",\n    \"body\": \"# Sistema de módulos en Node.js\\n\\n## CommonJS (require/module.exports)\\n```javascript\\n// math.js\\nconst sum = (a, b) => a + b;\\nconst multiply = (a, b) => a * b;\\n\\nmodule.exports = { sum, multiply };\\n\\n// app.js\\nconst { sum, multiply } = require('./math');\\nconsole.log(sum(5, 3)); // 8\\n```\\n\\n## ES6 Modules (import/export)\\n```javascript\\n// math.mjs\\nexport const sum = (a, b) => a + b;\\nexport const multiply = (a, b) => a * b;\\n\\n// app.mjs\\nimport { sum, multiply } from './math.mjs';\\nconsole.log(sum(5, 3)); // 8\\n```\\n\\n## Módulos integrados\\n- `fs` - File System\\n- `path` - Rutas de archivos\\n- `http` - Servidor HTTP\\n- `url` - Manejo de URLs\\n\\n**Ejercicio:** Crea un módulo de utilidades matemáticas y úsalo en tu aplicación principal.\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/courses/{{courseId}}/lessons",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "courses", "{{courseId}}", "lessons"]
+                        },
+                        "description": "Create lesson about Node.js module system"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Lesson 3 - NPM",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"title\": \"NPM - Node Package Manager y gestión de dependencias\",\n    \"body\": \"# NPM - Node Package Manager\\n\\n## Inicializar un proyecto\\n```bash\\nnpm init -y\\n```\\n\\n## Instalar paquetes\\n```bash\\n# Dependencia de producción\\nnpm install express\\n\\n# Dependencia de desarrollo\\nnpm install --save-dev nodemon\\n\\n# Instalación global\\nnpm install -g npm-check-updates\\n```\\n\\n## Scripts en package.json\\n```json\\n{\\n  \\\"scripts\\\": {\\n    \\\"start\\\": \\\"node app.js\\\",\\n    \\\"dev\\\": \\\"nodemon app.js\\\",\\n    \\\"test\\\": \\\"jest\\\"\\n  }\\n}\\n```\\n\\n## Versionado semántico\\n- `^1.2.3` - Compatible con versión 1.x.x\\n- `~1.2.3` - Compatible con versión 1.2.x\\n- `1.2.3` - Versión exacta\\n\\n## Comandos útiles\\n- `npm list` - Ver dependencias instaladas\\n- `npm outdated` - Verificar actualizaciones\\n- `npm audit` - Verificar vulnerabilidades\\n\\n**Ejercicio:** Crea un proyecto con Express y Nodemon configurados.\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/courses/{{courseId}}/lessons",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "courses", "{{courseId}}", "lessons"]
+                        },
+                        "description": "Create lesson about NPM and package management"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Course Lessons - Ordered",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/courses/{{courseId}}/lessons?order=ASC",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "courses", "{{courseId}}", "lessons"],
+                            "query": [
+                                {
+                                    "key": "order",
+                                    "value": "ASC"
+                                }
+                            ]
+                        },
+                        "description": "Get all lessons for the course ordered by sequence"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Lesson - Add Content",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"title\": \"Introducción completa a Node.js - Configuración y primeros pasos\",\n    \"body\": \"# Bienvenido a Node.js - Guía Completa\\n\\n## ¿Qué es Node.js?\\nNode.js es un runtime de JavaScript construido sobre el motor V8 de Chrome que permite ejecutar JavaScript en el servidor.\\n\\n### Características principales\\n- **Asíncrono y orientado a eventos**\\n- **Single-threaded con event loop**\\n- **Gran ecosistema de paquetes (NPM)**\\n- **Multiplataforma**\\n\\n## Configuración del entorno de desarrollo\\n\\n### 1. Instalación de Node.js\\n1. Visita [nodejs.org](https://nodejs.org)\\n2. Descarga la versión LTS (recomendada)\\n3. Ejecuta el instalador\\n4. Verifica la instalación:\\n\\n```bash\\nnode --version\\nnpm --version\\n```\\n\\n### 2. Configuración del editor\\n- **VS Code** con extensiones: Node.js Extension Pack\\n- **Configuración de linting**: ESLint\\n- **Formatter**: Prettier\\n\\n### 3. Primer programa\\n```javascript\\n// app.js\\nconsole.log('¡Hola mundo desde Node.js!');\\nconsole.log('Versión de Node:', process.version);\\nconsole.log('Plataforma:', process.platform);\\n```\\n\\n### 4. Ejecutar el programa\\n```bash\\nnode app.js\\n```\\n\\n## Variables de entorno\\n```javascript\\n// Acceder a variables de entorno\\nconsole.log('PORT:', process.env.PORT || 3000);\\nconsole.log('NODE_ENV:', process.env.NODE_ENV || 'development');\\n```\\n\\n## Ejercicios prácticos\\n\\n### Ejercicio 1: Información del sistema\\nCrea un programa que muestre:\\n- Versión de Node.js\\n- Sistema operativo\\n- Arquitectura del procesador\\n- Memoria disponible\\n\\n### Ejercicio 2: Argumentos de línea de comandos\\nCrea un programa que reciba argumentos y los procese:\\n```bash\\nnode app.js --name=Juan --age=25\\n```\\n\\n**¡Continuemos con el siguiente módulo sobre el sistema de módulos!**\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/lessons/{{lessonId}}",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "lessons", "{{lessonId}}"]
+                        },
+                        "description": "Update lesson with expanded content and exercises"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Lesson (Soft Delete)",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/lessons/3",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "lessons", "3"]
+                        },
+                        "description": "Soft delete a lesson (for testing purposes)"
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Enrollments",
+            "item": [
+                {
+                    "name": "Enroll Student in Course",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "if (pm.response.code === 201) {",
+                                    "    const response = pm.response.json();",
+                                    "    if (response.enrollment && response.enrollment.id) {",
+                                    "        pm.collectionVariables.set('enrollmentId', response.enrollment.id);",
+                                    "        console.log('✅ Set enrollmentId to:', response.enrollment.id);",
+                                    "    }",
+                                    "}"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"userId\": {{userId}}\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/courses/{{courseId}}/enroll",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "courses", "{{courseId}}", "enroll"]
+                        },
+                        "description": "Enroll Ana García (student) in the Node.js course"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Enroll Additional Student",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"userId\": 4\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/courses/{{courseId}}/enroll",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "courses", "{{courseId}}", "enroll"]
+                        },
+                        "description": "Enroll Luis Martínez in the Node.js course"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Enrollment - Activate",
+                    "request": {
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"status\": \"active\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/enrollments/{{enrollmentId}}/status",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "enrollments", "{{enrollmentId}}", "status"]
+                        },
+                        "description": "Activate Ana's enrollment (approve her access)"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Enrollment - Set Score",
+                    "request": {
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"status\": \"active\",\n    \"score\": 87.5\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/enrollments/{{enrollmentId}}/status",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "enrollments", "{{enrollmentId}}", "status"]
+                        },
+                        "description": "Set Ana's final score to 87.5 points"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Course Enrollments - All",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/courses/{{courseId}}/enrollments",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "courses", "{{courseId}}", "enrollments"]
+                        },
+                        "description": "Get all enrollments for the Node.js course with student info"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Course Enrollments - Active Only",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/courses/{{courseId}}/enrollments?status=active",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "courses", "{{courseId}}", "enrollments"],
+                            "query": [
+                                {
+                                    "key": "status",
+                                    "value": "active"
+                                }
+                            ]
+                        },
+                        "description": "Get only active enrollments (approved students)"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Course Enrollments - Pending",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/courses/{{courseId}}/enrollments?status=pending",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "courses", "{{courseId}}", "enrollments"],
+                            "query": [
+                                {
+                                    "key": "status",
+                                    "value": "pending"
+                                }
+                            ]
+                        },
+                        "description": "Get pending enrollments (waiting for approval)"
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Comments",
+            "item": [
+                {
+                    "name": "Create Comment - Student Question",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "if (pm.response.code === 201) {",
+                                    "    const response = pm.response.json();",
+                                    "    if (response.comment && response.comment.id) {",
+                                    "        pm.collectionVariables.set('commentId', response.comment.id);",
+                                    "        console.log('✅ Set commentId to:', response.comment.id);",
+                                    "    }",
+                                    "}"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"body\": \"¡Excelente lección! 👏 Me ayudó mucho la explicación paso a paso. Tengo una pregunta: ¿es mejor usar Node.js LTS o la versión Current para desarrollo? ¿Cuáles son las principales diferencias?\",\n    \"userId\": {{userId}}\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/lessons/{{lessonId}}/comments",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "lessons", "{{lessonId}}", "comments"]
+                        },
+                        "description": "Ana García asks a question about Node.js versions"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Comment - Instructor Response",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"body\": \"@Ana Excelente pregunta! 🎯 Para desarrollo te recomiendo usar la versión LTS (Long Term Support) porque:\\n\\n✅ Estabilidad garantizada por 30 meses\\n✅ Solo recibe actualizaciones de seguridad y bug fixes\\n✅ Soporte completo de la comunidad\\n✅ Compatible con la mayoría de paquetes NPM\\n\\nLa versión Current tiene las últimas features pero puede ser menos estable. Para producción SIEMPRE usa LTS. ¿Te ayuda esta explicación?\",\n    \"userId\": {{instructorId}}\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/lessons/{{lessonId}}/comments",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "lessons", "{{lessonId}}", "comments"]
+                        },
+                        "description": "Carlos (instructor) responds to Ana's question"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Comment - Student Feedback",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"body\": \"Muchísimas gracias por la respuesta tan detallada! 🙏 Ya instalé la versión LTS 20.x y todo funciona perfecto. Los ejercicios están muy bien pensados, me ayudaron a entender mejor los conceptos. ¡Ansioso por la siguiente lección sobre módulos!\",\n    \"userId\": {{userId}}\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/lessons/{{lessonId}}/comments",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "lessons", "{{lessonId}}", "comments"]
+                        },
+                        "description": "Ana thanks the instructor and gives feedback"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Comment - Another Student",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"body\": \"Hola! Soy nuevo en programación y esta es mi primera lección de Node.js. Me costó un poco entender el concepto de runtime, pero después de los ejemplos ya lo tengo más claro. ¿Podrían agregar más ejercicios para principiantes? 😅\",\n    \"userId\": 4\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/lessons/{{lessonId}}/comments",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "lessons", "{{lessonId}}", "comments"]
+                        },
+                        "description": "Luis (another student) asks for more beginner exercises"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Lesson Comments - All",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/lessons/{{lessonId}}/comments",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "lessons", "{{lessonId}}", "comments"]
+                        },
+                        "description": "Get all comments for the lesson with author information"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Lesson Comments - Paginated",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/lessons/{{lessonId}}/comments?page=1&pageSize=3&order=createdAt:ASC",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "lessons", "{{lessonId}}", "comments"],
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1"
+                                },
+                                {
+                                    "key": "pageSize",
+                                    "value": "3"
+                                },
+                                {
+                                    "key": "order",
+                                    "value": "createdAt:ASC"
+                                }
+                            ]
+                        },
+                        "description": "Get comments with pagination, oldest first"
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Advanced Workflows",
+            "item": [
+                {
+                    "name": "Complete Course Creation Workflow",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"title\": \"API REST con Express.js y MongoDB\",\n    \"description\": \"Aprende a crear APIs REST profesionales con Express.js, MongoDB, autenticación JWT, validación de datos, testing y deployment. Proyecto completo incluido.\",\n    \"ownerId\": {{instructorId}},\n    \"published\": true\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/courses",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "courses"]
+                        },
+                        "description": "Create a complete new course ready for students"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Bulk Enroll Students",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"userId\": 1\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/courses/2/enroll",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "courses", "2", "enroll"]
+                        },
+                        "description": "Enroll student in React Advanced course"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Course Analytics",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/courses/slug/fundamentos-de-nodejs-para-principiantes",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "courses", "slug", "fundamentos-de-nodejs-para-principiantes"]
+                        },
+                        "description": "Get complete course analytics with enrollments, lessons, and comments count"
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Error Testing",
+            "item": [
+                {
+                    "name": "Create Duplicate User (409 Error)",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"firstName\": \"Ana\",\n    \"lastName\": \"Duplicada\",\n    \"email\": \"ana.garcia@estudiante.com\",\n    \"passwordHash\": \"password123\",\n    \"role\": \"student\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/users",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "users"]
+                        },
+                        "description": "Test unique constraint error - email already exists"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Non-existent Course (404 Error)",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/courses/slug/curso-que-no-existe",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "courses", "slug", "curso-que-no-existe"]
+                        },
+                        "description": "Test 404 error handling for non-existent course"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Invalid Comment (400 Error)",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"body\": \"   \",\n    \"userId\": {{userId}}\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/lessons/{{lessonId}}/comments",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "lessons", "{{lessonId}}", "comments"]
+                        },
+                        "description": "Test validation error - empty comment body after trim"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Course - Student Role (403 Error)",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"title\": \"Curso que no debería crearse\",\n    \"description\": \"Un estudiante no puede crear cursos\",\n    \"ownerId\": 1\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/courses",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "courses"]
+                        },
+                        "description": "Test authorization error - student trying to create course"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Invalid Pagination (400 Error)",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/courses?page=0&pageSize=200",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "courses"],
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "0"
+                                },
+                                {
+                                    "key": "pageSize",
+                                    "value": "200"
+                                }
+                            ]
+                        },
+                        "description": "Test invalid pagination parameters"
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ]
+}
