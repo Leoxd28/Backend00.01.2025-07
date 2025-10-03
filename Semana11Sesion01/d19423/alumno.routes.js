@@ -1,5 +1,6 @@
 const express = require('express');
 const alumnoRouter = express.Router();
+const {ObjectId, ReturnDocument } = require('mongodb')
 
 const { db, getDB, closeDB } = require("./db");
 
@@ -27,6 +28,39 @@ alumnoRouter.get('/', async(req,res)=>{
     const db = await getDB();
     let registros = await db.collection('alumnos').find().toArray();
     res.status(200).send({data: registros});
+})
+
+alumnoRouter.get('/:id', async(req,res)=>{
+    const db = await getDB();
+    let id = req.params.id;
+    let registros = await db.collection('alumnos').find({ _id: new ObjectId(id) }).toArray();
+    res.status(200).send({data: registros});
+})
+
+alumnoRouter.put('/:id', async(req,res)=>{
+    const db = await getDB();
+    let id = req.params.id;
+    let {nombre, apellido, nota} = req.body
+
+    let registros = await db.collection('alumnos').findOneAndUpdate(
+        { _id: new ObjectId(id) },
+        { $set: {nombre, apellido,nota, updateAt: new Date()}},
+        {returnDocument: 'after'}
+    
+    )
+    res.status(200).send({data: registros.value});
+
+})
+
+alumnoRouter.delete('/:id', async(req,res)=>{
+    const db = await getDB();
+    let id = req.params.id;
+   
+    let registros = await db.collection('alumnos').deleteOne(
+        { _id: new ObjectId(id) }
+    )
+    res.status(200).send({data: registros.value});
+
 })
 
 module.exports = { alumnoRouter }
