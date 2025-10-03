@@ -33,7 +33,13 @@ alumnoRouter.get('/', async(req,res)=>{
 alumnoRouter.get('/:id', async(req,res)=>{
     const db = await getDB();
     let id = req.params.id;
-    let registros = await db.collection('alumnos').find({ _id: new ObjectId(id) }).toArray();
+    let registros = await db.collection('alumnos').find(
+        { _id: new ObjectId(id) },
+        {projection:{
+            nombre: 1,
+            apellido: 1
+        }}
+    ).toArray();
     res.status(200).send({data: registros});
 })
 
