@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🛒 Lista de Compras - JD Hackaton 11</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1><i class="fas fa-shopping-cart"></i> Lista de Compras</h1>
+                <div class="header-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="pendientesCount">0</span>
+                        <span class="stat-label">Pendientes</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="completadosCount">0</span>
+                        <span class="stat-label">Completados</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Formulario para agregar items -->
+        <section class="add-item-section">
+            <div class="card">
+                <h2><i class="fas fa-plus-circle"></i> Agregar Nuevo Item</h2>
+                <form id="addItemForm" class="add-item-form">
+                    <div class="form-group">
+                        <label for="nombre">
+                            <i class="fas fa-tag"></i> Nombre del producto
+                        </label>
+                        <input type="text" id="nombre" name="nombre" required 
+                               placeholder="Ej: Leche descremada">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="descripcion">
+                            <i class="fas fa-align-left"></i> Descripción
+                        </label>
+                        <textarea id="descripcion" name="descripcion" required 
+                                  placeholder="Ej: 1 litro, marca específica o detalles adicionales"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="fecha">
+                            <i class="fas fa-calendar-alt"></i> Fecha objetivo
+                        </label>
+                        <input type="date" id="fecha" name="fecha">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Agregar a la Lista
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Filtros y búsqueda -->
+        <section class="filters-section">
+            <div class="card">
+                <div class="filters">
+                    <div class="filter-group">
+                        <button class="filter-btn active" data-filter="todos">
+                            <i class="fas fa-list"></i> Todos
+                        </button>
+                        <button class="filter-btn" data-filter="pendientes">
+                            <i class="fas fa-clock"></i> Pendientes
+                        </button>
+                        <button class="filter-btn" data-filter="completados">
+                            <i class="fas fa-check-circle"></i> Completados
+                        </button>
+                    </div>
+                    
+                    <div class="search-group">
+                        <div class="search-input-container">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="searchInput" placeholder="Buscar productos...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lista de items -->
+        <section class="items-section">
+            <div class="card">
+                <div class="section-header">
+                    <h2 id="listTitle">
+                        <i class="fas fa-list-ul"></i> Todos los Items
+                    </h2>
+                    <button id="refreshBtn" class="btn btn-secondary">
+                        <i class="fas fa-sync-alt"></i> Actualizar
+                    </button>
+                </div>
+                
+                <div id="loadingSpinner" class="loading-spinner">
+                    <i class="fas fa-spinner fa-spin"></i> Cargando...
+                </div>
+                
+                <div id="itemsList" class="items-list">
+                    <!-- Los items se cargarán dinámicamente aquí -->
+                </div>
+                
+                <div id="emptyState" class="empty-state" style="display: none;">
+                    <i class="fas fa-inbox"></i>
+                    <h3>No hay items disponibles</h3>
+                    <p>Agrega tu primer producto a la lista de compras</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 JD Hackaton 11 - Lista de Compras App</p>
+        </footer>
+    </div>
+
+    <!-- Modal de confirmación -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-question-circle"></i> Confirmación</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p id="confirmMessage">¿Estás seguro de realizar esta acción?</p>
+            </div>
+            <div class="modal-footer">
+                <button id="confirmCancel" class="btn btn-secondary">Cancelar</button>
+                <button id="confirmOk" class="btn btn-danger">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast notifications -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

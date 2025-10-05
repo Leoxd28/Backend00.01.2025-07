@@ -1,0 +1,23 @@
+{
+  "name": "hackaton11-lista-compras",
+  "version": "1.0.0",
+  "description": "Lista de Compras - Hackaton 11",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["lista", "compras", "mongodb", "express", "hackaton"],
+  "author": "JD Hackaton 11",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongodb": "^6.3.0",
+    "dotenv": "^16.3.1",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
