@@ -35,8 +35,8 @@
 Construye una plataforma mínima para cursos y lecciones con comentarios de estudiantes.
 
 **Entidades principales**
-- **User**: firstName, lastName, email (único), passwordHash, role ∈ {admin, instructor, student}.
-- **Course**: title (único), slug (único), description, published (bool), ownerId → User (instructor).
+  - **User**: firstName, lastName, email (único), passwordHash, role ∈ {admin, instructor, student}.
+  - **Course**: title (único), slug (único), description, published (bool), ownerId → User (instructor).
 - **Lesson**: title, slug (único por curso), body, order (int), courseId → Course.
 - **Enrollment** (N:M): User ←→ Course con campos: status ∈ {active, pending}, score (decimal, opcional).
 - **Comment**: body, userId → User, lessonId → Lesson.
@@ -67,7 +67,7 @@ Construye una plataforma mínima para cursos y lecciones con comentarios de estu
 - `GET /users?role=...&q=...&page=1&pageSize=10` listar con filtros, búsqueda por `q` en nombre/apellido/email.
 
 ### 3.2 Courses
-- `POST /courses` (sólo instructor/admin): crea curso (auto‑slug desde title) y `published=false` por defecto.
+- `POST /courses` (sólo instructor/admin): crea curso (auto‑slug desde title) y `published=false` por defecto.7
 - `GET /courses?published=true&q=&order=createdAt:DESC&page=1&pageSize=10` lista paginada con filtros.
 - `GET /courses/:slug` detalle con `include: [owner, lessons(count), enrollments(count)]`.
 - `PUT /courses/:id` actualizar; `DELETE /courses/:id` soft delete (si `paranoid`).

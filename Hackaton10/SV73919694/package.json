@@ -1,0 +1,30 @@
+{
+  "name": "sv73919694",
+  "version": "1.0.0",
+  "description": "Mini Learning Platform - Hackatón Sequelize (SV73919694)",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "nodemon --watch src --exec node src/server.js",
+    "start": "node src/server.js",
+    "db:seed": "node src/seed.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.6.1",
+    "express": "^4.18.2",
+    "mysql2": "^3.15.1",
+    "pg": "^8.9.0",
+    "sequelize": "^6.37.7",
+    "slugify": "^1.6.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22",
+    "sequelize-cli": "^6.6.3"
+  },
+  "directories": {
+    "doc": "docs"
+  }
+}
