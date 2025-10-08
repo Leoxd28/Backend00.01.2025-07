@@ -1,0 +1,118 @@
+{
+	"info": {
+		"_postman_id": "bc7d4acf-1bc3-4a23-bdfe-03bb903473a0",
+		"name": "Hackaton11",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48376079",
+		"_collection_link": "https://alexmax123max-2155008.postman.co/workspace/Miguel-Cordova-Team's-Workspace~25b3a8aa-8002-44a7-8e4d-a04a0d605855/collection/48376079-bc7d4acf-1bc3-4a23-bdfe-03bb903473a0?action=share&source=collection_link&creator=48376079"
+	},
+	"item": [
+		{
+			"name": "Create List",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Chetos\",\r\n    \"descripcion\": \"Snakcs\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8050/lista",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8050",
+					"path": [
+						"lista"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pending Product",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8050/lista/pendientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8050",
+					"path": [
+						"lista",
+						"pendientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Completed Product",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8050/lista/completados",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8050",
+					"path": [
+						"lista",
+						"completados"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Complete List",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8050/lista/completar/68e5ab994c0398b754d11113",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8050",
+					"path": [
+						"lista",
+						"completar",
+						"68e5ab994c0398b754d11113"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
