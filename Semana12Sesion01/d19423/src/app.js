@@ -4,6 +4,7 @@ const connectDB = require('./db');
 
 const authors = require('./routes/author.routes');
 const books = require('./routes/book.routes');
+const bundle = require('./routes/bundle.routes');
 const error = require('./middlewares/error');
 
 const app = express();
@@ -12,6 +13,7 @@ app.use(morgan('dev'));
 
 app.use('/api/authors', authors);
 app.use('/api/books', books);
+app.use('/api/bundle', bundle);
 
 app.use(error);
 

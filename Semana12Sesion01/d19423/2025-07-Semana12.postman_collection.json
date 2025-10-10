@@ -266,6 +266,43 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "AgregatTop5Tags",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"El Principito\",\r\n    \"year\": 1943,\r\n    \"author\":\"68e5ceec4bb30d19845e2d2a\",\r\n    \"tags\":[\"Infantil\", \"Clasico\"],\r\n    \"price\": 29.99999\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8069/api/books/stats/top-tags",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8069",
+					"path": [
+						"api",
+						"books",
+						"stats",
+						"top-tags"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CrearAutorLibro",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
 		}
 	]
 }

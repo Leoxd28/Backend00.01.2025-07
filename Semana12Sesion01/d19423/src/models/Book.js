@@ -27,7 +27,7 @@ const bookSchema = new Schema({
     deletedAt: {type: Date, default: null}
 },{timestamps:true});
 
-bookSchema.index({name: 1, tags:1});
+bookSchema.index({title: 'text'});
 bookSchema.virtual('isClassic').get(function(){
     return this.year && this.year < 1980;
 })
