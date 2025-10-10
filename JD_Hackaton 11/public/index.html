@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Compras - Hackaton 11</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header con contadores -->
+        <header class="header-stats">
+            <div class="stats-card">
+                <h1>🛒 Lista de Compras</h1>
+                <div class="counters">
+                    <div class="counter">
+                        <span id="contador-total" class="counter-number">0</span>
+                        <span class="counter-label">TOTAL</span>
+                    </div>
+                    <div class="counter">
+                        <span id="contador-pendientes" class="counter-number">0</span>
+                        <span class="counter-label">PENDIENTES</span>
+                    </div>
+                    <div class="counter">
+                        <span id="contador-completados" class="counter-number">0</span>
+                        <span class="counter-label">COMPLETADOS</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Formulario para agregar items -->
+        <section class="form-section">
+            <h2>➕ Agregar Nuevo Item</h2>
+            
+            <form id="formulario-item" class="item-form">
+                <div class="form-group">
+                    <label for="nombre">🏷️ NOMBRE DEL PRODUCTO</label>
+                    <input type="text" 
+                           id="nombre" 
+                           name="nombre" 
+                           placeholder="Ej: Leche descremada"
+                           required
+                           maxlength="100">
+                </div>
+
+                <div class="form-group">
+                    <label for="descripcion">📝 DESCRIPCIÓN</label>
+                    <textarea id="descripcion" 
+                              name="descripcion" 
+                              placeholder="Ej: 1 litro, marca específica o detalles adicionales"
+                              rows="3"
+                              maxlength="500"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="fecha">📅 FECHA OBJETIVO</label>
+                    <input type="date" 
+                           id="fecha" 
+                           name="fecha">
+                </div>
+
+                <button type="submit" class="btn-agregar">
+                    ➕ AGREGAR A LA LISTA
+                </button>
+            </form>
+        </section>
+
+        <!-- Filtros y búsqueda -->
+        <section class="filters-section">
+            <div class="filters">
+                <button id="btn-todos" class="filtro-btn activo" data-filtro="todos">
+                    📋 Todos
+                </button>
+                <button id="btn-pendientes" class="filtro-btn" data-filtro="pendientes">
+                    ⏳ Pendientes
+                </button>
+                <button id="btn-completados" class="filtro-btn" data-filtro="completados">
+                    ✅ Completados
+                </button>
+            </div>
+
+            <div class="search-container">
+                <input type="text" 
+                       id="busqueda" 
+                       placeholder="🔍 Buscar productos..."
+                       class="search-input">
+            </div>
+        </section>
+
+        <!-- Lista de items -->
+        <section class="items-section">
+            <div class="section-header">
+                <h3>📋 Todos los Items</h3>
+                <button id="btn-actualizar" class="btn-refresh">
+                    🔄 Actualizar
+                </button>
+            </div>
+            
+            <div id="lista-items" class="items-container">
+                <!-- Los items se cargarán aquí dinámicamente -->
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Cargando...</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal de confirmación (se crea dinámicamente) -->
+    <div id="modal-confirmacion" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h3>🤔 Confirmación</h3>
+            <p id="mensaje-confirmacion">¿Estás seguro de realizar esta acción?</p>
+            <div class="modal-buttons">
+                <button id="btn-cancelar" class="btn-secondary">Cancelar</button>
+                <button id="btn-confirmar" class="btn-primary">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 JD Hackaton 11 - Lista de Compras App</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
