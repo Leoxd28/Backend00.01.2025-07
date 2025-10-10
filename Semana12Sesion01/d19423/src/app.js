@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const connectDB = require('./db');
 
 const authors = require('./routes/author.routes');
+const books = require('./routes/book.routes');
 const error = require('./middlewares/error');
 
 const app = express();
@@ -10,6 +11,7 @@ app.use(express.json());
 app.use(morgan('dev'));
 
 app.use('/api/authors', authors);
+app.use('/api/books', books);
 
 app.use(error);
 

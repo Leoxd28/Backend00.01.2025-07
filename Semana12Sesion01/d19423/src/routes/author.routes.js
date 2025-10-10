@@ -39,7 +39,7 @@ router.get('/:id',async(req,res,next)=>{
         if(!author) return res.status(404).json({message: "Author not found"});
         res.json(author);
     } catch (error) {
-        
+        next(error);
     }
 })
 
