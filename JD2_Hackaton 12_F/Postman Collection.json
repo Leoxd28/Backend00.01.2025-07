@@ -1,0 +1,837 @@
+{
+    "info": {
+        "name": "Sistema Producción Armarios ABC - SV43123322_Hackaton12",
+        "description": "API para control de producción de armarios - Empresa ABC",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "variable": [
+        {
+            "key": "productionId",
+            "value": "",
+            "type": "string"
+        },
+        {
+            "key": "materialId",
+            "value": "",
+            "type": "string"
+        },
+        {
+            "key": "inputId",
+            "value": "",
+            "type": "string"
+        },
+        {
+            "key": "staffId",
+            "value": "",
+            "type": "string"
+        }
+    ],
+    "item": [
+        {
+            "name": "📋 INFORMACIÓN GENERAL",
+            "item": [
+                {
+                    "name": "Info del Sistema",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", ""]
+                        }
+                    }
+                },
+                {
+                    "name": "Dashboard General",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/dashboard",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "dashboard"]
+                        }
+                    }
+                },
+                {
+                    "name": "Health Check",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/health",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["health"]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "🪵 MATERIAS PRIMAS",
+            "item": [
+                {
+                    "name": "Obtener todas las materias primas",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/raw-materials",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "raw-materials"]
+                        }
+                    }
+                },
+                {
+                    "name": "Crear tablón de madera",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"name\": \"Tablón de Madera Premium\",\n  \"description\": \"Tablón de madera de pino para fabricación de armarios\",\n  \"unit\": \"unidad\",\n  \"stock\": 10,\n  \"minimumStock\": 3,\n  \"unitPrice\": 150.00,\n  \"supplier\": {\n    \"name\": \"Maderería El Bosque\",\n    \"contact\": \"Juan Pérez\",\n    \"phone\": \"+51 999 888 777\"\n  },\n  \"category\": \"madera\",\n  \"specifications\": {\n    \"dimensions\": \"2m x 0.3m x 0.05m\",\n    \"quality\": \"premium\",\n    \"origin\": \"Pino nacional\"\n  }\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/raw-materials",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "raw-materials"]
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "if (pm.response.code === 201) {",
+                                    "    const response = pm.response.json();",
+                                    "    pm.collectionVariables.set('materialId', response.data.id);",
+                                    "    console.log('Material ID guardado:', response.data.id);",
+                                    "}"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Obtener materia prima por ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/raw-materials/{{materialId}}",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "raw-materials", "{{materialId}}"]
+                        }
+                    }
+                },
+                {
+                    "name": "Actualizar materia prima",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"stock\": 15,\n  \"unitPrice\": 155.00\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/raw-materials/{{materialId}}",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "raw-materials", "{{materialId}}"]
+                        }
+                    }
+                },
+                {
+                    "name": "Agregar stock a materia prima",
+                    "request": {
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"quantity\": 5\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/raw-materials/{{materialId}}/add-stock",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "raw-materials", "{{materialId}}", "add-stock"]
+                        }
+                    }
+                },
+                {
+                    "name": "Materiales con stock bajo",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/raw-materials?lowStock=true",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "raw-materials"],
+                            "query": [
+                                {
+                                    "key": "lowStock",
+                                    "value": "true"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Eliminar materia prima",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/raw-materials/{{materialId}}",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "raw-materials", "{{materialId}}"]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "🔧 INSUMOS",
+            "item": [
+                {
+                    "name": "Obtener todos los insumos",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/inputs",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "inputs"]
+                        }
+                    }
+                },
+                {
+                    "name": "Crear goma adhesiva",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"name\": \"Goma Adhesiva Industrial\",\n  \"description\": \"Goma adhesiva para unión de piezas de madera\",\n  \"type\": \"goma\",\n  \"unit\": \"kilogramo\",\n  \"stock\": 5,\n  \"minimumStock\": 1,\n  \"unitPrice\": 25.00,\n  \"supplier\": {\n    \"name\": \"Adhesivos Técnicos SAC\",\n    \"contact\": \"María González\",\n    \"phone\": \"+51 999 777 666\"\n  },\n  \"specifications\": {\n    \"brand\": \"TecnoGoma\",\n    \"material\": \"Polímero sintético\",\n    \"color\": \"Transparente\"\n  },\n  \"usageCategory\": \"union\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/inputs",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "inputs"]
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "if (pm.response.code === 201) {",
+                                    "    const response = pm.response.json();",
+                                    "    pm.collectionVariables.set('inputId', response.data.id);",
+                                    "    console.log('Input ID guardado:', response.data.id);",
+                                    "}"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Crear clavos",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"name\": \"Clavos para Madera\",\n  \"description\": \"Clavos galvanizados para armarios\",\n  \"type\": \"clavos\",\n  \"unit\": \"kilogramo\",\n  \"stock\": 10,\n  \"minimumStock\": 2,\n  \"unitPrice\": 8.50,\n  \"supplier\": {\n    \"name\": \"Ferretería Central\",\n    \"contact\": \"Carlos Ruiz\",\n    \"phone\": \"+51 999 555 444\"\n  },\n  \"specifications\": {\n    \"size\": \"2 pulgadas\",\n    \"material\": \"Acero galvanizado\",\n    \"brand\": \"FerroClavo\"\n  },\n  \"usageCategory\": \"estructural\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/inputs",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "inputs"]
+                        }
+                    }
+                },
+                {
+                    "name": "Obtener insumo por ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/inputs/{{inputId}}",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "inputs", "{{inputId}}"]
+                        }
+                    }
+                },
+                {
+                    "name": "Actualizar insumo",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"stock\": 12,\n  \"unitPrice\": 9.00\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/inputs/{{inputId}}",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "inputs", "{{inputId}}"]
+                        }
+                    }
+                },
+                {
+                    "name": "Agregar stock a insumo",
+                    "request": {
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"quantity\": 2\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/inputs/{{inputId}}/add-stock",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "inputs", "{{inputId}}", "add-stock"]
+                        }
+                    }
+                },
+                {
+                    "name": "Insumos con stock bajo",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/inputs?lowStock=true",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "inputs"],
+                            "query": [
+                                {
+                                    "key": "lowStock",
+                                    "value": "true"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Eliminar insumo",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/inputs/{{inputId}}",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "inputs", "{{inputId}}"]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "👷 PERSONAL",
+            "item": [
+                {
+                    "name": "Obtener todo el personal",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/staff",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "staff"]
+                        }
+                    }
+                },
+                {
+                    "name": "Crear carpintero",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"firstName\": \"José\",\n  \"lastName\": \"Martínez\",\n  \"employeeId\": \"CARP001\",\n  \"position\": \"carpintero\",\n  \"skillLevel\": \"avanzado\",\n  \"weeklyHours\": 40,\n  \"availableHours\": 40,\n  \"hourlyRate\": 15.00,\n  \"contact\": {\n    \"phone\": \"+51 999 123 456\",\n    \"email\": \"jose.martinez@empresa.com\",\n    \"address\": \"Av. Los Artesanos 123, Lima\"\n  },\n  \"specialties\": [\"corte_madera\", \"ensamblaje\", \"lijado\"],\n  \"performance\": {\n    \"efficiency\": 1.2,\n    \"qualityScore\": 9\n  },\n  \"workSchedule\": {\n    \"shift\": \"mañana\",\n    \"workDays\": [\"lunes\", \"martes\", \"miercoles\", \"jueves\", \"viernes\"]\n  }\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/staff",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "staff"]
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "if (pm.response.code === 201) {",
+                                    "    const response = pm.response.json();",
+                                    "    pm.collectionVariables.set('staffId', response.data.id);",
+                                    "    console.log('Staff ID guardado:', response.data.id);",
+                                    "}"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Crear segundo carpintero",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"firstName\": \"Carlos\",\n  \"lastName\": \"López\",\n  \"employeeId\": \"CARP002\",\n  \"position\": \"carpintero\",\n  \"skillLevel\": \"intermedio\",\n  \"weeklyHours\": 40,\n  \"availableHours\": 40,\n  \"hourlyRate\": 12.00,\n  \"contact\": {\n    \"phone\": \"+51 999 654 321\",\n    \"email\": \"carlos.lopez@empresa.com\",\n    \"address\": \"Jr. Los Talleres 456, Lima\"\n  },\n  \"specialties\": [\"ensamblaje\", \"pintado\", \"barnizado\"],\n  \"performance\": {\n    \"efficiency\": 1.0,\n    \"qualityScore\": 8\n  },\n  \"workSchedule\": {\n    \"shift\": \"mañana\",\n    \"workDays\": [\"lunes\", \"martes\", \"miercoles\", \"jueves\", \"viernes\"]\n  }\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/staff",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "staff"]
+                        }
+                    }
+                },
+                {
+                    "name": "Obtener personal por ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/staff/{{staffId}}",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "staff", "{{staffId}}"]
+                        }
+                    }
+                },
+                {
+                    "name": "Actualizar personal",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"hourlyRate\": 16.00,\n  \"skillLevel\": \"experto\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/staff/{{staffId}}",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "staff", "{{staffId}}"]
+                        }
+                    }
+                },
+                {
+                    "name": "Carpinteros disponibles",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/staff?position=carpintero&minimumHours=8",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "staff"],
+                            "query": [
+                                {
+                                    "key": "position",
+                                    "value": "carpintero"
+                                },
+                                {
+                                    "key": "minimumHours",
+                                    "value": "8"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Resetear horas semanales",
+                    "request": {
+                        "method": "PATCH",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/staff/{{staffId}}/reset-hours",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "staff", "{{staffId}}", "reset-hours"]
+                        }
+                    }
+                },
+                {
+                    "name": "Eliminar personal",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/staff/{{staffId}}",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "staff", "{{staffId}}"]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "🏭 PRODUCCIÓN",
+            "item": [
+                {
+                    "name": "Obtener todas las producciones",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/production",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "production"]
+                        }
+                    }
+                },
+                {
+                    "name": "Crear orden de producción con ID personalizado",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"quantityRequested\": 3,\n  \"productType\": \"armario_basico\",\n  \"productionId\": \"IDprd0001\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/production",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "production"]
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "if (pm.response.code === 201) {",
+                                    "    const response = pm.response.json();",
+                                    "    pm.collectionVariables.set('productionId', response.data.productionId);",
+                                    "    console.log('Production ID guardado:', response.data.productionId);",
+                                    "    console.log('MongoDB ObjectId:', response.data.id);",
+                                    "}"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Crear orden de producción automática",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"quantityRequested\": 2,\n  \"productType\": \"armario_premium\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/production",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "production"]
+                        }
+                    }
+                },
+                {
+                    "name": "🔥 PRODUCIR ARMARIOS (ID Personalizado)",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"productionId\": \"IDprd0001\",\n  \"quantityToProduce\": 1\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/production/produce",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "production", "produce"]
+                        }
+                    }
+                },
+                {
+                    "name": "🔥 PRODUCIR ARMARIOS (Variable)",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"productionId\": \"{{productionId}}\",\n  \"quantityToProduce\": 1\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/production/produce",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "production", "produce"]
+                        }
+                    }
+                },
+                {
+                    "name": "Obtener producción por ID personalizado",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/production/IDprd0001",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "production", "IDprd0001"]
+                        }
+                    }
+                },
+                {
+                    "name": "Obtener producción por ID (Variable)",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/production/{{productionId}}",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "production", "{{productionId}}"]
+                        }
+                    }
+                },
+                {
+                    "name": "Calcular capacidad de producción",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/production/capacity",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "production", "capacity"]
+                        }
+                    }
+                },
+                {
+                    "name": "Estadísticas de producción",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/production/statistics",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "production", "statistics"]
+                        }
+                    }
+                },
+                {
+                    "name": "Producciones por estado",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/production?status=completado",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "production"],
+                            "query": [
+                                {
+                                    "key": "status",
+                                    "value": "completado"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "🧪 PRUEBAS COMPLETAS",
+            "item": [
+                {
+                    "name": "🚀 Setup Completo - Crear Todo",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "// Este request simula la creación completa del sistema\n// Ejecutar en este orden:\n// 1. Crear tablón de madera\n// 2. Crear goma adhesiva  \n// 3. Crear carpintero\n// 4. Crear orden de producción\n// 5. Producir armarios\n\n{\n  \"message\": \"Ejecutar requests en orden según documentación\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/info",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "info"]
+                        }
+                    }
+                },
+                {
+                    "name": "⚡ Flujo Completo de Producción",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/dashboard",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "dashboard"]
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "// Script para verificar que el sistema esté completo",
+                                    "pm.test('Sistema tiene recursos básicos', function () {",
+                                    "    const response = pm.response.json();",
+                                    "    pm.expect(response.success).to.be.true;",
+                                    "    pm.expect(response.data.resources).to.exist;",
+                                    "});",
+                                    "",
+                                    "console.log('🎯 FLUJO COMPLETO DE PRUEBAS:');",
+                                    "console.log('1. ✅ Crear tablón de madera');",
+                                    "console.log('2. ✅ Crear goma adhesiva');", 
+                                    "console.log('3. ✅ Crear carpintero');",
+                                    "console.log('4. ✅ Crear orden de producción');",
+                                    "console.log('5. ✅ Producir armarios');",
+                                    "console.log('6. ✅ Verificar stock actualizado');",
+                                    "console.log('7. ✅ Ver estadísticas finales');"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
