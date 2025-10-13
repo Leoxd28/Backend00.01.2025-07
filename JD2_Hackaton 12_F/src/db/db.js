@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-const MONGO_URI = process.env.MONGO_URI || 'mongodb+srv://jhoden2005_db_user:OaTGcs8NLhygravS@cluster0.pgxffcl.mongodb.net/SV43123322_Hackaton12?retryWrites=true&w=majority';
+const MONGO_URI = process.env.MONGO_URI || '';
 const DB_NAME = process.env.DB_NAME || 'SV43123322_Hackaton12';
 
 class DatabaseConnection {
