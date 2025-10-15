@@ -10,6 +10,10 @@ const rateLimit = require('express-rate-limit');
 const limiter = rateLimit({windowMs: 60_000, max: 100});
 
 
+const router = require('./routes');
+
+
+
 const app = express();
 
 console.log(process.env.NODE_ENV)
@@ -31,7 +35,7 @@ app.use(logger);
 app.use(error);
 
 app.use('/api/', limiter);
-
+app.use('/api', router);
 
 
 module.exports = app;
