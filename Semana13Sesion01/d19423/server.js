@@ -15,6 +15,11 @@ app.get('/api/stream',(req,res)=>{
     }, 1000)
 })
 
+const swaggerUi = require('swagger-ui-express');
+const swaggerFile = require('./src/swagger-output.json');
+
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
+
 app.listen(PORT, ()=>{
     console.log(`Servidor iniciado en el puerto ${PORT}`);
 })

@@ -50,6 +50,9 @@ function validateAccess(req,res,next){
 router.get('/users', [validateAccess, validateCreateUser], (req,res)=>res.status(201).send({message:"Se creo correctamente"}));
 
 
+router.use('/v1', require('./v1'));
+router.use('/v2', require('./v2'));
+
 
 
 module.exports = router;
