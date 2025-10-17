@@ -15,6 +15,13 @@ app.get('/api/stream',(req,res)=>{
     }, 1000)
 })
 
+app.post('/echo/:id',(req,res)=>{
+    const id = req.params.id;
+    const q = req.query;
+    const headers = req.headers;
+    res.status(201).json({id, q, body: req.body, agent: headers['user-agent'], host: headers['host']})
+})
+
 const swaggerUi = require('swagger-ui-express');
 const swaggerFile = require('./src/swagger-output.json');
 

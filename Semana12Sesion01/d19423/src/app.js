@@ -7,6 +7,10 @@ const books = require('./routes/book.routes');
 const bundle = require('./routes/bundle.routes');
 const error = require('./middlewares/error');
 
+const rateLimit = require('express-rate-limit');
+const limiter = rateLimit({windowMs: 60_000, max: 100});
+
+
 const app = express();
 app.use(express.json());
 app.use(morgan('dev'));
