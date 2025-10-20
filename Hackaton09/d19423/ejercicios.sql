@@ -1,6 +1,18 @@
-use sakila;
--- 1. Listar los 10 primeros clientes con nombre y apellido ordenados alfabéticamente.  
-select * from customer order by last_name limit 10;
-
--- 2. Mostrar todas las películas cuyo título empiece con la letra `A`.  
-select * from film where title like 'a%';
+CREATE TABLE IF NOT EXISTS amazon_mbr_metrics (
+  `MM` INT NULL,
+  `Direction` VARCHAR(255) NULL,
+  `Account` VARCHAR(255) NULL,
+  `CNV_Service` VARCHAR(255) NULL,
+  `COGS_CC` VARCHAR(255) NULL,
+  `Orig_Country` VARCHAR(255) NULL,
+  `Disc_Code` INT NULL,
+  `Disc_Desc` VARCHAR(255) NULL,
+  `Term_Route` VARCHAR(255) NULL,
+  `Egress_CC` VARCHAR(255) NULL,
+  `Carrier_In_Out` VARCHAR(255) NULL,
+  `MINS_1_1` DECIMAL(18,4) NULL,
+  `MINS_30_60` DECIMAL(18,4) NULL,
+  `MINS_60_60` DECIMAL(18,4) NULL,
+  `STOPs` DECIMAL(18,4) NULL,
+  `ATTs` DECIMAL(18,4) NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
