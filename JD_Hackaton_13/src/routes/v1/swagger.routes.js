@@ -1,22 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const swaggerUi = require('swagger-ui-express');
-const YAML = require('yamljs');
-const path = require('path');
-const fs = require('fs');
+const swaggerDocument = require('../../swagger-output.json');
 
-// Cargar el archivo openapi.yaml desde docs/
-const yamlPath = path.join(__dirname, '../../../docs/openapi.yaml');
-
-// Verificar que el archivo existe
-if (!fs.existsSync(yamlPath)) {
-  console.error('ERROR: No se encuentra el archivo openapi.yaml en', yamlPath);
-  throw new Error('Archivo openapi.yaml no encontrado');
-}
-
-const swaggerDocument = YAML.load(yamlPath);
-
-console.log('✅ Swagger cargado desde:', yamlPath);
+console.log('✅ Swagger cargado desde swagger-output.json');
 console.log('📋 Paths disponibles:', Object.keys(swaggerDocument.paths || {}).length);
 
 // Opciones de personalización para Swagger UI
@@ -48,7 +35,7 @@ router.get('/status', (req, res) => {
     status: 'ok',
     pathsCount: Object.keys(swaggerDocument.paths || {}).length,
     schemasCount: Object.keys(swaggerDocument.components?.schemas || {}).length,
-    servers: swaggerDocument.servers
+    host: swaggerDocument.host
   });
 });
 

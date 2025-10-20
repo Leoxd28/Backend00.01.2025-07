@@ -1,20 +1,24 @@
 const express = require('express');
 const router = express.Router();
+
+// Importar todas las rutas
 const usersRoutes = require('./users.routes');
 const ordersRoutes = require('./orders.routes');
 const swaggerRoutes = require('./swagger.routes');
 const todosRoutes = require('./todos.routes');
+const uploadsRoutes = require('./uploads.routes');
+const paymentsRoutes = require('./payments.routes');
 
-// Rutas públicas (sin protección)
+// Rutas públicas (sin middleware de autenticación)
 router.use('/swagger', swaggerRoutes);
-
-// Rutas de ejemplo
 router.use('/todos', todosRoutes);
-
-// Rutas que no requieren autenticación para users
 router.use('/users', usersRoutes);
 
-// Rutas de orders (la autenticación se maneja dentro del archivo orders.routes.js)
+// Rutas con autenticación interna (manejan su propia autenticación)
 router.use('/orders', ordersRoutes);
+
+// Rutas de uploads y payments
+router.use('/uploads', uploadsRoutes);
+router.use('/payments', paymentsRoutes);
 
 module.exports = router;
