@@ -1,0 +1,43 @@
+openapi: 3.0.0
+info:
+  title: Hackaton13 API
+  version: 1.0.0
+  description: API Express con MongoDB Atlas - Hackatón Fase 3
+servers:
+  - url: http://localhost:3000/api
+paths:
+  /health:
+    get:
+      summary: Estado del servidor
+      responses:
+        '200':
+          description: OK
+  /v1/users:
+    get:
+      summary: Listar usuarios
+      responses:
+        '200':
+          description: Lista de usuarios
+    post:
+      summary: Crear usuario
+      responses:
+        '201':
+          description: Usuario creado
+  /v1/upload:
+    post:
+      summary: Subir archivo
+      responses:
+        '200':
+          description: Archivo subido
+  /v1/idempotent:
+    post:
+      summary: Endpoint idempotente
+      responses:
+        '201':
+          description: Resultado procesado
+  /v1/metrics:
+    get:
+      summary: Métricas Prometheus
+      responses:
+        '200':
+          description: Métricas actuales
