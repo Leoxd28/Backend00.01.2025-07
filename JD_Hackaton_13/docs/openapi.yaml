@@ -1,0 +1,581 @@
+openapi: 3.0.0
+info:
+  title: API Demo
+  version: 1.0.0
+  description: API de ejemplo documentada con OpenAPI 3.1 + Swagger UI
+  contact:
+    name: Equipo de Desarrollo
+    email: dev@example.com
+
+servers:
+  - url: http://localhost:8080
+    description: Servidor principal
+
+tags:
+  - name: Health
+    description: Endpoints de salud del sistema
+  - name: Data
+    description: Endpoints de datos generales
+  - name: TODOs
+    description: Gestión de tareas
+  - name: Users
+    description: Gestión de usuarios
+  - name: Orders
+    description: Gestión de órdenes (requiere x-token)
+  - name: Uploads
+    description: Subida de archivos
+  - name: Payments
+    description: Procesamiento de pagos idempotentes
+  - name: Metrics
+    description: Métricas del sistema
+  - name: Stream
+    description: Server-Sent Events
+
+paths:
+  /api/health:
+    get:
+      summary: Verificar estado del sistema
+      description: Endpoint para verificar que la API está funcionando correctamente
+      tags:
+        - Health
+      responses:
+        '200':
+          description: Sistema operativo
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: ok
+
+  /api/data:
+    post:
+      summary: Recibir datos
+      description: Endpoint para recibir datos en formato JSON
+      tags:
+        - Data
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: string
+                  example: "Ejemplo de datos"
+      responses:
+        '200':
+          description: Datos recibidos correctamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  received:
+                    type: boolean
+                    example: true
+
+  /api/v1/todos:
+    get:
+      summary: Lista de TODOs
+      description: Obtiene una lista de tareas pendientes
+      tags:
+        - TODOs
+      responses:
+        '200':
+          description: Lista de TODOs obtenida exitosamente
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Todo'
+              examples:
+                todosExample:
+                  value:
+                    - id: "1"
+                      title: "Completar documentación"
+                      done: false
+                      createdAt: "2025-10-19T10:00:00.000Z"
+                    - id: "2"
+                      title: "Revisar código"
+                      done: true
+                      createdAt: "2025-10-19T10:00:00.000Z"
+                    - id: "3"
+                      title: "Implementar tests"
+                      done: false
+                      createdAt: "2025-10-19T10:00:00.000Z"
+    post:
+      summary: Crear nuevo TODO
+      description: Crea una nueva tarea
+      tags:
+        - TODOs
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - title
+              properties:
+                title:
+                  type: string
+                  example: "Nueva tarea"
+                  description: Título de la tarea
+      responses:
+        '201':
+          description: TODO creado exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Todo'
+        '400':
+          description: Datos inválidos
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+
+  /api/v1/todos/{id}:
+    get:
+      summary: Obtener TODO por ID
+      description: Retorna una tarea específica por su ID
+      tags:
+        - TODOs
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID del TODO
+          schema:
+            type: string
+            example: "1"
+      responses:
+        '200':
+          description: TODO encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Todo'
+        '404':
+          description: TODO no encontrado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "TODO no encontrado"
+    put:
+      summary: Actualizar TODO
+      description: Actualiza una tarea existente
+      tags:
+        - TODOs
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                done:
+                  type: boolean
+      responses:
+        '200':
+          description: TODO actualizado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Todo'
+        '404':
+          description: TODO no encontrado
+    delete:
+      summary: Eliminar TODO
+      description: Elimina una tarea por su ID
+      tags:
+        - TODOs
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: TODO eliminado exitosamente
+        '404':
+          description: TODO no encontrado
+
+  /api/v1/users:
+    get:
+      summary: Listar todos los usuarios
+      description: Obtiene la lista completa de usuarios registrados
+      tags:
+        - Users
+      responses:
+        '200':
+          description: Lista de usuarios
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+    post:
+      summary: Crear un nuevo usuario
+      description: Crea un nuevo usuario con nombre y email
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+                - email
+              properties:
+                name:
+                  type: string
+                  example: "Juan Pérez"
+                  description: Nombre completo del usuario
+                email:
+                  type: string
+                  format: email
+                  example: "juan@example.com"
+                  description: Email válido del usuario
+      responses:
+        '201':
+          description: Usuario creado exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Datos inválidos
+
+  /api/v1/users/{id}:
+    get:
+      summary: Obtener usuario por ID
+      description: Retorna la información de un usuario específico
+      tags:
+        - Users
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID del usuario
+          schema:
+            type: string
+            example: "1"
+      responses:
+        '200':
+          description: Usuario encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '404':
+          description: Usuario no encontrado
+
+  /api/v1/orders:
+    get:
+      summary: Listar órdenes con paginación
+      description: Obtiene la lista de órdenes con soporte para paginación, filtrado y ordenamiento. Requiere header x-token
+      tags:
+        - Orders
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - name: page
+          in: query
+          description: Número de página
+          schema:
+            type: integer
+            default: 1
+            example: 1
+        - name: limit
+          in: query
+          description: Cantidad de elementos por página
+          schema:
+            type: integer
+            default: 10
+            example: 10
+        - name: sort
+          in: query
+          description: Orden de los resultados
+          schema:
+            type: string
+            enum: [asc, desc]
+            default: asc
+      responses:
+        '200':
+          description: Lista de órdenes
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Order'
+                  pagination:
+                    type: object
+                    properties:
+                      page:
+                        type: integer
+                      limit:
+                        type: integer
+                      total:
+                        type: integer
+        '401':
+          description: No autorizado - x-token requerido
+    post:
+      summary: Crear una nueva orden
+      description: Crea una nueva orden con items y customerId. Requiere header x-token
+      tags:
+        - Orders
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - items
+                - customerId
+              properties:
+                items:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      productId:
+                        type: string
+                      quantity:
+                        type: integer
+                  example:
+                    - productId: "prod-123"
+                      quantity: 2
+                customerId:
+                  type: string
+                  example: "cust-456"
+      responses:
+        '201':
+          description: Orden creada exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+        '400':
+          description: Datos inválidos
+        '401':
+          description: No autorizado
+
+  /api/v1/orders/export:
+    get:
+      summary: Exportar órdenes a CSV
+      description: Descarga todas las órdenes en formato CSV. Requiere header x-token
+      tags:
+        - Orders
+      security:
+        - ApiKeyAuth: []
+      responses:
+        '200':
+          description: Archivo CSV con las órdenes
+          content:
+            text/csv:
+              schema:
+                type: string
+        '401':
+          description: No autorizado
+
+  /api/v1/uploads/avatar:
+    post:
+      summary: Subir avatar de usuario
+      description: Sube una imagen de avatar (máximo 2MB, solo imágenes)
+      tags:
+        - Uploads
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                avatar:
+                  type: string
+                  format: binary
+                  description: Archivo de imagen (jpg, png, gif)
+      responses:
+        '200':
+          description: Avatar subido exitosamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  filename:
+                    type: string
+        '400':
+          description: Archivo inválido o tamaño excedido
+
+  /api/v1/payments:
+    post:
+      summary: Procesar pago (idempotente)
+      description: Procesa un pago de forma idempotente usando Idempotency-Key
+      tags:
+        - Payments
+      parameters:
+        - name: Idempotency-Key
+          in: header
+          required: true
+          description: Clave única para garantizar idempotencia
+          schema:
+            type: string
+            example: "payment-uuid-12345"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - amount
+                - currency
+              properties:
+                amount:
+                  type: number
+                  format: float
+                  example: 99.99
+                currency:
+                  type: string
+                  example: "USD"
+      responses:
+        '200':
+          description: Pago procesado exitosamente
+        '400':
+          description: Datos inválidos
+        '409':
+          description: Pago duplicado
+
+  /api/metrics:
+    get:
+      summary: Obtener métricas del sistema
+      description: Retorna estadísticas de uso de los endpoints
+      tags:
+        - Metrics
+      responses:
+        '200':
+          description: Métricas del sistema
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  routes:
+                    type: object
+
+  /api/stream:
+    get:
+      summary: Server-Sent Events stream
+      description: Emite 5 eventos (ticks) cada segundo usando SSE
+      tags:
+        - Stream
+      responses:
+        '200':
+          description: Stream de eventos
+          content:
+            text/event-stream:
+              schema:
+                type: string
+
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-token
+      description: Token de autenticación (valor esperado "secret")
+    
+  schemas:
+    Todo:
+      type: object
+      required:
+        - id
+        - title
+        - done
+      properties:
+        id:
+          type: string
+          example: "1"
+          description: ID único del TODO
+        title:
+          type: string
+          example: "Completar documentación"
+          description: Título o descripción de la tarea
+        done:
+          type: boolean
+          example: false
+          description: Estado de completitud de la tarea
+        createdAt:
+          type: string
+          format: date-time
+          example: "2025-10-19T10:00:00.000Z"
+          description: Fecha de creación
+
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "1"
+        name:
+          type: string
+          example: "Juan Pérez"
+        email:
+          type: string
+          format: email
+          example: "juan@example.com"
+        createdAt:
+          type: string
+          format: date-time
+    
+    Order:
+      type: object
+      properties:
+        id:
+          type: string
+        items:
+          type: array
+          items:
+            type: object
+        customerId:
+          type: string
+        status:
+          type: string
+          enum: [pending, completed, cancelled]
+        createdAt:
+          type: string
+          format: date-time
