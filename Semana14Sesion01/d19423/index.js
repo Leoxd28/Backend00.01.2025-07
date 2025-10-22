@@ -6,7 +6,6 @@ const morgan = require('morgan');
 const helmet = require('helmet');
 const compression = require('compression');
 const cookieSesion = require('cookie-session');
-const router = require('./src/routes');
 
 
 const app = express();
@@ -20,7 +19,6 @@ const rateLimit = require('express-rate-limit');
 const limiter = rateLimit({windowMs: 60_000, max: 100});
 
 app.use('/api/', limiter);
-app.use('/api', router);
 app.use(
     cookieSesion({
         name: "auth-session",
@@ -28,7 +26,7 @@ app.use(
         httpOnly:true
 }));
 
-
+require('./src/routes/auth.routes')(app);
 
 app.get('/',(req,res)=>{
     res.send('Hola');
