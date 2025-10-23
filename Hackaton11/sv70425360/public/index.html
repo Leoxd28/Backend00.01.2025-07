@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Lista de Compras — Node + Mongo</title>
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;margin:0;padding:2rem;background:#f7f7fb;color:#111}
+    h1{margin-top:0}
+    .app{max-width:900px;margin:0 auto}
+    form{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:.5rem;margin-bottom:1rem}
+    input,textarea,button{padding:.6rem;border:1px solid #ccc;border-radius:.5rem}
+    textarea{grid-column:1/-1; min-height:70px}
+    button{cursor:pointer}
+    .cols{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .card{background:#fff;border:1px solid #e9e9ef;border-radius:.75rem;padding:1rem}
+    .item{display:flex;align-items:center;justify-content:space-between;padding:.4rem 0;border-bottom:1px dashed #eee}
+    .item:last-child{border-bottom:0}
+    .badge{font-size:.8rem;border-radius:1rem;padding:.15rem .5rem;border:1px solid #ddd}
+    .done{color:#0a7d3b;border-color:#0a7d3b}
+    .pending{color:#b85c00;border-color:#b85c00}
+    .muted{color:#666}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <h1>Lista de Compras — NodeJS + MongoDB</h1>
+    <p class="muted">Demostración mínima usando Express + Mongoose. Rutas solicitadas: crear, listar pendientes, listar completados y completar un ítem.</p>
+    <form id="form">
+      <input id="nombre" placeholder="Nombre del producto" required/>
+      <input id="fecha" type="date" required/>
+      <input id="descripcion" placeholder="Descripción" required/>
+      <button>Agregar</button>
+      <textarea id="log" placeholder="Respuesta API..." readonly></textarea>
+    </form>
+    <div class="cols">
+      <div class="card">
+        <h3>Pendientes</h3>
+        <div id="pendientes"></div>
+      </div>
+      <div class="card">
+        <h3>Completados</h3>
+        <div id="completados"></div>
+      </div>
+    </div>
+  </div>
+
+<script>
+const api = (p, opts={}) => fetch(p, opts).then(r=>r.json());
+const form = document.getElementById('form');
+const log = document.getElementById('log');
+const pendientes = document.getElementById('pendientes');
+const completados = document.getElementById('completados');
+
+async function refresh(){
+  const p = await api('/api/todos/pending');
+  const c = await api('/api/todos/completed');
+  pendientes.innerHTML = p.map(it => `
+    <div class="item">
+      <div><strong>${it.nombre}</strong> <span class="badge pending">pendiente</span><br><span class="muted">${new Date(it.fecha).toLocaleDateString()}</span></div>
+      <div>
+        <button onclick="complete('${it._id}')">Completar</button>
+      </div>
+    </div>
+  `).join('') || '<p class="muted">Sin pendientes</p>';
+  completados.innerHTML = c.map(it => `
+    <div class="item">
+      <div><strong>${it.nombre}</strong> <span class="badge done">completado</span><br><span class="muted">${new Date(it.completedAt).toLocaleString()}</span></div>
+    </div>
+  `).join('') || '<p class="muted">Aún no hay completados</p>';
+}
+
+async function complete(id){
+  const res = await api('/api/todos/'+id+'/complete', { method:'PATCH' });
+  log.value = JSON.stringify(res, null, 2);
+  refresh();
+}
+
+form.addEventListener('submit', async e => {
+  e.preventDefault();
+  const nombre = document.getElementById('nombre').value.trim();
+  const descripcion = document.getElementById('descripcion').value.trim();
+  const fecha = document.getElementById('fecha').value;
+  const res = await api('/api/todos', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ nombre, descripcion, fecha }) });
+  log.value = JSON.stringify(res, null, 2);
+  form.reset();
+  refresh();
+});
+
+refresh();
+</script>
+</body>
+</html>
