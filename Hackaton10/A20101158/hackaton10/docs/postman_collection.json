@@ -1,0 +1,115 @@
+{
+  "info": {
+    "name": "Hackaton10 API",
+    "description": "Colección para probar endpoints de la plataforma de cursos",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Crear usuario",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Ada\",\n  \"lastName\": \"Lovelace\",\n  \"email\": \"ada@dev.io\",\n  \"passwordHash\": \"x\"\n}"
+            },
+            "url": { "raw": "http://localhost:3000/users", "host": ["localhost"], "port": "3000", "path": ["users"] }
+          }
+        },
+        {
+          "name": "Listar usuarios",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:3000/users?role=student&q=ada&page=1&pageSize=10",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["users"],
+              "query": [
+                { "key": "role", "value": "student" },
+                { "key": "q", "value": "ada" },
+                { "key": "page", "value": "1" },
+                { "key": "pageSize", "value": "10" }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Courses",
+      "item": [
+        {
+          "name": "Crear curso",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Intro a Node\",\n  \"description\": \"Curso base\",\n  \"ownerId\": 1\n}"
+            },
+            "url": { "raw": "http://localhost:3000/courses" }
+          }
+        },
+        {
+          "name": "Detalle curso",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "http://localhost:3000/courses/intro-node" }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Lessons",
+      "item": [
+        {
+          "name": "Crear lección",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Setup\",\n  \"body\": \"Instalación y configuración\"\n}"
+            },
+            "url": { "raw": "http://localhost:3000/courses/1/lessons" }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Enrollments",
+      "item": [
+        {
+          "name": "Inscribir usuario",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": 2\n}"
+            },
+            "url": { "raw": "http://localhost:3000/courses/1/enroll" }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Comments",
+      "item": [
+        {
+          "name": "Crear comentario",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"body\": \"Muy buena clase!\",\n  \"userId\": 2\n}"
+            },
+            "url": { "raw": "http://localhost:3000/lessons/1/comments" }
+          }
+        }
+      ]
+    }
+  ]
+}

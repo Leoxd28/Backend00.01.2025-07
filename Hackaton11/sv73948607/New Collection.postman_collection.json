@@ -1,0 +1,176 @@
+{
+	"info": {
+		"_postman_id": "d60836d0-8454-4ca4-b915-dcbb81c5ed15",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48422810",
+		"_collection_link": "https://axel-11-10-8481799.postman.co/workspace/axel-verde's-Workspace~68c1a528-7166-44cc-8a37-daa7e0072823/collection/48422810-d60836d0-8454-4ca4-b915-dcbb81c5ed15?action=share&source=collection_link&creator=48422810"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"ttytafsdfsaslyoñkilñuhkiareas\",\r\n    \"descripcion\": \"edescirpcipcion basica para lleanasdasd\",\r\n    \"completado\": \"sin completar\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/route/listadd",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"route",
+						"listadd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"objc\":\"cuaderno\",\r\n    \"status\":\"completado\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/route/updateproducts?id=68e1b953903da8f3ae8f0cf7",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"route",
+						"updateproducts"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "68e1b953903da8f3ae8f0cf7"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/route/get?q=sin%20completar",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"route",
+						"get"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "sin%20completar"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"objc\":\"cuaderno\",\r\n    \"status\":\"completado\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/route/addproducts?id=68e1b953903da8f3ae8f0cf7",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"route",
+						"addproducts"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "68e1b953903da8f3ae8f0cf7"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
