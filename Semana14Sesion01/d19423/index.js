@@ -9,6 +9,7 @@ const cookieSesion = require('cookie-session');
 
 
 const app = express();
+
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(morgan('dev'));
@@ -33,11 +34,10 @@ app.get('/',(req,res)=>{
 })
 
 const db = require('./src/models');
-const Role = db.role;
 
 db.mongoose.connect(process.env.MONGO_URI,{}).then(()=>{
     console.log("Estas conectado");
-    init();
+    db.init();
 }).catch((error)=>{
     console.log(error)
     process.error(error);
@@ -45,36 +45,6 @@ db.mongoose.connect(process.env.MONGO_URI,{}).then(()=>{
 })
 
 
-function init(){
-    Role.estimatedDocumentCount((err,count)=>{
-        if(!err & count === 0){
-            new Role({
-                name: "user"
-            }).save((error)=>{
-                if(error){
-                    console.log("Error al crear el Rol user");
-                }
-                console.log("Rol user creado");
-            })
-            new Role({
-                name: "moderator"
-            }).save((error)=>{
-                if(error){
-                    console.log("Error al crear el Rol moderator");
-                }
-                console.log("Rol moderator creado");
-            })
-            new Role({
-                name: "admin"
-            }).save((error)=>{
-                if(error){
-                    console.log("Error al crear el Rol admin");
-                }
-                console.log("Rol admin creado");
-            })
-        }
-    })
-}
 
 app.listen(PORT, ()=>{
     console.log(`Servidor iniciado en el puerto ${PORT}`);
