@@ -16,7 +16,7 @@ Implementa:
 1) Copia `.env.sample` a `.env` y ajusta:
 - SESSION_SECRET, JWT_ACCESS_SECRET, JWT_REFRESH_SECRET
 - DATABASE_URL (ejemplo Atlas provisto):
-  `mongodb+srv://jhoden2005_db_user:OaTGcs8NLhygravS@cluster0.pgxffcl.mongodb.net/`
+  ` XXX `
 - DATABASE_NAME (por defecto: `hackathon14`)
 
 2) Instala dependencias:
