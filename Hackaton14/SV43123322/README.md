@@ -17,7 +17,7 @@ Implementa:
 - SESSION_SECRET, JWT_ACCESS_SECRET, JWT_REFRESH_SECRET
 - DATABASE_URL (ejemplo Atlas provisto):
   ` XXX `
-- DATABASE_NAME (por defecto: `hackathon14`)
+- DATABASE_NAME (por defecto: `SV43123322_Hackaton14`)
 
 2) Instala dependencias:
 ```
