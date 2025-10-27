@@ -304,3 +304,4 @@ test("session login fails with wrong password", async () => {
 - Loguea eventos de seguridad mínimamente.
 
 ¡Éxitos! 🚀
+6
