@@ -83,7 +83,7 @@ Desarrollar desde cero el backend de una aplicación E-Commerce con autenticaci�
 
 ## Semana 15: Seguridad con JWT y OAuth
 - Uso de JWT en autenticación.
-- OAuth con GitHub o Google.  
+- OAuth con Google.  
 **Hackatón:** Proteger rutas privadas con JWT y simular OAuth con GitHub.
 
 ## Semana 16: WebSockets y subida de archivos
