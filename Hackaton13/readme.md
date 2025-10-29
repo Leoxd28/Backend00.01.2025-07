@@ -58,11 +58,11 @@ Desarrollar una **API modular con Express.js** que implemente:
   - Protegido con `x-token: secret`  
   - `GET /` → paginación, filtro y orden  
   - `POST /` → valida `{ items, customerId }`  
-  - `GET /export` → CSV streaming
+    - `GET /export` → CSV streaming
 
----
+  ---
 
-## 🗂️ Fase 3 — *Uploads, Idempotencia y Métricas* (14:00–16:00)
+  ## 🗂️ Fase 3 — *Uploads, Idempotencia y Métricas* (14:00–16:00)
 
 ### Objetivos
 1. Implementar `multer` para subida de archivos.  
@@ -72,10 +72,10 @@ Desarrollar una **API modular con Express.js** que implemente:
 ### Requerimientos
 - `/api/v1/uploads/avatar`: recibe imagen (máx. 2MB, solo `image/*`).
 - `/api/v1/payments`: requiere `Idempotency-Key`, misma respuesta si se repite.
-- `/api/metrics`: muestra métricas de rutas.  
-- `/api/docs`: documentación Swagger.
+  - `/api/metrics`: muestra métricas de rutas.  
+  - `/api/docs`: documentación Swagger.
 
----
+---                                                         m
 
 ## 💡 Desafío Bonus
 - Autenticación con API Key (`x-api-key`).
