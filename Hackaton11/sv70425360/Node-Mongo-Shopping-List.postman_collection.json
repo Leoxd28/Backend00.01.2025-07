@@ -1,0 +1,60 @@
+{
+  "info": {
+    "name": "Node-Mongo Shopping List",
+    "_postman_id": "8d7c3b40-0000-0000-0000-shop",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create item",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"nombre\": \"Leche\", \"descripcion\": \"Entera 1L\", \"fecha\": \"2025-10-23\"}"
+        },
+        "url": "http://localhost:3000/api/todos"
+      }
+    },
+    {
+      "name": "List pending",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:3000/api/todos/pending"
+      }
+    },
+    {
+      "name": "Complete item",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "http://localhost:3000/api/todos/:id/complete"
+      }
+    },
+    {
+      "name": "List completed",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:3000/api/todos/completed"
+      }
+    },
+    {
+      "name": "List all (extra)",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:3000/api/todos"
+      }
+    }
+  ]
+}
