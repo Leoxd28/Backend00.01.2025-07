@@ -28,13 +28,14 @@ app.use(
 );
 
 app.use(express.static(path.join(__dirname,"public")));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(session({secret: SECRET}));
 
-app.get("/",(req,res)=>{
-    res.send("Listo");
-});
+app.get('/',(req,res)=>{
+    res.sendFile(__dirname+'/public/login.html')
+})
 
 server.listen(PORT,()=>{
     console.log("Servidor iniciado");
