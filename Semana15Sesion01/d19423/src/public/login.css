@@ -3,94 +3,139 @@
 	https://github.com/abhinittkkr
 	https://linkedin.com/in/abhinittkkr
 */
-.mytext{
-	width:100%;
-    border:0;padding:10px;
-	background: white;
+body{background: #eee url(http://subtlepatterns.com/patterns/sativa.png);}
+html,body{
+    position: relative;
+    height: 100%;
 }
-.text{
-    width:75%;display:flex;flex-direction:column;
+
+.login-container{
+    position: relative;
+    width: 300px;
+    margin: 80px auto;
+    padding: 20px 40px 40px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #ccc;
 }
-.text > p:first-of-type{
-    width:100%;margin-top:0;margin-bottom:auto;line-height: 13px;font-size: 12px;
+
+#output{
+    position: absolute;
+    width: 300px;
+    top: -75px;
+    left: 0;
+    color: #fff;
 }
-.text > p:last-of-type{
-    width:100%;text-align:right;color:silver;margin-bottom:-7px;margin-top:auto;
+
+#output.alert-success{
+    background: rgb(25, 204, 25);
 }
-.text-l{
-    float:left;padding-right:10px;
-}        
-.text-r{
-    float:right;padding-left:10px;
+
+#output.alert-danger{
+    background: rgb(228, 105, 105);
 }
-.macro{
-    margin-top:5px;width:85%;border-radius:5px;padding:5px;display:flex;
+
+
+.login-container::before,.login-container::after{
+    content: "";
+    position: absolute;
+    width: 100%;height: 100%;
+    top: 3.5px;left: 0;
+    background: #fff;
+    z-index: -1;
+    -webkit-transform: rotateZ(4deg);
+    -moz-transform: rotateZ(4deg);
+    -ms-transform: rotateZ(4deg);
+    border: 1px solid #ccc;
+
 }
-.msj-rta{
-    float:right;background:whitesmoke;
+
+.login-container::after{
+    top: 5px;
+    z-index: -2;
+    -webkit-transform: rotateZ(-2deg);
+    -moz-transform: rotateZ(-2deg);
+    -ms-transform: rotateZ(-2deg);
+
 }
-.msj{
-    float:left;background:white;
+
+.avatar{
+    width: 100px;height: 100px;
+    margin: 10px auto 30px;
+    border-radius: 100%;
+    border: 2px solid #aaa;
+    background-size: cover;
 }
-.frame{
-    background:#e0e0de;
-    height:450px;
-    overflow:hidden;
-    padding:0;
+
+.form-box input{
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    height:40px;
+    border: 1px solid #ccc;;
+    background: #fafafa;
+    transition:0.2s ease-in-out;
+
 }
-.frame > div:last-of-type{
-    position:absolute;bottom:0;width:100%;display:flex;
+
+.form-box input:focus{
+    outline: 0;
+    background: #eee;
 }
-body > div > div > div:nth-child(2) > span{
-    background: whitesmoke;padding: 10px;font-size: 21px;border-radius: 50%;
+
+.form-box input[type="text"]{
+    border-radius: 5px 5px 0 0;
+    text-transform: lowercase;
 }
-body > div > div > div.msj-rta.macro{
-    margin:auto;margin-left:1%;
+
+.form-box input[type="password"]{
+    border-radius: 0 0 5px 5px;
+    border-top: 0;
 }
-.chat {
-    width:100%;
-    list-style-type: none;
-    padding:18px;
-    position:absolute;
-    bottom:47px;
-    display:flex;
-    flex-direction: column;
-    top:0;
+
+.form-box button.login{
+    margin-top:15px;
+    padding: 10px 20px;
 }
-.msj:before{
-    width: 0;
-    height: 0;
-    content:"";
-    top:-5px;
-    left:-14px;
-    position:relative;
-    border-style: solid;
-    border-width: 0 13px 13px 0;
-    border-color: transparent #ffffff transparent transparent;            
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
 }
-.msj-rta:after{
-    width: 0;
-    height: 0;
-    content:"";
-    top:-5px;
-    left:14px;
-    position:relative;
-    border-style: solid;
-    border-width: 13px 13px 0 0;
-    border-color: whitesmoke transparent transparent transparent;           
-}  
-input:focus{
-    outline: none;
-}        
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-    color: #d4d4d4;
+
+@-webkit-keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(20px);
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
 }
-::-moz-placeholder { /* Firefox 19+ */
-    color: #d4d4d4;
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(20px);
+        -ms-transform: translateY(20px);
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0);
+    }
 }
-:-ms-input-placeholder { /* IE 10+ */
-    color: #d4d4d4;
+
+.fadeInUp {
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
 }
-:-moz-placeholder { /* Firefox 18- */
-    color: #d4d4d4;
-}  

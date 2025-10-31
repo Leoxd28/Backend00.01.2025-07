@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express =  require('express');
 const path = require('path');
 
@@ -7,40 +8,62 @@ const io = require('socket.io')(server);
 
 const bodyParser = require('body-parser');
 const passport = require('passport');
-const cookieSession = require('cookie-session');
+// const cookieSession = require('cookie-session');
 const bcrypt = require('bcrypt');
 
 const session = require('express-session');
 
 const con = require('./database/db');
 
-
-
-require('dotenv').config();
-
+require('./passport');
 
 const PORT = process.env.PORT || 3000;
 const SECRET = process.env.SECRET;
-
-app.use(
-    cookieSession({
-        name: 'google-auth-session',
-        keys:['key1','key2']
-    })
-);
 
 app.use(express.static(path.join(__dirname,"public")));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
-app.use(session({secret: SECRET}));
+app.use(session({
+    secret: SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        secure: process.env.NODE_ENV === 'production',
+        maxAge: 24 * 60 * 60 * 1000 // 24 horas
+    }
+}));
 
-app.get('/',(req,res)=>{
-    res.sendFile(__dirname+'/public/login.html')
-})
+app.use(passport.initialize());
+app.use(passport.session());
 
 let username;
 let connections = [];
+let email;
+
+app.get('/',(req,res)=>{
+    authenticate(req,res);
+})
+
+app.get('/google', passport.authenticate("google",{ scope:['email']}));
+
+app.get('/google/callback', passport.authenticate("google",{failureRedirect:"/failed"}), (req,res)=>{
+    console.log(req.user.email);
+    email= req.user.email;
+    res.redirect("/success");
+});
+
+app.get("/success", (req,res)=>{
+    let sql = `REPLACE INTO login (usermane,password) VALUES('${email}', 'oauth');`;
+    con.query(sql,(err,result)=>{
+        if(err) throw err;
+        req.session.user = email;
+        username = email;
+        res.redirect('/chat_start')
+    })
+})
+
+
 function chat_start() {
     // ===================================Sockets starts  =========================
     io.sockets.on('connection', function (socket) {
@@ -117,6 +140,9 @@ function login(req,res){
     })
 }
 
+
+
+
 app.get('/login', (req,res)=>{
     authenticate(req,res);
 });
@@ -128,6 +154,7 @@ app.get('/chat_start',(req,res)=>{
     authenticate(req,res);
 })
 app.get('/logout',(req,res)=>{
+    console.log("llego el logout");
     delete req.session.user;
     req.session = null;
     res.redirect('/login');
