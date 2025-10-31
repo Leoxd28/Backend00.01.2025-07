@@ -41,24 +41,42 @@ app.get('/',(req,res)=>{
 
 let username;
 let connections = [];
-function chat_start(){
-    io.sockets.on('connection',(socket)=>{
+function chat_start() {
+    // ===================================Sockets starts  =========================
+    io.sockets.on('connection', function (socket) {
         connections.push(socket);
-        socket.on('disconnect',(data)=>{
+         //console.log("Connected:  %s Socket running", connections.length);
+        // ====================Disconnect==========================================
+        socket.on('disconnect', function (data) {
             connections.splice(connections.indexOf(data), 1);
+            //console.log('Disconnected : %s sockets running', connections.length);
+        });
+        socket.on('initial-messages', function (data) {
+            var sql = "SELECT * FROM message ";
+            con.query(sql, function (err, result, fields) {
+                var jsonMessages = JSON.stringify(result);
+                // console.log(jsonMessages);
+                io.sockets.emit('initial-message', { msg: jsonMessages });
+            });
+        });
 
+        socket.on('username', function (data) {
+            socket.emit('username', { username: username });
+            //io.sockets.emit('username', {username: username});
         });
-        socket.on('initial-messages', (data)=>{
-            console.log(data)
-            sql = "Select * from message";
-            con.query(sql, (err, result, fields)=>{
-                let jsonMessages = JSON.stringify(result);
-                io.sockets.emit('initial-messages', {msg:jsonMessages});
-            })
-        });
-        socket.on('username',(data)=>{
-            console.log(data);
-            socket.emit('username', {username: username});
+        socket.on('send-message', function (data, user) {
+            //console.log(user);
+            var sql = "INSERT INTO message (message , user) VALUES ('" + data + "' , '" + user + "')";
+            con.query(sql, function (err, result) {
+                if (err) throw err;
+                //console.log("1 record inserted");
+            });
+            io.sockets.emit('new-message', { msg: data, username: user });
+        })
+
+        socket.on('typing', function (data, user) {
+            //console.log(user);
+            io.sockets.emit('typing', { msg: data, username: user });
         })
     })
 }

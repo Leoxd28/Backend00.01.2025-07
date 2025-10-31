@@ -9,44 +9,29 @@
     <link rel="stylesheet" href="chat.css">
 </head>
 
-<body>
-
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a href="" class="navbar-brand">
-                    <div id="username">
-                        Hola Usuario
-                    </div>
-                </a>
-            </div>
-            <ul class="nav navbar-nav">
-                <li class="active">
-                    <a href="/logout">
-                        Cerrar Sesion
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <div class="container">
-        <div class="col-sm-6 col-sm-offset-3 frame">
-            <div class="chat-box">
-                <ul class="chat list-group" style="overflow-y:scroll" id="chat">
-
-                </ul>
-            </div>
-            <div>
-                <form id="messageForm" autocomplete="off" style="width: 100%;">
-                    <div class="status" style="color: red;"></div>
-                    <input type="hidden" name="username" class="usermane" value="">
-                    <input type="text" class="mytext" style="width: 100%;" name="mytext" id="message" placeholder="Mensaje">
-                </form>
-            </div>
-        </div>
-    </div>
-
-
+<body  style="background: #4e342e;">
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+		<div class="navbar-header">
+		  <a class="navbar-brand" href="#"><div id="username" >Hello user!</div></a>
+		</div>
+		<ul class="nav navbar-nav">
+			<li class="active"><a href="/logout">Logout Here</a></li>
+		</ul>
+	  </div>
+	</nav>
+<div class="container">
+	<div class="col-sm-6 col-sm-offset-3 frame">
+		<div class="chat-box" ><ul class="chat list-group" style="overflow-y:scroll;" id="chat"></ul></div>
+		<div>
+			<form id="messageForm" autocomplete="off" style="width:100%;">
+				<div class="status" style="color: red;"></div>
+				<input type="hidden" name="username" class="username" value="">
+				<input type="text" class="mytext" style="width:100%;" id="message" placeholder="Message">
+			</form>    
+		</div> 
+	</div>    
+</div>
 
 
 
