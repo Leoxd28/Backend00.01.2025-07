@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Courier Online</title>
+  <script src="/socket.io/socket.io.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      padding: 2rem;
+    }
+    h1 { color: #333; }
+    .login-btn {
+      background: #4285F4;
+      color: white;
+      padding: 10px 15px;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    .form-container {
+      margin-top: 2rem;
+      background: white;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      max-width: 400px;
+    }
+    label {
+      display: block;
+      margin: 0.5rem 0 0.2rem;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      margin-top: 1rem;
+      width: 100%;
+      background: #28a745;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover { background: #218838; }
+    #log {
+      margin-top: 2rem;
+      background: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      max-width: 400px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Sistema de Courier Online</h1>
+  <p>Inicia sesión con tu cuenta de Google para continuar:</p>
+
+  <a href="/auth/google" class="login-btn">Iniciar sesión con Google</a>
+
+  <div class="form-container">
+    <h3>Actualizar estado del paquete</h3>
+    <label>ID del Paquete</label>
+    <input type="number" id="packageId" placeholder="Ej: 1" />
+
+    <label>Estado</label>
+    <input type="text" id="status" placeholder="Ej: En tránsito" />
+
+    <label>Latitud</label>
+    <input type="text" id="latitude" placeholder="Ej: -12.043" />
+
+    <label>Longitud</label>
+    <input type="text" id="longitude" placeholder="Ej: -77.028" />
+
+    <button onclick="updatePackage()">Enviar actualización</button>
+  </div>
+
+  <div id="log">
+    <h3>📡 Actualizaciones:</h3>
+    <div id="messages"></div>
+  </div>
+
+  <script>
+    const socket = io();
+
+    socket.on("connect", () => {
+      log("Conectado al servidor Socket.io");
+    });
+
+    socket.on("packageUpdated", (data) => {
+      log(`Paquete ${data.packageId} → ${data.status} (${data.latitude}, ${data.longitude})`);
+    });
+
+    function updatePackage() {
+      const packageId = document.getElementById("packageId").value;
+      const status = document.getElementById("status").value;
+      const latitude = document.getElementById("latitude").value;
+      const longitude = document.getElementById("longitude").value;
+
+      if (!packageId || !status || !latitude || !longitude) {
+        alert("Por favor completa todos los campos");
+        return;
+      }
+
+      socket.emit("updatePackage", { packageId, status, latitude, longitude });
+      log(`Enviado: paquete ${packageId}, estado: ${status}`);
+    }
+
+    function log(message) {
+      const messages = document.getElementById("messages");
+      const p = document.createElement("p");
+      p.textContent = message;
+      messages.prepend(p);
+    }
+  </script>
+
+</body>
+</html>
+
