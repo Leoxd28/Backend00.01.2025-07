@@ -28,14 +28,14 @@ app.post('/api/create-checkout-session',async(req,res)=>{
                     },
                     unit_amount: product.price * 100 //no olvidar
                 },
-                qantity: product.quantity
+                quantity: product.quantity
             }
         ],
         mode: "payment",
         success_url: "http://localhost:3000/success",
         cancel_url:"http://localhost:3000/cancel"
     });
-    res.json({id: session.id})
+    res.json({session})
 })
 
 app.listen(PORT,()=>{
