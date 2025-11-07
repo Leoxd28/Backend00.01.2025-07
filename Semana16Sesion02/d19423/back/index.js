@@ -13,6 +13,7 @@ const culqi = new Culqi({
   publicKey: process.env.publicKey,
   pciCompliant: true
 });
+console.log('Culqi initialized with public key:', process.env.publicKey);
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
@@ -20,28 +21,37 @@ app.get('/', (req, res) => {
 });
 
 app.post('/api/process/pay', async (req, res) => {
-    const{producto} = req.body;
+
+    const{customer, shipping, notes, cart, totals, payment} = req.body;
     await culqi.tokens.createToken({
-        card_number: producto.creditcard,
-        cvv: producto.cvv,
-        expiration_month: producto.month,
-        expiration_year: producto.year,
-        email: producto.email
-    }).then(data=>{
-        try {
-            culqi.charges.createCharge({
-                amount: producto.amount,
-                currency_code: 'PEN',
-                email: producto.email,
-                installments: producto.installments,
-                description: producto.description,
+        card_number: payment.number,
+        cvv: payment.cvc,
+        expiration_month: payment.exp.split('/')[0],
+        expiration_year: payment.exp.split('/')[1],
+        email: customer.email
+    }).then((data)=>{
+        console.log(data.id);
+        let dataCharge = {
+                amount: (totals.total) * 100,
+                currency_code: totals.currency,
+                email: customer.email,
+                installments: 1,
+                description: "Compra en mi tienda del cliente " + customer.fullName,
                 source_id: data.id
-            }).then(respuesta=>{
-                res.json({data: respuesta});
+            }
+            console.log(dataCharge);
+        try {
+            culqi.charges.createCharge(dataCharge).then(respuesta=>{
+                console.log(respuesta);
+                res.json({msg: respuesta});
             });
         } catch (error) {
-            res.status(500).json({error: error.message});
+            console.log(error);
+            res.status(500).json({error: 'Error processing payment'});
         }
+    }).catch((error)=>{
+        console.log(error);
+        res.status(500).json({error: 'Error creating token'});
     });
 });
 
