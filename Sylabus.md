@@ -94,6 +94,7 @@ Desarrollar desde cero el backend de una aplicación E-Commerce con autenticaci�
 ## Semana 17: Pasarelas de Pago y Despliegue
 - Integración con Stripe y Culqi.
 - Despliegue en Render y Azure.  
+- Despliegue en Docker
 **Hackatón:** Integrar Stripe o Culqi en el flujo de compra y desplegar el proyecto en línea.
 
 ## Semana 18: Tutoría y Presentación Final
